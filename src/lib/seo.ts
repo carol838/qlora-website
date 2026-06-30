@@ -10,7 +10,7 @@ type SEOConfig = {
 }
 
 const siteUrl = 'https://qloratech.com'
-const defaultImage = `${siteUrl}/images/hero-kitchen.png`
+const defaultImage = `${siteUrl}/images/hero-kitchen.webp`
 
 function setMeta(selector: string, attr: 'content' | 'href', value: string, create?: () => HTMLMetaElement | HTMLLinkElement) {
   let element = document.head.querySelector<HTMLMetaElement | HTMLLinkElement>(selector)
@@ -74,7 +74,7 @@ export function applySEO({ title, description, path, image = defaultImage, bread
     '@type': 'Organization',
     name: 'QLORA',
     url: siteUrl,
-    logo: `${siteUrl}/images/hero-kitchen.png`,
+    logo: `${siteUrl}/images/hero-kitchen.webp`,
     description: 'QLORA provides water filtration solutions including RO systems, replacement filters and OEM manufacturing support for distributors and brands worldwide.',
     makesOffer: [
       { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'RO Water Systems' } },
@@ -112,8 +112,8 @@ export function applySEO({ title, description, path, image = defaultImage, bread
 }
 
 export const seoImages = {
-  home: `${siteUrl}/images/hero-kitchen.png`,
-  ro: `${siteUrl}/images/ro-system.jpg`,
-  filtration: `${siteUrl}/images/filtration-solutions.jpg`,
-  oem: `${siteUrl}/images/ro-system.png`,
+  home: `${siteUrl}/images/hero-kitchen.webp`,
+  ro: `${siteUrl}/images/ro-system.webp`,
+  filtration: `${siteUrl}/images/filtration-solutions.webp`,
+  oem: `${siteUrl}/images/ro-system.webp`,
 }

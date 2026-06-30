@@ -58,21 +58,21 @@ const applicationShowcase = [
   {
     title: 'Coffee & Beverage',
     description: 'Replacement filters designed to support better flavor and reliable beverage equipment performance.',
-    image: `${imageBase}/coffee-machine-filter.png`,
+    image: `${imageBase}/coffee-machine-filter.webp`,
     alt: 'Coffee machine replacement water filter product family',
     href: '/products/coffee-machine-filter',
   },
   {
     title: 'Shower & Wellness',
     description: 'Shower filtration products for everyday comfort, cleaner water feel and wellness-focused routines.',
-    image: `${imageBase}/shower-filter.png`,
+    image: `${imageBase}/shower-filter.webp`,
     alt: 'Handheld shower water filter with transparent cartridge',
     href: '/products/shower-filter',
   },
   {
     title: 'Refrigerator Filter',
     description: 'Compatible refrigerator filter solutions for fresh water, ice makers and home appliance programs.',
-    image: `${imageBase}/refrigerator-filter.png`,
+    image: `${imageBase}/refrigerator-filter.webp`,
     alt: 'Refrigerator replacement water filter product lineup',
     href: '/products/refrigerator-water-filter',
   },
@@ -127,6 +127,11 @@ export default function WaterFiltration() {
                   src={`${imageBase}/hero.webp`}
                   alt="Replacement water filter family displayed in a warm Nordic kitchen"
                   className="aspect-[4/3] w-full rounded-[1.5rem] object-cover"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="1200"
+                  height="900"
                 />
               </div>
             </div>
@@ -150,6 +155,9 @@ export default function WaterFiltration() {
                       alt={item.alt}
                       className="aspect-[4/3] w-full object-contain"
                       loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="600"
                     />
                   </div>
                   <div className="px-2 pb-2 pt-7">
@@ -175,7 +183,7 @@ export default function WaterFiltration() {
                 <article key={product.title} className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''} lg:col-span-6`}>
                     <div className="rounded-[2rem] bg-white p-8 shadow-soft sm:p-10">
-                      <img src={product.image} alt={product.alt} className="mx-auto aspect-[4/3] w-full object-contain" loading="lazy" />
+                      <img src={product.image} alt={product.alt} className="mx-auto aspect-[4/3] w-full object-contain" loading="lazy" decoding="async" width="900" height="675" />
                     </div>
                   </div>
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''} lg:col-span-6`}>
@@ -239,6 +247,9 @@ export default function WaterFiltration() {
                   alt="Private label replacement water filter and custom packaging box"
                   className="aspect-[16/10] w-full object-cover"
                   loading="lazy"
+                  decoding="async"
+                  width="1600"
+                  height="1000"
                 />
               </div>
             </div>
@@ -278,4 +289,5 @@ export default function WaterFiltration() {
     </>
   )
 }
+
 

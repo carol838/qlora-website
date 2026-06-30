@@ -34,7 +34,7 @@ export default function AboutPage() {
               <a href="/contact" className="button-primary mt-10">Contact QLORA</a>
             </div>
             <div className="overflow-hidden rounded-2xl bg-white lg:col-span-6">
-              <img src="/images/about-lab-hero.webp" alt="Water filtration products evaluated in a clean laboratory with microscope and glassware" className="aspect-[4/3] w-full object-cover" />
+              <img src="/images/about-lab-hero.webp" alt="Water filtration products evaluated in a clean laboratory with microscope and glassware" className="aspect-[4/3] w-full object-cover" loading="eager" fetchPriority="high" decoding="async" width="1536" height="1024" />
             </div>
           </div>
         </section>
@@ -51,7 +51,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="overflow-hidden rounded-2xl bg-white lg:col-span-7">
-              <img src="/images/about-global-shipping.png" alt="Water filtration products prepared for container shipping and global distribution" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+              <img src="/images/about-global-shipping.webp" alt="Water filtration products prepared for container shipping and global distribution" className="aspect-[4/3] w-full object-cover" loading="lazy" decoding="async" width="1400" height="933" />
             </div>
           </div>
         </section>

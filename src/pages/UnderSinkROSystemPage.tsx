@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { applySEO } from '../lib/seo'
@@ -16,31 +16,31 @@ const stories = [
   {
     title: 'Advanced 5-Stage Filtration',
     description: 'PP Sediment, Pre Carbon, CTO Carbon, RO Membrane and Post Carbon work together for cleaner drinking water.',
-    image: `${imageBase}/5-stages-ro.png`,
+    image: `${imageBase}/5-stages-ro.webp`,
     alt: 'Five-stage under sink RO filtration system process',
   },
   {
     title: 'Complete Installation Kit',
     description: 'Includes pressure tank, faucet, tubing, valves, fittings and installation tools.',
-    image: `${imageBase}/accessories.png`,
+    image: `${imageBase}/accessories.webp`,
     alt: 'Under sink RO system accessories including faucet tubing valves and fittings',
   },
   {
     title: 'Reliable Residential Design',
     description: 'Compact under sink system with stable performance and standard RO configuration.',
-    image: `${imageBase}/specification.png`,
+    image: `${imageBase}/specification.webp`,
     alt: 'Under sink RO system residential product parameters',
   },
   {
     title: 'Easy Under Sink Installation',
     description: 'Simple installation for kitchens with standard plumbing connections.',
-    image: `${imageBase}/installation.png`,
+    image: `${imageBase}/installation.webp`,
     alt: 'Under sink RO system installation diagram for kitchen plumbing',
   },
   {
     title: 'Built for Everyday Drinking Water',
     description: 'Designed for homes, apartments and residential drinking water projects.',
-    image: `${imageBase}/tank-ro.jpg`,
+    image: `${imageBase}/tank-ro.webp`,
     alt: 'Classic under sink reverse osmosis system with pressure tank',
   },
 ]
@@ -48,13 +48,13 @@ const stories = [
 const specs = [
   ['Model', 'RO-100'],
   ['Rated Voltage / Frequency', '220V~ / 50Hz'],
-  ['Feed Water Pressure', '0.1–0.4 MPa'],
+  ['Feed Water Pressure', '0.1鈥?.4 MPa'],
   ['Pure Water Flow', '75G / 100G'],
-  ['Dimensions', '390 × 200 × 530 mm'],
+  ['Dimensions', '390 脳 200 脳 530 mm'],
   ['Applicable Water Source', 'Municipal Tap Water'],
   ['Pure Water Capacity', '1000 L'],
   ['Rated Power', '26 W'],
-  ['Filtration Accuracy', '0.0001 μm'],
+  ['Filtration Accuracy', '0.0001 渭m'],
 ]
 
 const applications = ['Residential Homes', 'Apartments', 'Small Offices', 'Retail Projects']
@@ -80,7 +80,7 @@ export default function UnderSinkROSystemPage() {
       title: 'Under Sink Reverse Osmosis System | QLORA',
       description: '5-stage under sink reverse osmosis water filtration system with pressure tank for OEM, private label and residential drinking water applications.',
       path: '/products/under-sink-ro-system',
-      image: `${imageBase}/tank-ro.jpg`,
+      image: `${imageBase}/tank-ro.webp`,
       breadcrumbs: [
         { name: 'Home', path: '/' },
         { name: 'RO Systems', path: '/ro-systems' },
@@ -92,7 +92,7 @@ export default function UnderSinkROSystemPage() {
         name: 'Classic Under Sink Reverse Osmosis System',
         brand: { '@type': 'Brand', name: 'QLORA' },
         description: '5-stage under sink reverse osmosis system with pressure tank for residential drinking water, OEM and private label programs.',
-        image: `${window.location.origin}${imageBase}/tank-ro.jpg`,
+        image: `${window.location.origin}${imageBase}/tank-ro.webp`,
         category: 'Under sink reverse osmosis water filtration system',
       }],
     })
@@ -138,9 +138,14 @@ export default function UnderSinkROSystemPage() {
 
               <div className="aspect-[4/3] rounded-[28px] bg-white/55 p-4 shadow-soft">
                 <img
-                  src={`${imageBase}/tank-ro.jpg`}
+                  src={`${imageBase}/tank-ro.webp`}
                   alt="Classic under sink reverse osmosis system with pressure tank and filters"
                   className="h-full w-full rounded-[28px] object-contain"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="1100"
+                  height="825"
                 />
               </div>
             </div>
@@ -172,7 +177,11 @@ export default function UnderSinkROSystemPage() {
                     src={story.image}
                     alt={story.alt}
                     loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchPriority={index === 0 ? 'high' : 'auto'}
+                    decoding="async"
                     className="h-full w-full rounded-[28px] object-contain"
+                    width="1100"
+                    height="825"
                   />
                 </div>
                 <div className="max-w-[34rem]">
@@ -232,10 +241,13 @@ export default function UnderSinkROSystemPage() {
               </div>
               <div className="aspect-[4/3] rounded-[28px] bg-canvas p-4">
                 <img
-                  src={`${imageBase}/tank-ro.jpg`}
+                  src={`${imageBase}/tank-ro.webp`}
                   alt="Under sink RO system available for OEM and private label manufacturing"
                   loading="lazy"
+                  decoding="async"
                   className="h-full w-full rounded-[28px] object-contain"
+                  width="1100"
+                  height="825"
                 />
               </div>
             </div>
@@ -291,3 +303,4 @@ export default function UnderSinkROSystemPage() {
     </div>
   )
 }
+

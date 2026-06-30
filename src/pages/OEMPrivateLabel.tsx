@@ -69,7 +69,7 @@ export default function OEMPrivateLabel() {
               </div>
             </div>
             <div className="min-h-[420px] overflow-hidden bg-[#e9e6df]">
-              <img src="/images/oem-private-label-hero.webp" alt="Private label water filter and custom packaging box in a warm Nordic kitchen" className="h-full w-full object-cover" />
+              <img src="/images/oem-private-label-hero.webp" alt="Private label water filter and custom packaging box in a warm Nordic kitchen" className="h-full w-full object-cover" loading="eager" fetchPriority="high" decoding="async" width="1600" height="900" />
             </div>
           </div>
         </section>
@@ -88,6 +88,9 @@ export default function OEMPrivateLabel() {
                 alt="Custom color box packaging examples for private label reverse osmosis water systems"
                 className="aspect-[16/10] w-full object-cover"
                 loading="lazy"
+                decoding="async"
+                width="1400"
+                height="875"
               />
             </div>
 

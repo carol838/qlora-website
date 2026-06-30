@@ -38,7 +38,19 @@ function ImageFallback({ label }: { label: string }) {
   )
 }
 
-function ProductImage({ image, label, className = 'aspect-[4/3]' }: { image?: { src: string; alt: string }; label: string; className?: string }) {
+function ProductImage({
+  image,
+  label,
+  className = 'aspect-[4/3]',
+  loading = 'lazy',
+  fetchPriority,
+}: {
+  image?: { src: string; alt: string }
+  label: string
+  className?: string
+  loading?: 'eager' | 'lazy'
+  fetchPriority?: 'high' | 'low' | 'auto'
+}) {
   if (!image) return <ImageFallback label={label} />
 
   return (
@@ -47,7 +59,11 @@ function ProductImage({ image, label, className = 'aspect-[4/3]' }: { image?: { 
         src={image.src}
         alt={image.alt}
         className={`${className} block max-w-full w-full rounded-[1.5rem] object-contain`}
-        loading="eager"
+        loading={loading}
+        fetchPriority={fetchPriority}
+        decoding="async"
+        width="900"
+        height="675"
       />
     </div>
   )
@@ -143,7 +159,7 @@ export default function ProductDetailTemplate({ product }: { product: ProductDet
         <section className="relative overflow-hidden pt-20">
           <div className="shell grid min-h-[620px] items-center gap-12 py-14 lg:grid-cols-12 lg:py-20">
             <div className="min-w-0 lg:col-span-6">
-              <ProductImage image={product.heroImage} label="Product visual" />
+              <ProductImage image={product.heroImage} label="Product visual" loading="eager" fetchPriority="high" />
             </div>
             <div className="min-w-0 lg:col-span-6">
               <nav className="mb-8 flex flex-wrap items-center gap-2 text-sm text-ink/45" aria-label="Breadcrumb">

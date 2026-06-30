@@ -31,24 +31,24 @@ const products: Record<string, ProductDetail> = {
     howItWorksAfterHero: true,
     specsAfterHow: true,
     heroImage: {
-      src: '/images/products/shower-filter/hero.png',
+      src: '/images/products/shower-filter/hero.webp',
       alt: 'Transparent shower head comparison with and without shower filter',
     },
     howItWorksImage: {
-      src: '/images/products/shower-filter/how-it-works.png',
+      src: '/images/products/shower-filter/how-it-works.webp',
       alt: 'Shower filter working principle and lifespan comparison',
     },
     howItWorksImageClassName: '',
     specsImage: {
-      src: '/images/products/shower-filter/specifications.png',
+      src: '/images/products/shower-filter/specifications.webp',
       alt: 'Shower filter cartridge size options and dimensions',
     },
     replacementImage: {
-      src: '/images/products/shower-filter/replacement.png',
+      src: '/images/products/shower-filter/replacement.webp',
       alt: 'Step by step shower filter cartridge replacement instructions',
     },
     oemImage: {
-      src: '/images/products/shower-filter/oem-packaging.png',
+      src: '/images/products/shower-filter/oem-packaging.webp',
       alt: 'Private label shower filter with custom retail packaging box',
     },
     highlights: ['Wellness focused', 'Consumer product', 'Easy replacement', 'Private label ready'],

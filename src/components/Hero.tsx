@@ -1,4 +1,4 @@
-import heroKitchen from '../assets/hero-kitchen.png'
+import heroKitchen from '../assets/hero-kitchen.webp'
 
 export default function Hero() {
   return (
@@ -16,7 +16,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="min-h-[420px] overflow-hidden bg-[#e9e6df]">
-          <img src={heroKitchen} alt="Serene Nordic kitchen with modern drinking water tap" className="h-full w-full object-cover" />
+          <img src={heroKitchen} alt="Serene Nordic kitchen with modern drinking water tap" className="h-full w-full object-cover" loading="eager" fetchPriority="high" decoding="async" width="1600" height="900" />
         </div>
       </div>
     </section>

@@ -42,11 +42,21 @@ function VisualFallback({ label }: { label: string }) {
   )
 }
 
-function ProductVisual({ image, label }: { image?: { src: string; alt: string }; label: string }) {
+function ProductVisual({
+  image,
+  label,
+  loading = 'lazy',
+  fetchPriority,
+}: {
+  image?: { src: string; alt: string }
+  label: string
+  loading?: 'eager' | 'lazy'
+  fetchPriority?: 'high' | 'low' | 'auto'
+}) {
   if (!image) return <VisualFallback label={label} />
   return (
     <div className="overflow-hidden rounded-[2rem] bg-white p-4 shadow-soft sm:p-6">
-      <img src={image.src} alt={image.alt} className="aspect-[4/3] w-full rounded-[1.5rem] object-contain" loading="lazy" />
+      <img src={image.src} alt={image.alt} className="aspect-[4/3] w-full rounded-[1.5rem] object-contain" loading={loading} fetchPriority={fetchPriority} decoding="async" width="900" height="675" />
     </div>
   )
 }
@@ -82,7 +92,7 @@ export default function CompatibilitySolutionPage({ data }: { data: Compatibilit
         <section className="relative overflow-hidden pt-20">
           <div className="shell grid min-h-[620px] items-center gap-12 py-14 lg:grid-cols-12 lg:py-20">
             <div className="lg:col-span-6">
-              <ProductVisual image={data.heroImage} label="Compatible filter visual" />
+              <ProductVisual image={data.heroImage} label="Compatible filter visual" loading="eager" fetchPriority="high" />
             </div>
             <div className="lg:col-span-6">
               <nav className="mb-8 flex flex-wrap items-center gap-2 text-sm text-ink/45" aria-label="Breadcrumb">

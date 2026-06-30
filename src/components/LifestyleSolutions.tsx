@@ -17,7 +17,7 @@ export default function LifestyleSolutions() {
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {cards.map(card => (
             <article key={card.title} className="group relative min-h-[500px] overflow-hidden rounded-xl bg-ink shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-soft">
-              <div className="absolute inset-0 bg-[url('/images/lifestyle-triptych.png')] bg-cover transition duration-700 group-hover:scale-105" style={{ backgroundPosition: card.position }} />
+              <div className="absolute inset-0 bg-[url('/images/lifestyle-triptych.webp')] bg-cover transition duration-700 group-hover:scale-105" style={{ backgroundPosition: card.position }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-8 text-white">
                 <h3 className="text-2xl font-medium tracking-tight">{card.title}</h3>

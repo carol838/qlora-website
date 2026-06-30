@@ -1,4 +1,4 @@
-import roSystem from '../assets/ro-system.png'
+import roSystem from '../assets/ro-system.webp'
 
 export default function ROSystem() {
   return (
@@ -12,7 +12,7 @@ export default function ROSystem() {
         </div>
 
         <div className="overflow-hidden rounded-2xl bg-white lg:col-span-7">
-          <img src={roSystem} alt="Premium compact reverse osmosis water system" className="aspect-[4/3] h-full w-full object-cover" loading="lazy" />
+          <img src={roSystem} alt="Premium compact reverse osmosis water system" className="aspect-[4/3] h-full w-full object-cover" loading="lazy" decoding="async" width="1200" height="960" />
         </div>
       </div>
     </section>

@@ -72,6 +72,11 @@ export default function ROSystems() {
                   src={`${imageBase}/hero-ro-system.webp`}
                   alt="RO water system in a warm Scandinavian kitchen with faucet and drinking water glass"
                   className="mx-auto aspect-[4/3] max-h-[540px] w-full rounded-[1.5rem] object-cover"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="1200"
+                  height="900"
                 />
               </div>
             </div>
@@ -90,6 +95,9 @@ export default function ROSystems() {
                 alt="RO filtration process infographic showing PP sediment activated carbon RO membrane and post carbon stages"
                 className="aspect-[16/10] w-full object-cover object-bottom"
                 loading="lazy"
+                decoding="async"
+                width="1600"
+                height="1000"
               />
             </div>
           </div>
@@ -107,7 +115,7 @@ export default function ROSystems() {
               {products.map(product => (
                 <a href={product.href} key={product.name} className="group block cursor-pointer rounded-[2rem] bg-white/75 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft md:p-6">
                   <div className="aspect-[4/3] rounded-[1.5rem] bg-gradient-to-br from-white via-[#f8f7f3] to-[#eeeae1] p-8">
-                    <img src={product.image} alt={product.alt} className="h-full w-full object-contain transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
+                    <img src={product.image} alt={product.alt} className="h-full w-full object-contain transition duration-300 group-hover:scale-[1.02]" loading="lazy" decoding="async" width="900" height="675" />
                   </div>
                   <div className="px-2 pb-2 pt-7 md:px-3">
                     <h3 className="text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{product.name}</h3>
@@ -120,7 +128,8 @@ export default function ROSystems() {
                       ))}
                     </div>
                     <span className="mt-7 inline-flex items-center rounded-full bg-ink px-5 py-3 text-sm font-medium text-white transition group-hover:bg-nordic">
-                      Learn More â†?                    </span>
+                      Learn More â†’
+                    </span>
                   </div>
                 </a>
               ))}
@@ -151,6 +160,9 @@ export default function ROSystems() {
                   alt="Private label water filter and custom packaging box for OEM RO projects"
                   className="aspect-[16/10] w-full object-cover"
                   loading="lazy"
+                  decoding="async"
+                  width="1600"
+                  height="1000"
                 />
               </div>
             </div>

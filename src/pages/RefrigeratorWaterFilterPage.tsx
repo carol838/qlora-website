@@ -7,11 +7,11 @@ const data: CompatibilityPageData = {
   title: 'Compatible Refrigerator Water Filters',
   subtitle: 'High-quality compatible replacement filters for popular refrigerator systems. OEM, private label and neutral packaging available.',
   heroImage: {
-    src: '/images/products/refrigerator-filter/hero.png',
+    src: '/images/products/refrigerator-filter/hero.webp',
     alt: 'Compatible refrigerator water filter replacement in a refrigerator lifestyle scene',
   },
   oemImage: {
-    src: '/images/products/refrigerator-filter/private-label.png',
+    src: '/images/products/refrigerator-filter/private-label.webp',
     alt: 'Private label refrigerator filter and custom packaging box',
   },
   seoTitle: 'Compatible Refrigerator Water Filters | Private Label & OEM | QLORA',
@@ -23,7 +23,7 @@ const data: CompatibilityPageData = {
       models: 'LT1000P / LT1000PC / LT1000PCS',
       description: 'Compatible replacement refrigerator water filter for selected LT1000P series applications.',
       image: {
-        src: '/images/products/refrigerator-filter/lt1000p.jpg',
+        src: '/images/products/refrigerator-filter/lt1000p.webp',
         alt: 'LT1000P compatible refrigerator water filter',
       },
     },
@@ -32,7 +32,7 @@ const data: CompatibilityPageData = {
       models: 'DA29-10105J / DA29 series',
       description: 'Compatible replacement refrigerator water filter for selected DA29 series applications.',
       image: {
-        src: '/images/products/refrigerator-filter/da29-10105j.jpg',
+        src: '/images/products/refrigerator-filter/da29-10105j.webp',
         alt: 'DA29-10105J compatible refrigerator water filter',
       },
     },
@@ -41,7 +41,7 @@ const data: CompatibilityPageData = {
       models: 'RPWFE / RPWF series',
       description: 'Compatible replacement refrigerator water filter for selected RPWFE series applications.',
       image: {
-        src: '/images/products/refrigerator-filter/rpwfe.jpg',
+        src: '/images/products/refrigerator-filter/rpwfe.webp',
         alt: 'RPWFE compatible refrigerator water filter',
       },
     },

@@ -7,11 +7,11 @@ const data: CompatibilityPageData = {
   title: 'Compatible Coffee Machine Water Filters',
   subtitle: 'Compatible replacement water filters for coffee machines, espresso equipment and beverage systems. OEM, private label and neutral packaging available.',
   heroImage: {
-    src: '/images/products/coffee-machine-filter/hero.png',
+    src: '/images/products/coffee-machine-filter/hero.webp',
     alt: 'Coffee machine water filter being installed in an espresso machine',
   },
   oemImage: {
-    src: '/images/products/coffee-machine-filter/private-label.png',
+    src: '/images/products/coffee-machine-filter/private-label.webp',
     alt: 'Private label coffee machine water filter with custom packaging box',
   },
   seoTitle: 'Compatible Coffee Machine Water Filters | OEM & Private Label | QLORA',
@@ -23,7 +23,7 @@ const data: CompatibilityPageData = {
       models: 'Philips CA6903/10 / Selected Philips AquaClean-style coffee machines',
       description: 'Compatible replacement water filter for selected Philips coffee machine applications.',
       image: {
-        src: '/images/products/coffee-machine-filter/philips-ca6903-10.jpg',
+        src: '/images/products/coffee-machine-filter/philips-ca6903-10.webp',
         alt: 'Compatible replacement filter for Philips CA6903/10 coffee machines',
       },
     },
@@ -32,7 +32,7 @@ const data: CompatibilityPageData = {
       models: 'Selected Jura coffee machine filter systems',
       description: 'Compatible replacement water filter for selected Jura coffee machine applications.',
       image: {
-        src: '/images/products/coffee-machine-filter/jura.jpg',
+        src: '/images/products/coffee-machine-filter/jura.webp',
         alt: 'Compatible replacement filter for Jura coffee machines',
       },
     },
@@ -41,7 +41,7 @@ const data: CompatibilityPageData = {
       models: "Selected De'Longhi coffee machine filter systems",
       description: "Compatible replacement water filter for selected De'Longhi coffee machine applications.",
       image: {
-        src: '/images/products/coffee-machine-filter/delonghi.jpg',
+        src: '/images/products/coffee-machine-filter/delonghi.webp',
         alt: "Compatible replacement filter for De'Longhi coffee machines",
       },
     },

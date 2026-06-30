@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { applySEO } from '../lib/seo'
@@ -7,7 +7,7 @@ const imageBase = '/images/products/tankless-ro-system'
 
 const highlights = [
   ['600G High Flow', 'Fast daily water supply.'],
-  ['0.0001 µm RO Membrane', 'Removes dissolved solids and contaminants.'],
+  ['0.0001 碌m RO Membrane', 'Removes dissolved solids and contaminants.'],
   ['Tankless Design', 'Compact footprint without storage tank.'],
   ['Quick Change Filters', 'Fast maintenance and simple replacement.'],
 ]
@@ -16,25 +16,25 @@ const stories = [
   {
     title: 'Fast Daily Water Supply',
     description: 'High-flow RO system delivering fresh drinking water directly from the faucet.',
-    image: `${imageBase}/600g.png`,
+    image: `${imageBase}/600g.webp`,
     alt: '600G tankless reverse osmosis system product view',
   },
   {
     title: 'Simple Under Sink Installation',
     description: 'Compact dimensions fit most kitchen cabinets with straightforward installation.',
-    image: `${imageBase}/installation.png`,
+    image: `${imageBase}/installation.webp`,
     alt: 'Tankless RO system under sink installation diagram',
   },
   {
     title: 'Long Service Life',
     description: 'Long-lasting filtration capacity designed for everyday household use.',
-    image: `${imageBase}/capacity.png`,
+    image: `${imageBase}/capacity.webp`,
     alt: 'Tankless RO system long service life capacity graphic',
   },
   {
     title: 'Compact Design',
     description: 'Slim body saves cabinet space while maintaining high filtration performance.',
-    image: `${imageBase}/specification.png`,
+    image: `${imageBase}/specification.webp`,
     alt: 'Tankless RO system dimension and specification graphic',
   },
 ]
@@ -42,13 +42,13 @@ const stories = [
 const specs = [
   ['Product Type', 'Tankless Reverse Osmosis System'],
   ['Capacity', '600 GPD'],
-  ['RO Accuracy', '0.0001 µm'],
-  ['Flow Rate', '1.5–2 L/min'],
-  ['Power', '72–80W'],
-  ['Input Voltage', 'DC 24–36V'],
-  ['Water Temperature', '5–40°C'],
-  ['Inlet Pressure', '0.2–0.4MPa'],
-  ['Working Pressure', '0.6–0.7MPa'],
+  ['RO Accuracy', '0.0001 碌m'],
+  ['Flow Rate', '1.5鈥? L/min'],
+  ['Power', '72鈥?0W'],
+  ['Input Voltage', 'DC 24鈥?6V'],
+  ['Water Temperature', '5鈥?0掳C'],
+  ['Inlet Pressure', '0.2鈥?.4MPa'],
+  ['Working Pressure', '0.6鈥?.7MPa'],
   ['Applicable Water', 'Municipal Tap Water'],
 ]
 
@@ -82,7 +82,7 @@ export default function TanklessROSystemPage() {
       title: '600G Tankless Reverse Osmosis System | QLORA',
       description: 'Compact 600G tankless reverse osmosis water filtration system for OEM, private label and residential drinking water applications.',
       path: '/products/tankless-ro-system',
-      image: `${imageBase}/600g.png`,
+      image: `${imageBase}/600g.webp`,
       breadcrumbs: [
         { name: 'Home', path: '/' },
         { name: 'RO Systems', path: '/ro-systems' },
@@ -94,7 +94,7 @@ export default function TanklessROSystemPage() {
         name: '600G Tankless Reverse Osmosis System',
         brand: { '@type': 'Brand', name: 'QLORA' },
         description: 'Compact 600G tankless reverse osmosis system for residential drinking water, OEM and private label programs.',
-        image: `${window.location.origin}${imageBase}/600g.png`,
+        image: `${window.location.origin}${imageBase}/600g.webp`,
         category: 'Tankless reverse osmosis water filtration system',
       }],
     })
@@ -125,7 +125,7 @@ export default function TanklessROSystemPage() {
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {['600G High Flow', '0.0001 µm RO Membrane', 'Tankless Design', 'Quick Change Filters'].map((badge) => (
+                  {['600G High Flow', '0.0001 碌m RO Membrane', 'Tankless Design', 'Quick Change Filters'].map((badge) => (
                     <span key={badge} className="rounded-full border border-line bg-white/55 px-4 py-2 text-sm text-ink/65 shadow-sm">
                       {badge}
                     </span>
@@ -140,9 +140,14 @@ export default function TanklessROSystemPage() {
 
               <div className="rounded-[2rem] bg-white/55 p-4 shadow-soft">
                 <img
-                  src={`${imageBase}/600g.png`}
+                  src={`${imageBase}/600g.webp`}
                   alt="600G tankless reverse osmosis system for modern kitchen drinking water"
                   className="h-auto w-full rounded-[1.5rem] object-contain"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="1100"
+                  height="1100"
                 />
               </div>
             </div>
@@ -170,7 +175,7 @@ export default function TanklessROSystemPage() {
             {stories.map((story, index) => (
               <article key={story.title} className={`grid items-center gap-10 lg:grid-cols-2 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
                 <div className="rounded-[2rem] bg-white/55 p-4 shadow-soft">
-                  <img src={story.image} alt={story.alt} loading={index === 0 ? 'eager' : 'lazy'} className="h-auto max-h-[520px] w-full rounded-[1.5rem] object-contain" />
+                  <img src={story.image} alt={story.alt} loading={index === 0 ? 'eager' : 'lazy'} fetchPriority={index === 0 ? 'high' : 'auto'} decoding="async" className="h-auto max-h-[520px] w-full rounded-[1.5rem] object-contain" width="1100" height="1100" />
                 </div>
                 <div className="max-w-xl">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Feature {index + 1}</p>
@@ -250,7 +255,7 @@ export default function TanklessROSystemPage() {
                 </div>
               </div>
               <div className="rounded-[1.5rem] bg-canvas p-4">
-                <img src={`${imageBase}/600g.png`} alt="Tankless RO system for OEM and private label water filtration projects" loading="lazy" className="h-auto max-h-[420px] w-full rounded-[1.25rem] object-contain" />
+                <img src={`${imageBase}/600g.webp`} alt="Tankless RO system for OEM and private label water filtration projects" loading="lazy" decoding="async" className="h-auto max-h-[420px] w-full rounded-[1.25rem] object-contain" width="1100" height="1100" />
               </div>
             </div>
           </div>
@@ -305,3 +310,4 @@ export default function TanklessROSystemPage() {
     </div>
   )
 }
+
