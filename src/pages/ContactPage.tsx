@@ -43,14 +43,10 @@ export default function ContactPage() {
     setSubmitError(false)
 
     try {
-      const formData = new FormData(form)
-      formData.append('_subject', 'New QLORA inquiry from qloratech.com')
-      formData.append('_template', 'table')
-
-      const response = await fetch('https://formsubmit.co/ajax/sales@qloratech.com', {
+      const response = await fetch(form.action, {
         method: 'POST',
         headers: { Accept: 'application/json' },
-        body: formData,
+        body: new FormData(form),
       })
 
       if (!response.ok) throw new Error('Form submission failed')
@@ -109,10 +105,13 @@ export default function ContactPage() {
               <p className="body-copy mt-6">Share a water filtration inquiry and QLORA will help route your request.</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="grid gap-5 rounded-2xl bg-white/60 p-6 sm:p-8 lg:col-span-8">
+            <form action="https://formsubmit.co/sales@qloratech.com" method="POST" onSubmit={handleSubmit} className="grid gap-5 rounded-2xl bg-white/60 p-6 sm:p-8 lg:col-span-8">
+              <input type="hidden" name="_subject" value="New QLORA Website Inquiry" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
               {submitted && (
                 <div role="status" aria-live="polite" className="rounded-xl border border-nordic/20 bg-nordic/10 px-4 py-3 text-sm font-medium text-ink">
-                  Thank you. Your inquiry has been received. You can also contact us directly by email or WhatsApp.
+                  Thank you. Your inquiry has been received.
                 </div>
               )}
               {submitError && (
@@ -122,21 +121,21 @@ export default function ContactPage() {
               )}
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="text-sm font-medium text-ink/75">Name
-                  <input name="Name" required autoComplete="name" className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic" />
+                  <input name="name" required autoComplete="name" className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic" />
                 </label>
                 <label className="text-sm font-medium text-ink/75">Company
-                  <input name="Company" required autoComplete="organization" className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic" />
+                  <input name="company" required autoComplete="organization" className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic" />
                 </label>
                 <label className="text-sm font-medium text-ink/75">Country
-                  <input name="Country" required autoComplete="country-name" className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic" />
+                  <input name="country" required autoComplete="country-name" className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic" />
                 </label>
                 <label className="text-sm font-medium text-ink/75">Email
-                  <input name="Email" type="email" required autoComplete="email" className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic" />
+                  <input name="email" type="email" required autoComplete="email" className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic" />
                 </label>
               </div>
 
               <label className="text-sm font-medium text-ink/75">Product Interest
-                <select name="Product Interest" required className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic">
+                <select name="product_interest" required className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic">
                   <option>RO Systems</option>
                   <option>Replacement Filters</option>
                   <option>Refrigerator Filters</option>
@@ -147,7 +146,7 @@ export default function ContactPage() {
               </label>
 
               <label className="text-sm font-medium text-ink/75">Message
-                <textarea name="Message" required rows={6} className="mt-2 w-full rounded-xl border border-line bg-canvas px-4 py-3 outline-none transition focus:border-nordic" />
+                <textarea name="message" required rows={6} className="mt-2 w-full rounded-xl border border-line bg-canvas px-4 py-3 outline-none transition focus:border-nordic" />
               </label>
 
               <button type="submit" disabled={submitting} className="button-primary w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-fit">
