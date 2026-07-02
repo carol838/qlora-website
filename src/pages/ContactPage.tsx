@@ -41,6 +41,7 @@ export default function ContactPage() {
     }
     setSubmitting(true)
     setSubmitError(false)
+    setSubmitted(false)
 
     try {
       const response = await fetch(form.action, {
@@ -49,7 +50,10 @@ export default function ContactPage() {
         body: new FormData(form),
       })
 
-      if (!response.ok) throw new Error('Form submission failed')
+      const result = await response.json() as { success?: boolean | string }
+      const formSubmitConfirmed = result.success === true || result.success === 'true'
+
+      if (!response.ok || !formSubmitConfirmed) throw new Error('Form submission failed')
       setSubmitted(true)
       form.reset()
     } catch {
@@ -105,7 +109,7 @@ export default function ContactPage() {
               <p className="body-copy mt-6">Share a water filtration inquiry and QLORA will help route your request.</p>
             </div>
 
-            <form action="https://formsubmit.co/sales@qloratech.com" method="POST" onSubmit={handleSubmit} className="grid gap-5 rounded-2xl bg-white/60 p-6 sm:p-8 lg:col-span-8">
+            <form action="https://formsubmit.co/ajax/sales@qloratech.com" method="POST" onSubmit={handleSubmit} className="grid gap-5 rounded-2xl bg-white/60 p-6 sm:p-8 lg:col-span-8">
               <input type="hidden" name="_subject" value="New QLORA Website Inquiry" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
@@ -116,7 +120,7 @@ export default function ContactPage() {
               )}
               {submitError && (
                 <div role="alert" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-ink">
-                  The form could not be submitted right now. Please email sales@qloratech.com or chat with us on WhatsApp.
+                  Sorry, your message could not be sent. Please email sales@qloratech.com directly.
                 </div>
               )}
               <div className="grid gap-5 sm:grid-cols-2">
