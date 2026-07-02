@@ -11,7 +11,7 @@ export default {
         line: '#DADBD6',
       },
       fontFamily: {
-        sans: ['Inter', 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        sans: ['Inter', 'Noto Sans', 'Arial', 'sans-serif'],
       },
       boxShadow: {
         soft: '0 24px 60px rgba(46, 52, 56, 0.10)',

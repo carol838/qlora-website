@@ -7,7 +7,7 @@ const imageBase = '/images/products/tankless-ro-system'
 
 const highlights = [
   ['600G High Flow', 'Fast daily water supply.'],
-  ['0.0001 碌m RO Membrane', 'Removes dissolved solids and contaminants.'],
+  ['0.0001 μm RO Membrane', 'Removes dissolved solids and contaminants.'],
   ['Tankless Design', 'Compact footprint without storage tank.'],
   ['Quick Change Filters', 'Fast maintenance and simple replacement.'],
 ]
@@ -42,13 +42,13 @@ const stories = [
 const specs = [
   ['Product Type', 'Tankless Reverse Osmosis System'],
   ['Capacity', '600 GPD'],
-  ['RO Accuracy', '0.0001 碌m'],
-  ['Flow Rate', '1.5鈥? L/min'],
-  ['Power', '72鈥?0W'],
-  ['Input Voltage', 'DC 24鈥?6V'],
-  ['Water Temperature', '5鈥?0掳C'],
-  ['Inlet Pressure', '0.2鈥?.4MPa'],
-  ['Working Pressure', '0.6鈥?.7MPa'],
+  ['RO Accuracy', '0.0001 μm'],
+  ['Flow Rate', '1.5–2 L/min'],
+  ['Power', '72–80 W'],
+  ['Input Voltage', 'DC 24–36V'],
+  ['Water Temperature', '5–40°C'],
+  ['Inlet Pressure', '0.2–0.4 MPa'],
+  ['Working Pressure', '0.6–0.7 MPa'],
   ['Applicable Water', 'Municipal Tap Water'],
 ]
 
@@ -125,7 +125,7 @@ export default function TanklessROSystemPage() {
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {['600G High Flow', '0.0001 碌m RO Membrane', 'Tankless Design', 'Quick Change Filters'].map((badge) => (
+                  {['600G High Flow', '0.0001 μm RO Membrane', 'Tankless Design', 'Quick Change Filters'].map((badge) => (
                     <span key={badge} className="rounded-full border border-line bg-white/55 px-4 py-2 text-sm text-ink/65 shadow-sm">
                       {badge}
                     </span>

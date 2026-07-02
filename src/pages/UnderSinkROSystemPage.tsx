@@ -47,14 +47,14 @@ const stories = [
 
 const specs = [
   ['Model', 'RO-100'],
-  ['Rated Voltage / Frequency', '220V~ / 50Hz'],
-  ['Feed Water Pressure', '0.1鈥?.4 MPa'],
+  ['Rated Voltage / Frequency', '220V / 50Hz'],
+  ['Feed Water Pressure', '0.1–0.4 MPa'],
   ['Pure Water Flow', '75G / 100G'],
-  ['Dimensions', '390 脳 200 脳 530 mm'],
+  ['Dimensions', '390 × 200 × 530 mm'],
   ['Applicable Water Source', 'Municipal Tap Water'],
   ['Pure Water Capacity', '1000 L'],
   ['Rated Power', '26 W'],
-  ['Filtration Accuracy', '0.0001 渭m'],
+  ['Filtration Accuracy', '0.0001 μm'],
 ]
 
 const applications = ['Residential Homes', 'Apartments', 'Small Offices', 'Retail Projects']
