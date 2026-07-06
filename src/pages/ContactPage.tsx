@@ -19,7 +19,7 @@ function trackContactLead() {
 
   analyticsWindow.gtag?.('event', 'generate_lead', {
     form_name: 'contact_inquiry',
-    lead_source: 'website_contact_form',
+    source: 'website_contact',
   })
 }
 
@@ -47,10 +47,7 @@ export default function ContactPage() {
     const searchParams = new URLSearchParams(window.location.search)
     const confirmedSubmission = searchParams.get('sent') === 'true'
 
-    if (!confirmedSubmission) {
-      sessionStorage.removeItem(leadTrackingKey)
-      return
-    }
+    if (!confirmedSubmission) return
 
     setSubmitted(true)
 
@@ -72,6 +69,7 @@ export default function ContactPage() {
     setSubmitting(true)
     setSubmitError(false)
     setSubmitted(false)
+    sessionStorage.removeItem(leadTrackingKey)
 
     try {
       const response = await fetch(form.action, {
