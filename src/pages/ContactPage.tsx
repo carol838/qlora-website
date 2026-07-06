@@ -10,6 +10,19 @@ const reasons = [
   ['Global Supply', 'Export-ready cooperation for distributors and water brands.'],
 ]
 
+const leadTrackingKey = 'qlora_contact_generate_lead_tracked'
+
+function trackContactLead() {
+  const analyticsWindow = window as typeof window & {
+    gtag?: (command: 'event', eventName: string, parameters: Record<string, string>) => void
+  }
+
+  analyticsWindow.gtag?.('event', 'generate_lead', {
+    form_name: 'contact_inquiry',
+    lead_source: 'website_contact_form',
+  })
+}
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState(false)
@@ -30,6 +43,23 @@ export default function ContactPage() {
         description: 'Contact QLORA for water filtration inquiry, OEM water filter supplier support and RO systems supplier questions.',
       }],
     })
+
+    const searchParams = new URLSearchParams(window.location.search)
+    const confirmedSubmission = searchParams.get('sent') === 'true'
+
+    if (!confirmedSubmission) {
+      sessionStorage.removeItem(leadTrackingKey)
+      return
+    }
+
+    setSubmitted(true)
+
+    if (sessionStorage.getItem(leadTrackingKey) !== 'true') {
+      trackContactLead()
+      sessionStorage.setItem(leadTrackingKey, 'true')
+    }
+
+    window.history.replaceState({}, '', window.location.pathname)
   }, [])
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
