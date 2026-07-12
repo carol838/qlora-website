@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { applySEO, seoImages } from '../lib/seo'
+import { applySEO } from '../lib/seo'
 
 type WaterDispenserProduct = {
   title: string
@@ -9,7 +9,11 @@ type WaterDispenserProduct = {
   tags: string[]
   inquiryHref: string
   futureHref: string
+  image: string
+  imageAlt: string
 }
+
+const waterDispenserHero = '/images/water-dispensers/water-dispensers-hero.png'
 
 const products: WaterDispenserProduct[] = [
   {
@@ -18,6 +22,8 @@ const products: WaterDispenserProduct[] = [
     tags: ['Floor Standing', 'Hot & Cold', 'Office & Commercial'],
     inquiryHref: '/contact?product=floor-standing-water-dispenser',
     futureHref: '/products/floor-standing-water-dispenser',
+    image: '/images/water-dispensers/floor-standing-water-dispenser.png',
+    imageAlt: 'Floor standing hot and cold water dispenser for office and commercial use',
   },
   {
     title: 'Water Dispenser with Ice Maker',
@@ -25,6 +31,8 @@ const products: WaterDispenserProduct[] = [
     tags: ['Built-in Ice Maker', 'Hot & Cold Water', 'Commercial Use'],
     inquiryHref: '/contact?product=water-dispenser-with-ice-maker',
     futureHref: '/products/water-dispenser-with-ice-maker',
+    image: '/images/water-dispensers/water-dispenser-with-ice-maker.png',
+    imageAlt: 'Floor standing water dispenser with built-in ice maker',
   },
   {
     title: 'Desktop Water Dispenser',
@@ -32,26 +40,23 @@ const products: WaterDispenserProduct[] = [
     tags: ['Compact Design', 'Countertop Use', 'Home & Office'],
     inquiryHref: '/contact?product=desktop-water-dispenser',
     futureHref: '/products/desktop-water-dispenser',
+    image: '/images/water-dispensers/desktop-water-dispenser.png',
+    imageAlt: 'Compact desktop water dispenser for home and office use',
   },
 ]
 
 const applications = ['Offices', 'Hotels', 'Schools', 'Hospitals', 'Factories', 'Residential Spaces']
 
-function ProductVisual({ index }: { index: number }) {
+function ProductImage({ product }: { product: WaterDispenserProduct }) {
   return (
-    <div className="flex aspect-[4/3] items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] p-8 shadow-sm">
-      <div className="relative flex h-full w-full items-end justify-center">
-        <div className={`rounded-[2rem] border border-accent/25 bg-white/75 shadow-soft ${index === 2 ? 'h-[58%] w-[58%]' : 'h-[82%] w-[42%]'}`}>
-          <div className="mx-auto mt-[18%] h-3 w-12 rounded-full bg-accent/25" />
-          <div className="mx-auto mt-6 h-10 w-10 rounded-full border border-accent/30" />
-          <div className="mx-auto mt-5 h-2 w-16 rounded-full bg-line" />
-        </div>
-        {index === 1 && (
-          <div className="absolute bottom-6 right-[18%] grid h-14 w-14 place-items-center rounded-2xl border border-accent/20 bg-white/85 text-xs font-semibold text-accent shadow-sm">
-            ICE
-          </div>
-        )}
-      </div>
+    <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] p-6 shadow-sm">
+      <img
+        src={product.image}
+        alt={product.imageAlt}
+        className="h-full w-full object-contain"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   )
 }
@@ -62,7 +67,7 @@ export default function WaterDispensersPage() {
       title: 'Water Dispenser Manufacturer & OEM Solutions | QLORA',
       description: 'Explore QLORA floor-standing, ice-making and desktop water dispensers for residential, office and commercial applications, with OEM and private label support.',
       path: '/water-dispensers',
-      image: seoImages.home,
+      image: `https://qloratech.com${waterDispenserHero}`,
       breadcrumbs: [{ name: 'Water Dispensers', path: '/water-dispensers' }],
       schemas: [{
         '@context': 'https://schema.org',
@@ -97,15 +102,15 @@ export default function WaterDispensersPage() {
 
             <div className="lg:col-span-6">
               <div className="rounded-[2rem] bg-white/60 p-5 shadow-soft">
-                <div className="grid aspect-[4/3] grid-cols-3 items-end gap-4 rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] p-6">
-                  {[0, 1, 2].map((item) => (
-                    <div key={item} className="flex h-full items-end justify-center">
-                      <div className={`rounded-[1.25rem] border border-accent/20 bg-white/80 shadow-sm ${item === 2 ? 'h-[54%] w-[86%]' : 'h-[82%] w-[72%]'}`}>
-                        <div className="mx-auto mt-6 h-2 w-10 rounded-full bg-accent/25" />
-                        <div className="mx-auto mt-5 h-8 w-8 rounded-full border border-accent/25" />
-                      </div>
-                    </div>
-                  ))}
+                <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] p-4">
+                  <img
+                    src={waterDispenserHero}
+                    alt="QLORA water dispenser product lineup for home office and commercial use"
+                    className="h-full w-full object-contain"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                  />
                 </div>
               </div>
             </div>
@@ -123,9 +128,9 @@ export default function WaterDispensersPage() {
             </div>
 
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {products.map((product, index) => (
+              {products.map((product) => (
                 <article key={product.title} className="rounded-[2rem] bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
-                  <ProductVisual index={index} />
+                  <ProductImage product={product} />
                   <div className="px-2 pb-2 pt-7">
                     <h3 className="text-2xl font-medium tracking-tight">{product.title}</h3>
                     <p className="mt-4 text-sm leading-6 text-ink/60">{product.description}</p>

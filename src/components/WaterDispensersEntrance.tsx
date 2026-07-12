@@ -14,13 +14,14 @@ export default function WaterDispensersEntrance() {
             </span>
           </div>
           <div className="lg:col-span-5">
-            <div className="grid aspect-[4/3] grid-cols-3 items-end gap-3 rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] p-5">
-              {[0, 1, 2].map((item) => (
-                <div key={item} className={`rounded-2xl border border-accent/20 bg-white/80 shadow-sm ${item === 2 ? 'h-[54%]' : 'h-[82%]'}`}>
-                  <div className="mx-auto mt-5 h-2 w-8 rounded-full bg-accent/25" />
-                  <div className="mx-auto mt-4 h-6 w-6 rounded-full border border-accent/25" />
-                </div>
-              ))}
+            <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] p-4">
+              <img
+                src="/images/water-dispensers/water-dispensers-hero.png"
+                alt="QLORA water dispenser product lineup"
+                className="h-full w-full object-contain"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </a>
