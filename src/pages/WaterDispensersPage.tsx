@@ -25,7 +25,7 @@ const products: WaterDispenserProduct[] = [
     futureHref: '/products/floor-standing-water-dispenser',
     image: '/images/water-dispensers/floor-standing-water-dispenser.png',
     imageAlt: 'Floor standing hot and cold water dispenser for office and commercial use',
-    imagePosition: 'center 35%',
+    imagePosition: 'center 42%',
   },
   {
     title: 'Water Dispenser with Ice Maker',
@@ -35,7 +35,7 @@ const products: WaterDispenserProduct[] = [
     futureHref: '/products/water-dispenser-with-ice-maker',
     image: '/images/water-dispensers/water-dispenser-with-ice-maker.png',
     imageAlt: 'Floor standing water dispenser with built-in ice maker',
-    imagePosition: 'center 32%',
+    imagePosition: 'center 40%',
   },
   {
     title: 'Desktop Water Dispenser',
@@ -92,11 +92,14 @@ export default function WaterDispensersPage() {
       <Header />
       <main>
         <section className="relative overflow-hidden pt-20">
-          <div className="shell grid min-h-[620px] items-center gap-12 py-14 lg:grid-cols-12 lg:py-20">
+          <div className="shell grid min-h-[620px] items-center gap-10 py-14 md:py-16 lg:grid-cols-12 lg:gap-12 lg:py-20">
             <div className="lg:col-span-6">
               <p className="eyebrow">Water dispenser solutions</p>
-              <h1 className="display mt-6 max-w-2xl">Water Dispensers for Home and Commercial Use</h1>
-              <p className="body-copy mt-7 max-w-xl">
+              <h1 className="mt-6 max-w-[650px] text-[clamp(2.5rem,4vw,3.05rem)] font-semibold leading-[1.04] tracking-[-0.065em] text-ink">
+                Water Dispensers for<br />
+                Home &amp; Commercial Use
+              </h1>
+              <p className="body-copy mt-7 max-w-[560px] leading-8">
                 Explore floor-standing, ice-making and desktop water dispenser solutions for residential, office and commercial applications.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -122,7 +125,7 @@ export default function WaterDispensersPage() {
           </div>
         </section>
 
-        <section className="py-14 md:py-20">
+        <section className="py-16 md:py-20">
           <div className="shell">
             <div className="mx-auto max-w-3xl text-center">
               <p className="eyebrow">Product range</p>
@@ -132,13 +135,13 @@ export default function WaterDispensersPage() {
               </p>
             </div>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
               {products.map((product) => (
-                <article key={product.title} className="rounded-[2rem] bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+                <article key={product.title} className="flex h-full flex-col rounded-[2rem] bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
                   <ProductImage product={product} />
-                  <div className="px-2 pb-2 pt-7">
-                    <h3 className="text-2xl font-medium tracking-tight">{product.title}</h3>
-                    <p className="mt-4 text-sm leading-6 text-ink/60">{product.description}</p>
+                  <div className="flex flex-1 flex-col px-2 pb-2 pt-7">
+                    <h3 className="min-h-[3.45rem] text-[clamp(1.35rem,2vw,1.6rem)] font-medium leading-[1.15] tracking-tight">{product.title}</h3>
+                    <p className="mt-4 min-h-[4.5rem] text-sm leading-[1.6] text-ink/60">{product.description}</p>
                     <div className="mt-6 flex flex-wrap gap-2">
                       {product.tags.map((tag) => (
                         <span key={tag} className="rounded-full border border-line bg-canvas/70 px-3 py-1.5 text-xs font-medium text-ink/55">
@@ -147,7 +150,7 @@ export default function WaterDispensersPage() {
                       ))}
                     </div>
                     {/* Future detail links can connect product.futureHref when product pages are created. */}
-                    <a href={product.inquiryHref} className="mt-7 inline-flex min-h-11 items-center justify-center rounded-full bg-ink px-5 text-sm font-medium text-white transition hover:bg-nordic">
+                    <a href={product.inquiryHref} className="mt-auto inline-flex min-h-11 w-fit items-center justify-center rounded-full bg-ink px-5 text-sm font-medium text-white transition hover:bg-nordic focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nordic">
                       Request Details
                     </a>
                   </div>
@@ -157,14 +160,18 @@ export default function WaterDispensersPage() {
           </div>
         </section>
 
-        <section className="bg-mist py-14 md:py-20">
+        <section className="bg-mist py-14 md:py-[4.5rem] lg:py-20">
           <div className="shell">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="headline">Designed for Everyday Drinking Water Applications</h2>
+            <div className="mx-auto max-w-[720px] text-center">
+              <p className="eyebrow">Applications</p>
+              <h2 className="headline mt-5">Built for Everyday Applications</h2>
+              <p className="body-copy mx-auto mt-5 max-w-[680px]">
+                Flexible solutions for offices, hospitality, education, healthcare, factories and residential spaces.
+              </p>
             </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+            <div className="mt-9 grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
               {applications.map((application) => (
-                <article key={application} className="rounded-2xl bg-white/70 px-5 py-6 text-center shadow-sm">
+                <article key={application} className="flex min-h-[92px] items-center justify-center rounded-2xl bg-white/70 px-4 py-5 text-center shadow-sm">
                   <h3 className="text-sm font-medium text-ink/75">{application}</h3>
                 </article>
               ))}
@@ -172,19 +179,19 @@ export default function WaterDispensersPage() {
           </div>
         </section>
 
-        <section className="py-14 md:py-20">
+        <section className="py-14 md:py-[4.5rem] lg:py-20">
           <div className="shell">
-            <div className="grid items-center gap-10 rounded-[2rem] border border-line bg-white/60 p-6 shadow-soft md:p-10 lg:grid-cols-12">
+            <div className="grid items-center gap-8 rounded-[2rem] border border-line bg-white/60 p-6 shadow-soft md:p-10 lg:grid-cols-12 lg:gap-10">
               <div className="lg:col-span-8">
                 <p className="eyebrow">OEM support</p>
-                <h2 className="headline mt-5">OEM &amp; Private Label Water Dispensers</h2>
-                <p className="body-copy mt-6 max-w-3xl">
+                <h2 className="headline mt-5 max-w-[680px]">OEM &amp; Private Label<br className="hidden sm:block" /> Water Dispensers</h2>
+                <p className="body-copy mt-6 max-w-[720px]">
                   QLORA supports product configuration, branding, packaging and market-oriented water dispenser solutions for distributors and importers.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 lg:col-span-4">
-                <a href="/oem-private-label" className="button-primary">Start an OEM Project</a>
-                <a href="/contact" className="button-secondary">Contact Sales</a>
+              <div className="flex w-full flex-col gap-3 lg:col-span-4 lg:items-stretch">
+                <a href="/oem-private-label" className="button-primary w-full justify-center whitespace-nowrap">Start an OEM Project</a>
+                <a href="/contact" className="button-secondary w-full justify-center whitespace-nowrap">Contact Sales</a>
               </div>
             </div>
           </div>
