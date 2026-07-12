@@ -1,6 +1,7 @@
 import Home from './pages/Home'
 import ROSystems from './pages/ROSystems'
 import WaterFiltration from './pages/WaterFiltration'
+import WaterDispensersPage from './pages/WaterDispensersPage'
 import OEMPrivateLabel from './pages/OEMPrivateLabel'
 import ContactPage from './pages/ContactPage'
 import AboutPage from './pages/AboutPage'
@@ -13,6 +14,7 @@ export default function App() {
 
   if (path.startsWith('/products/')) page = <ProductPage slug={path.replace('/products/', '')} />
   else if (path === '/ro-systems') page = <ROSystems />
+  else if (path === '/water-dispensers') page = <WaterDispensersPage />
   else if (path === '/water-filtration') page = <WaterFiltration />
   else if (path === '/oem-private-label') page = <OEMPrivateLabel />
   else if (path === '/contact') page = <ContactPage />

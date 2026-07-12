@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 
 type DropdownItem = {
   label: string
@@ -42,7 +42,7 @@ const dropdownMenus: DropdownMenu[] = [
 ]
 
 const simpleNav = [
-  ['OEM', '/oem-private-label'],
+  ['OEM Solutions', '/oem-private-label'],
   ['About', '/about'],
   ['Contact', '/contact'],
 ]
@@ -104,14 +104,19 @@ export default function Header() {
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary navigation">
           <a href="/" className={`text-sm transition hover:text-ink ${isActive('/') ? 'text-ink' : 'text-ink/65'}`}>Home</a>
 
-          {dropdownMenus.map((menu) => (
-            <DesktopDropdown
-              key={menu.label}
-              menu={menu}
-              isActive={isActive}
-              isMenuActive={isMenuActive(menu)}
-            />
-          ))}
+          <DesktopDropdown
+            menu={dropdownMenus[0]}
+            isActive={isActive}
+            isMenuActive={isMenuActive(dropdownMenus[0])}
+          />
+
+          <a href="/water-dispensers" className={`text-sm transition hover:text-ink ${isActive('/water-dispensers') ? 'text-ink' : 'text-ink/65'}`}>Water Dispensers</a>
+
+          <DesktopDropdown
+            menu={dropdownMenus[1]}
+            isActive={isActive}
+            isMenuActive={isMenuActive(dropdownMenus[1])}
+          />
 
           {simpleNav.map(([label, href]) => (
             <a key={label} href={href} className={`text-sm transition hover:text-ink ${isActive(href) ? 'text-ink' : 'text-ink/65'}`}>{label}</a>
@@ -134,43 +139,48 @@ export default function Header() {
         <nav className="border-t border-line bg-canvas px-5 py-5 lg:hidden" aria-label="Mobile navigation">
           <a onClick={() => setOpen(false)} href="/" className={`block border-b border-line py-3 text-base ${isActive('/') ? 'text-ink' : 'text-ink/75'}`}>Home</a>
 
-          {dropdownMenus.map((menu) => {
+          {dropdownMenus.map((menu, index) => {
             const expanded = mobileDropdown === menu.label
             return (
-              <div key={menu.label} className="border-b border-line">
-                <button
-                  type="button"
-                  onClick={() => setMobileDropdown(expanded ? null : menu.label)}
-                  className={`flex w-full items-center justify-between py-3 text-left text-base ${isMenuActive(menu) ? 'text-ink' : 'text-ink/75'}`}
-                  aria-expanded={expanded}
-                >
-                  <span>{menu.label}</span>
-                  <span className={`text-sm text-ink/45 transition ${expanded ? 'rotate-180' : ''}`} aria-hidden="true">▼</span>
-                </button>
+              <div key={menu.label}>
+                <div className="border-b border-line">
+                  <button
+                    type="button"
+                    onClick={() => setMobileDropdown(expanded ? null : menu.label)}
+                    className={`flex w-full items-center justify-between py-3 text-left text-base ${isMenuActive(menu) ? 'text-ink' : 'text-ink/75'}`}
+                    aria-expanded={expanded}
+                  >
+                    <span>{menu.label}</span>
+                    <span className={`text-sm text-ink/45 transition ${expanded ? 'rotate-180' : ''}`} aria-hidden="true">▼</span>
+                  </button>
 
-                {expanded && (
-                  <div className="pb-3 pl-4">
-                    <a
-                      onClick={() => setOpen(false)}
-                      href={menu.href}
-                      className={`block rounded-xl px-4 py-3 text-sm transition hover:bg-white/70 ${isActive(menu.href) ? 'bg-white text-ink shadow-sm' : 'text-ink/60'}`}
-                    >
-                      View {menu.label}
-                    </a>
-                    {menu.items.map((item) => (
+                  {expanded && (
+                    <div className="pb-3 pl-4">
                       <a
                         onClick={() => setOpen(false)}
-                        key={item.label}
-                        href={item.href}
-                        className={`block rounded-xl px-4 py-3 text-sm transition hover:bg-white/70 ${isActive(item.href) ? 'bg-white text-ink shadow-sm' : 'text-ink/60'}`}
+                        href={menu.href}
+                        className={`block rounded-xl px-4 py-3 text-sm transition hover:bg-white/70 ${isActive(menu.href) ? 'bg-white text-ink shadow-sm' : 'text-ink/60'}`}
                       >
-                        <span className="block font-medium">{item.label}</span>
-                        {item.subtitle && (
-                          <span className="mt-1 block text-xs leading-5 text-ink/45">{item.subtitle}</span>
-                        )}
+                        View {menu.label}
                       </a>
-                    ))}
-                  </div>
+                      {menu.items.map((item) => (
+                        <a
+                          onClick={() => setOpen(false)}
+                          key={item.label}
+                          href={item.href}
+                          className={`block rounded-xl px-4 py-3 text-sm transition hover:bg-white/70 ${isActive(item.href) ? 'bg-white text-ink shadow-sm' : 'text-ink/60'}`}
+                        >
+                          <span className="block font-medium">{item.label}</span>
+                          {item.subtitle && (
+                            <span className="mt-1 block text-xs leading-5 text-ink/45">{item.subtitle}</span>
+                          )}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {index === 0 && (
+                  <a onClick={() => setOpen(false)} href="/water-dispensers" className={`block border-b border-line py-3 text-base ${isActive('/water-dispensers') ? 'text-ink' : 'text-ink/75'}`}>Water Dispensers</a>
                 )}
               </div>
             )
