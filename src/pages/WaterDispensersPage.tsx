@@ -11,6 +11,7 @@ type WaterDispenserProduct = {
   futureHref: string
   image: string
   imageAlt: string
+  imagePosition: string
 }
 
 const waterDispenserHero = '/images/water-dispensers/water-dispensers-hero.png'
@@ -24,6 +25,7 @@ const products: WaterDispenserProduct[] = [
     futureHref: '/products/floor-standing-water-dispenser',
     image: '/images/water-dispensers/floor-standing-water-dispenser.png',
     imageAlt: 'Floor standing hot and cold water dispenser for office and commercial use',
+    imagePosition: 'center center',
   },
   {
     title: 'Water Dispenser with Ice Maker',
@@ -33,6 +35,7 @@ const products: WaterDispenserProduct[] = [
     futureHref: '/products/water-dispenser-with-ice-maker',
     image: '/images/water-dispensers/water-dispenser-with-ice-maker.png',
     imageAlt: 'Floor standing water dispenser with built-in ice maker',
+    imagePosition: 'center center',
   },
   {
     title: 'Desktop Water Dispenser',
@@ -42,6 +45,7 @@ const products: WaterDispenserProduct[] = [
     futureHref: '/products/desktop-water-dispenser',
     image: '/images/water-dispensers/desktop-water-dispenser.png',
     imageAlt: 'Compact desktop water dispenser for home and office use',
+    imagePosition: 'center center',
   },
 ]
 
@@ -49,11 +53,12 @@ const applications = ['Offices', 'Hotels', 'Schools', 'Hospitals', 'Factories', 
 
 function ProductImage({ product }: { product: WaterDispenserProduct }) {
   return (
-    <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] p-6 shadow-sm">
+    <div className="aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] shadow-sm">
       <img
         src={product.image}
         alt={product.imageAlt}
-        className="h-full w-full object-contain"
+        className="h-full w-full object-cover"
+        style={{ objectPosition: product.imagePosition }}
         loading="lazy"
         decoding="async"
       />
@@ -101,8 +106,8 @@ export default function WaterDispensersPage() {
             </div>
 
             <div className="lg:col-span-6">
-              <div className="rounded-[2rem] bg-white/60 p-5 shadow-soft">
-                <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] p-4">
+              <div className="rounded-[2rem] bg-white/60 p-2 shadow-soft sm:p-3">
+                <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] p-2 sm:p-3">
                   <img
                     src={waterDispenserHero}
                     alt="QLORA water dispenser product lineup for home office and commercial use"
