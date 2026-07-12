@@ -25,7 +25,7 @@ const products: WaterDispenserProduct[] = [
     futureHref: '/products/floor-standing-water-dispenser',
     image: '/images/water-dispensers/floor-standing-water-dispenser.png',
     imageAlt: 'Floor standing hot and cold water dispenser for office and commercial use',
-    imagePosition: 'center center',
+    imagePosition: 'center 35%',
   },
   {
     title: 'Water Dispenser with Ice Maker',
@@ -35,7 +35,7 @@ const products: WaterDispenserProduct[] = [
     futureHref: '/products/water-dispenser-with-ice-maker',
     image: '/images/water-dispensers/water-dispenser-with-ice-maker.png',
     imageAlt: 'Floor standing water dispenser with built-in ice maker',
-    imagePosition: 'center center',
+    imagePosition: 'center 32%',
   },
   {
     title: 'Desktop Water Dispenser',
