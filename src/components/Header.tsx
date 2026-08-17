@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 
 type DropdownItem = {
   label: string
@@ -43,6 +43,7 @@ const dropdownMenus: DropdownMenu[] = [
 
 const simpleNav = [
   ['OEM Solutions', '/oem-private-label'],
+  ['Technical Knowledge', '/technical-knowledge'],
   ['About', '/about'],
   ['Contact', '/contact'],
 ]
@@ -64,7 +65,7 @@ function DesktopDropdown({
         aria-haspopup="true"
       >
         {menu.label}
-        <span className="text-xs text-ink/35 transition group-hover:rotate-180" aria-hidden="true">▼</span>
+        <span className="text-xs text-ink/35 transition group-hover:rotate-180" aria-hidden="true">{'\u25BE'}</span>
       </a>
 
       <div className="invisible pointer-events-none absolute left-1/2 top-full w-64 -translate-x-1/2 translate-y-1 rounded-2xl border border-line bg-canvas/95 p-2 opacity-0 shadow-soft backdrop-blur-md transition delay-150 duration-200 ease-out group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-hover:delay-75">
@@ -110,8 +111,6 @@ export default function Header() {
             isMenuActive={isMenuActive(dropdownMenus[0])}
           />
 
-          <a href="/water-dispensers" className={`text-sm transition hover:text-ink ${isActive('/water-dispensers') ? 'text-ink' : 'text-ink/65'}`}>Water Dispensers</a>
-
           <DesktopDropdown
             menu={dropdownMenus[1]}
             isActive={isActive}
@@ -131,7 +130,7 @@ export default function Header() {
           aria-expanded={open}
           aria-label="Toggle menu"
         >
-          <span className="text-xl" aria-hidden="true">{open ? '×' : '☰'}</span>
+          <span className="text-xl" aria-hidden="true">{open ? '\u00d7' : '\u2630'}</span>
         </button>
       </div>
 
@@ -151,7 +150,7 @@ export default function Header() {
                     aria-expanded={expanded}
                   >
                     <span>{menu.label}</span>
-                    <span className={`text-sm text-ink/45 transition ${expanded ? 'rotate-180' : ''}`} aria-hidden="true">▼</span>
+                    <span className={`text-sm text-ink/45 transition ${expanded ? 'rotate-180' : ''}`} aria-hidden="true">{'\u25BE'}</span>
                   </button>
 
                   {expanded && (
@@ -179,9 +178,6 @@ export default function Header() {
                     </div>
                   )}
                 </div>
-                {index === 0 && (
-                  <a onClick={() => setOpen(false)} href="/water-dispensers" className={`block border-b border-line py-3 text-base ${isActive('/water-dispensers') ? 'text-ink' : 'text-ink/75'}`}>Water Dispensers</a>
-                )}
               </div>
             )
           })}
