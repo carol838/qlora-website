@@ -111,6 +111,8 @@ export default function Header() {
             isMenuActive={isMenuActive(dropdownMenus[0])}
           />
 
+          <a href="/water-dispensers" className={`text-sm transition hover:text-ink ${isActive('/water-dispensers') ? 'text-ink' : 'text-ink/65'}`}>Water Dispensers</a>
+
           <DesktopDropdown
             menu={dropdownMenus[1]}
             isActive={isActive}
@@ -178,6 +180,9 @@ export default function Header() {
                     </div>
                   )}
                 </div>
+                {index === 0 && (
+                  <a onClick={() => setOpen(false)} href="/water-dispensers" className={`block border-b border-line py-3 text-base ${isActive('/water-dispensers') ? 'text-ink' : 'text-ink/75'}`}>Water Dispensers</a>
+                )}
               </div>
             )
           })}
