@@ -5,7 +5,7 @@ export default function ShowerSolutionsFeature() {
         <div className="lg:col-span-6">
           <div className="overflow-hidden rounded-[2rem] bg-white p-6 shadow-soft">
             <img
-              src="/images/shower-solutions/systems/QS-SYS-001.webp"
+              src="/images/shower-solutions/QLORA-Shower-Solutions-Homepage-Feature.webp"
               alt="Modern shower system product for residential applications"
               className="aspect-[4/3] w-full rounded-[1.5rem] object-contain"
               loading="lazy"
