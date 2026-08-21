@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react'
+import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { applySEO } from '../lib/seo'
@@ -63,13 +63,6 @@ const applicationShowcase = [
     href: '/products/coffee-machine-filter',
   },
   {
-    title: 'Shower & Wellness',
-    description: 'Shower filtration products for everyday comfort, cleaner water feel and wellness-focused routines.',
-    image: `${imageBase}/shower-filter.webp`,
-    alt: 'Handheld shower water filter with transparent cartridge',
-    href: '/products/shower-filter',
-  },
-  {
     title: 'Refrigerator Filter',
     description: 'Compatible refrigerator filter solutions for fresh water, ice makers and home appliance programs.',
     image: `${imageBase}/refrigerator-filter.webp`,
@@ -89,7 +82,7 @@ export default function WaterFiltration() {
   useEffect(() => {
     applySEO({
       title: 'Replacement Water Filters & Filtration Solutions | QLORA',
-      description: 'Discover replacement water filters including under sink, refrigerator, coffee machine and shower filtration solutions.',
+      description: 'Discover replacement water filters including under sink, refrigerator and coffee machine filtration solutions.',
       path: '/water-filtration',
       image: 'https://qloratech.com/images/water-filtration/hero.webp',
       breadcrumbs: [{ name: 'Water Filtration', path: '/water-filtration' }],
@@ -115,7 +108,7 @@ export default function WaterFiltration() {
             <div className="lg:col-span-5">
               <p className="eyebrow">Everyday filtration, refined</p>
               <h1 className="display mt-6 max-w-xl">Water Filtration Solutions</h1>
-              <p className="body-copy mt-7 max-w-lg">Clean, reliable replacement filters for kitchens, coffee machines, showers and everyday home water systems.</p>
+              <p className="body-copy mt-7 max-w-lg">Clean, reliable replacement filters for kitchens, coffee machines and everyday home water systems.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a href="#replacement-filter-solutions" className="button-primary">Explore Filter Solutions</a>
                 <a href="/oem-private-label" className="button-secondary">Request OEM Quote</a>
@@ -143,10 +136,10 @@ export default function WaterFiltration() {
             <div className="mx-auto max-w-3xl text-center">
               <p className="eyebrow">Everyday applications</p>
               <h2 className="headline mt-5">Filtration for Home Appliances</h2>
-              <p className="body-copy mx-auto mt-6 max-w-2xl">Focused product lines for coffee, showers and refrigerator water applications.</p>
+              <p className="body-copy mx-auto mt-6 max-w-2xl">Focused product lines for coffee and refrigerator water applications.</p>
             </div>
 
-            <div className="mt-10 grid gap-6 md:mt-12 lg:grid-cols-3">
+            <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:mt-12 md:grid-cols-2">
               {applicationShowcase.map(item => (
                 <a href={item.href} key={item.title} className="block cursor-pointer rounded-[1.75rem] bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
                   <div className="rounded-[1.25rem] bg-[#f7f6f1] p-5">
@@ -289,5 +282,3 @@ export default function WaterFiltration() {
     </>
   )
 }
-
-

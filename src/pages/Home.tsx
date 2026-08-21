@@ -5,6 +5,7 @@ import ValueStrip from '../components/ValueStrip'
 import ROSystem from '../components/ROSystem'
 import LifestyleSolutions from '../components/LifestyleSolutions'
 import WaterDispensersEntrance from '../components/WaterDispensersEntrance'
+import ShowerSolutionsFeature from '../components/ShowerSolutionsFeature'
 import OEMSolutions from '../components/OEMSolutions'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
@@ -21,7 +22,7 @@ export default function Home() {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
         name: 'QLORA water filtration solutions',
-        itemListElement: ['RO Water Systems', 'Water Dispensers', 'Replacement Water Filters', 'Under Sink Filtration', 'OEM Manufacturing', 'Private Label Products'].map((name, index) => ({
+        itemListElement: ['RO Water Systems', 'Water Dispensers', 'Shower Solutions', 'Replacement Water Filters', 'Under Sink Filtration', 'OEM Manufacturing', 'Private Label Products'].map((name, index) => ({
           '@type': 'ListItem',
           position: index + 1,
           name,
@@ -37,8 +38,9 @@ export default function Home() {
         <Hero />
         <ValueStrip />
         <ROSystem />
-        <LifestyleSolutions />
         <WaterDispensersEntrance />
+        <ShowerSolutionsFeature />
+        <LifestyleSolutions />
         <OEMSolutions />
         <Contact />
       </main>

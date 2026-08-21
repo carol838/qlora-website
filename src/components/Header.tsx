@@ -34,7 +34,6 @@ const dropdownMenus: DropdownMenu[] = [
     href: '/water-filtration',
     items: [
       { label: 'Under Sink Filtration', href: '/water-filtration' },
-      { label: 'Shower Filters', href: '/products/shower-filter' },
       { label: 'Refrigerator Filters', href: '/products/refrigerator-water-filter' },
       { label: 'Coffee Machine Filters', href: '/products/coffee-machine-filter' },
     ],
@@ -42,9 +41,9 @@ const dropdownMenus: DropdownMenu[] = [
 ]
 
 const simpleNav = [
+  ['Shower Solutions', '/shower-solutions'],
   ['OEM Solutions', '/oem-private-label'],
   ['Technical Knowledge', '/technical-knowledge'],
-  ['About', '/about'],
   ['Contact', '/contact'],
 ]
 
@@ -102,7 +101,7 @@ export default function Header() {
           <span className="mt-1 block text-[9px] tracking-[0.08em] text-ink/55">Better Water for Everyday Life</span>
         </a>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-4 xl:gap-5 2xl:gap-6 lg:flex" aria-label="Primary navigation">
           <a href="/" className={`text-sm transition hover:text-ink ${isActive('/') ? 'text-ink' : 'text-ink/65'}`}>Home</a>
 
           <DesktopDropdown

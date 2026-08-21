@@ -1,7 +1,7 @@
 const cards = [
-  { title: 'Under Sink Filtration', copy: 'Clean drinking water for everyday kitchens.', cta: 'Learn More', position: 'left' },
-  { title: 'Coffee & Beverage', copy: 'Better water for better flavor.', cta: 'Learn More', position: 'center' },
-  { title: 'Shower & Wellness', copy: 'Daily water care for skin and hair.', cta: 'Learn More', position: 'right' },
+  { title: 'Under Sink Filtration', copy: 'Clean drinking water for everyday kitchens.', cta: 'Learn More', position: 'left', href: '/water-filtration' },
+  { title: 'Coffee & Beverage', copy: 'Better water for better flavor.', cta: 'Learn More', position: 'center', href: '/products/coffee-machine-filter' },
+  { title: 'Refrigerator Filtration', copy: 'Fresh filtered water for everyday use.', cta: 'Learn More', position: 'right', href: '/products/refrigerator-water-filter' },
 ]
 
 export default function LifestyleSolutions() {
@@ -11,7 +11,7 @@ export default function LifestyleSolutions() {
         <div className="max-w-2xl">
           <p className="eyebrow">Water filtration</p>
           <h2 className="headline mt-5">Filtration for Everyday Water Moments</h2>
-          <p className="body-copy mt-5">Simple routes for kitchens, coffee, showers and daily home water use.</p>
+          <p className="body-copy mt-5">Simple filtration routes for kitchens, coffee and everyday drinking water.</p>
         </div>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
@@ -22,7 +22,7 @@ export default function LifestyleSolutions() {
               <div className="absolute inset-x-0 bottom-0 p-8 text-white">
                 <h3 className="text-2xl font-medium tracking-tight">{card.title}</h3>
                 <p className="mt-3 max-w-xs text-sm leading-6 text-white/75">{card.copy}</p>
-                <a href="/water-filtration" className="mt-7 inline-block border-b border-white/60 pb-1 text-sm font-medium">{card.cta}</a>
+                <a href={card.href} className="mt-7 inline-block border-b border-white/60 pb-1 text-sm font-medium">{card.cta}</a>
               </div>
             </article>
           ))}
