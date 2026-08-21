@@ -1,7 +1,8 @@
-import Home from './pages/Home'
+﻿import Home from './pages/Home'
 import ROSystems from './pages/ROSystems'
 import WaterFiltration from './pages/WaterFiltration'
 import WaterDispensersPage from './pages/WaterDispensersPage'
+import WaterDispenserProductPage from './pages/WaterDispenserProductPage'
 import OEMPrivateLabel from './pages/OEMPrivateLabel'
 import ShowerSolutions from './pages/ShowerSolutions'
 import TechnicalKnowledge from './pages/TechnicalKnowledge'
@@ -18,6 +19,7 @@ export default function App() {
   if (path.startsWith('/products/')) page = <ProductPage slug={path.replace('/products/', '')} />
   else if (path === '/ro-systems') page = <ROSystems />
   else if (path === '/water-dispensers') page = <WaterDispensersPage />
+  else if (path.startsWith('/water-dispensers/')) page = <WaterDispenserProductPage slug={path.replace('/water-dispensers/', '')} />
   else if (path === '/water-filtration') page = <WaterFiltration />
   else if (path === '/shower-solutions') page = <ShowerSolutions />
   else if (path === '/oem-private-label') page = <OEMPrivateLabel />
@@ -33,3 +35,4 @@ export default function App() {
     </>
   )
 }
+

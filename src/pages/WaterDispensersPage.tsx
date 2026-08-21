@@ -1,91 +1,126 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { applySEO } from '../lib/seo'
+import { getWaterDispenserById, getWaterDispenserHref, waterDispenserProducts, type WaterDispenserProduct } from '../data/waterDispenserProducts'
 
-type WaterDispenserProduct = {
-  title: string
-  description: string
-  tags: string[]
-  inquiryHref: string
-  futureHref: string
-  image: string
-  imageAlt: string
-  imagePosition: string
-}
-
-const waterDispenserHero = '/images/water-dispensers/water-dispensers-hero.png'
-
-const products: WaterDispenserProduct[] = [
+const categoryCards = [
   {
-    title: 'Floor Standing Water Dispenser',
-    description: 'A full-size hot and cold water dispenser designed for offices, schools, hotels and shared commercial spaces.',
-    tags: ['Floor Standing', 'Hot & Cold', 'Office & Commercial'],
-    inquiryHref: '/contact?product=floor-standing-water-dispenser',
-    futureHref: '/products/floor-standing-water-dispenser',
-    image: '/images/water-dispensers/floor-standing-water-dispenser.png',
-    imageAlt: 'Floor standing hot and cold water dispenser for office and commercial use',
-    imagePosition: 'center 42%',
+    title: 'Floor-Standing Water Dispensers',
+    description: 'Full-size hot and cold water dispenser platforms for offices, commercial spaces and shared environments.',
+    imageId: 'QD-MOD-001',
+    href: '#featured-floor-standing',
   },
   {
-    title: 'Water Dispenser with Ice Maker',
-    description: 'A multifunctional floor-standing model combining drinking water dispensing with integrated ice-making capability.',
-    tags: ['Built-in Ice Maker', 'Hot & Cold Water', 'Commercial Use'],
-    inquiryHref: '/contact?product=water-dispenser-with-ice-maker',
-    futureHref: '/products/water-dispenser-with-ice-maker',
-    image: '/images/water-dispensers/water-dispenser-with-ice-maker.png',
-    imageAlt: 'Floor standing water dispenser with built-in ice maker',
-    imagePosition: 'center 40%',
+    title: 'Countertop Water Dispensers',
+    description: 'Compact dispenser solutions for kitchens, offices, meeting rooms and space-conscious applications.',
+    imageId: 'QD-CT-001',
+    href: '#countertop-water-dispensers',
   },
   {
-    title: 'Desktop Water Dispenser',
-    description: 'A compact countertop water dispenser for homes, apartments, meeting rooms and small offices.',
-    tags: ['Compact Design', 'Countertop Use', 'Home & Office'],
-    inquiryHref: '/contact?product=desktop-water-dispenser',
-    futureHref: '/products/desktop-water-dispenser',
-    image: '/images/water-dispensers/desktop-water-dispenser.png',
-    imageAlt: 'Compact desktop water dispenser for home and office use',
-    imagePosition: 'center center',
+    title: 'Bottom-Loading & POU Solutions',
+    description: 'Selected dispenser platforms supporting bottom-loading and point-of-use filtration configurations.',
+    imageId: 'QD-PREM-002',
+    href: '#integrated-filtration-options',
+  },
+  {
+    title: 'Tea Bar Water Dispensers',
+    description: 'Modern tea bar machines combining hot water dispensing with selected smart and convenience features.',
+    imageId: 'QD-TEA-007',
+    href: '#tea-bar-water-dispensers',
   },
 ]
 
-const applications = ['Offices', 'Hotels', 'Schools', 'Hospitals', 'Factories', 'Residential Spaces']
+const floorStandingIds = ['QD-PREM-001', 'QD-PREM-002', 'QD-PREM-004', 'QD-MOD-001', 'QD-MOD-002', 'QD-MOD-004', 'QD-CLASS-001', 'QD-CLASS-003']
+const countertopIds = ['QD-CT-001', 'QD-CT-003', 'QD-CCT-001']
+const teaBarIds = ['QD-TEA-001', 'QD-TEA-006', 'QD-TEA-007']
 
-function ProductImage({ product }: { product: WaterDispenserProduct }) {
+function byIds(ids: string[]) {
+  return ids.map((id) => getWaterDispenserById(id)).filter(Boolean) as WaterDispenserProduct[]
+}
+
+function ProductImage({ product, priority = false }: { product: WaterDispenserProduct; priority?: boolean }) {
   return (
-    <div className="aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] shadow-sm">
+    <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.6rem] bg-white p-4 shadow-sm">
       <img
         src={product.image}
         alt={product.imageAlt}
-        className="h-full w-full object-cover"
-        style={{ objectPosition: product.imagePosition }}
-        loading="lazy"
+        className="h-full w-full object-contain"
+        loading={priority ? 'eager' : 'lazy'}
         decoding="async"
+        fetchPriority={priority ? 'high' : undefined}
       />
     </div>
   )
 }
 
+function ProductCard({ product }: { product: WaterDispenserProduct }) {
+  const href = getWaterDispenserHref(product)
+  const hasDetail = Boolean(product.slug)
+  const tags = product.standardFeatures.slice(0, 3)
+
+  return (
+    <a href={href} className="group flex h-full flex-col rounded-[2rem] border border-line bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+      <ProductImage product={product} />
+      <div className="flex flex-1 flex-col px-1 pb-1 pt-6">
+        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-nordic/80">{product.category}</p>
+        <h3 className="mt-3 text-[clamp(1.25rem,2vw,1.55rem)] font-medium leading-tight tracking-tight text-ink">{product.name}</h3>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span key={tag} className="rounded-full border border-line bg-canvas/80 px-3 py-1.5 text-xs font-medium text-ink/55">{tag}</span>
+          ))}
+        </div>
+        <dl className="mt-6 grid gap-3 text-sm text-ink/70">
+          <div className="flex items-start justify-between gap-4 border-t border-line pt-3">
+            <dt className="text-ink/45">Cooling</dt>
+            <dd className="text-right font-medium text-ink">{product.cooling}</dd>
+          </div>
+          <div className="flex items-start justify-between gap-4 border-t border-line pt-3">
+            <dt className="text-ink/45">Heating</dt>
+            <dd className="text-right font-medium text-ink">{product.heating}</dd>
+          </div>
+          <div className="flex items-start justify-between gap-4 border-t border-line pt-3">
+            <dt className="text-ink/45">Product Size</dt>
+            <dd className="text-right font-medium text-ink">{product.productSize}</dd>
+          </div>
+        </dl>
+        <span className="mt-7 inline-flex w-fit items-center text-sm font-medium text-nordic transition group-hover:translate-x-1">
+          {hasDetail ? 'View Details' : 'Request Details'} <span className="ml-1">→</span>
+        </span>
+      </div>
+    </a>
+  )
+}
+
+function ProductGrid({ products }: { products: WaterDispenserProduct[] }) {
+  return <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{products.map((product) => <ProductCard key={product.id} product={product} />)}</div>
+}
+
 export default function WaterDispensersPage() {
+  const heroProduct = getWaterDispenserById('QD-PREM-002')!
+  const featuredProduct = getWaterDispenserById('QD-PREM-001')!
+  const displayedProducts = [...byIds(floorStandingIds), ...byIds(countertopIds), ...byIds(teaBarIds)]
+
   useEffect(() => {
     applySEO({
-      title: 'Water Dispenser Manufacturer & OEM Solutions | QLORA',
-      description: 'Explore QLORA floor-standing, ice-making and desktop water dispensers for residential, office and commercial applications, with OEM and private label support.',
+      title: 'Water Dispensers & POU Solutions | QLORA',
+      description: 'Explore QLORA floor-standing, countertop, bottom-loading and tea bar water dispensers with selected POU, RO and UF filtration options for residential and commercial applications.',
       path: '/water-dispensers',
-      image: `https://qloratech.com${waterDispenserHero}`,
+      image: `https://qloratech.com${heroProduct.image}`,
       breadcrumbs: [{ name: 'Water Dispensers', path: '/water-dispensers' }],
       schemas: [{
         '@context': 'https://schema.org',
         '@type': 'ItemList',
-        name: 'QLORA water dispenser solutions',
-        itemListElement: products.map((product, index) => ({
+        name: 'QLORA water dispensers',
+        itemListElement: displayedProducts.map((product, index) => ({
           '@type': 'ListItem',
           position: index + 1,
-          name: product.title,
+          name: product.name,
+          url: product.slug ? `https://qloratech.com/water-dispensers/${product.slug}` : 'https://qloratech.com/water-dispensers',
         })),
       }],
     })
-  }, [])
+  }, [displayedProducts, heroProduct.image])
 
   return (
     <>
@@ -95,103 +130,136 @@ export default function WaterDispensersPage() {
           <div className="shell grid min-h-[620px] items-center gap-10 py-14 md:py-16 lg:grid-cols-12 lg:gap-12 lg:py-20">
             <div className="lg:col-span-6">
               <p className="eyebrow">Water dispenser solutions</p>
-              <h1 className="mt-6 max-w-[650px] text-[clamp(2.5rem,4vw,3.05rem)] font-semibold leading-[1.04] tracking-[-0.065em] text-ink">
-                Water Dispensers for<br />
-                Home &amp; Commercial Use
+              <h1 className="mt-6 max-w-[720px] text-[clamp(2.55rem,4.4vw,4.45rem)] font-semibold leading-[1.02] tracking-[-0.07em] text-ink">
+                Water Dispensers for Home &amp; Commercial Applications
               </h1>
-              <p className="body-copy mt-7 max-w-[560px] leading-8">
-                Explore floor-standing, ice-making and desktop water dispenser solutions for residential, office and commercial applications.
+              <p className="body-copy mt-7 max-w-[590px] leading-8">
+                Explore floor-standing, countertop and integrated water dispenser solutions with flexible hot, cold and filtration configurations.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <a href="/contact" className="button-primary">Request a Quote</a>
-                <a href="/oem-private-label" className="button-secondary">OEM Solutions</a>
+                <a href="#explore-water-dispensers" className="button-primary">Explore Water Dispensers</a>
+                <a href="/contact" className="button-secondary">Discuss Your Project</a>
               </div>
             </div>
 
             <div className="lg:col-span-6">
-              <div className="rounded-[2rem] bg-white/60 p-2 shadow-soft sm:p-3">
-                <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white via-[#f7f6f1] to-[#ebe7dd] p-2 sm:p-3">
-                  <img
-                    src={waterDispenserHero}
-                    alt="QLORA water dispenser product lineup for home office and commercial use"
-                    className="h-full w-full object-contain"
-                    loading="eager"
-                    decoding="async"
-                    fetchPriority="high"
-                  />
-                </div>
+              <div className="rounded-[2rem] bg-white/60 p-4 shadow-soft sm:p-5">
+                <ProductImage product={heroProduct} priority />
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-20">
+        <section id="explore-water-dispensers" className="scroll-mt-20 py-14 md:py-20">
           <div className="shell">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="eyebrow">Product range</p>
-              <h2 className="headline mt-5">Available Water Dispenser Solutions</h2>
-              <p className="body-copy mx-auto mt-6 max-w-2xl">
-                Three practical product formats covering everyday drinking water, office use and enhanced ice-making applications.
-              </p>
+              <p className="eyebrow">Explore Water Dispensers</p>
+              <h2 className="headline mt-5">Dispenser Platforms for Different Projects</h2>
             </div>
+            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {categoryCards.map((card) => {
+                const product = getWaterDispenserById(card.imageId)!
+                return (
+                  <a key={card.title} href={card.href} className="group rounded-[2rem] border border-line bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+                    <ProductImage product={product} />
+                    <h3 className="mt-6 text-xl font-medium leading-tight tracking-tight text-ink">{card.title}</h3>
+                    <p className="mt-4 text-sm leading-6 text-ink/60">{card.description}</p>
+                    <span className="mt-6 inline-flex text-sm font-medium text-nordic transition group-hover:translate-x-1">Explore →</span>
+                  </a>
+                )
+              })}
+            </div>
+          </div>
+        </section>
 
-            <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {products.map((product) => (
-                <article key={product.title} className="flex h-full flex-col rounded-[2rem] bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
-                  <ProductImage product={product} />
-                  <div className="flex flex-1 flex-col px-2 pb-2 pt-7">
-                    <h3 className="min-h-[3.45rem] text-[clamp(1.35rem,2vw,1.6rem)] font-medium leading-[1.15] tracking-tight">{product.title}</h3>
-                    <p className="mt-4 min-h-[4.5rem] text-sm leading-[1.6] text-ink/60">{product.description}</p>
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {product.tags.map((tag) => (
-                        <span key={tag} className="rounded-full border border-line bg-canvas/70 px-3 py-1.5 text-xs font-medium text-ink/55">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    {/* Future detail links can connect product.futureHref when product pages are created. */}
-                    <a href={product.inquiryHref} className="mt-auto inline-flex min-h-11 w-fit items-center justify-center rounded-full bg-ink px-5 text-sm font-medium text-white transition hover:bg-nordic focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nordic">
-                      Request Details
-                    </a>
+        <section id="featured-floor-standing" className="scroll-mt-20 bg-mist py-14 md:py-20">
+          <div className="shell">
+            <div className="max-w-3xl">
+              <p className="eyebrow">Featured products</p>
+              <h2 className="headline mt-5">Featured Floor-Standing Water Dispensers</h2>
+              <p className="body-copy mt-5 max-w-2xl">Selected floor-standing platforms for offices, commercial spaces and shared drinking water environments.</p>
+            </div>
+            <ProductGrid products={byIds(floorStandingIds)} />
+          </div>
+        </section>
+
+        <section className="py-14 md:py-20">
+          <div className="shell grid items-center gap-10 rounded-[2.2rem] border border-line bg-white/70 p-6 shadow-soft md:p-10 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <p className="eyebrow">Featured solution</p>
+              <h2 className="headline mt-5">Water Dispenser with Integrated Ice Maker</h2>
+              <p className="body-copy mt-6">A floor-standing drinking water dispenser combining hot, normal and cold water dispensing with integrated ice-making capability.</p>
+              <dl className="mt-8 grid gap-3 text-sm">
+                {[['Cooling', featuredProduct.cooling], ['Heating', featuredProduct.heating], ['Product Size', featuredProduct.productSize]].map(([label, value]) => (
+                  <div key={label} className="flex justify-between gap-6 border-t border-line pt-3">
+                    <dt className="text-ink/45">{label}</dt>
+                    <dd className="font-medium text-ink">{value}</dd>
                   </div>
-                </article>
-              ))}
+                ))}
+              </dl>
+              <a href={getWaterDispenserHref(featuredProduct)} className="button-primary mt-8">View Product</a>
+            </div>
+            <div className="lg:col-span-7">
+              <ProductImage product={featuredProduct} />
             </div>
           </div>
         </section>
 
-        <section className="bg-mist py-14 md:py-[4.5rem] lg:py-20">
+        <section id="countertop-water-dispensers" className="scroll-mt-20 py-14 md:py-20">
           <div className="shell">
-            <div className="mx-auto max-w-[720px] text-center">
-              <p className="eyebrow">Applications</p>
-              <h2 className="headline mt-5">Built for Everyday Applications</h2>
-              <p className="body-copy mx-auto mt-5 max-w-[680px]">
-                Flexible solutions for offices, hospitality, education, healthcare, factories and residential spaces.
+            <div className="max-w-3xl">
+              <p className="eyebrow">Countertop range</p>
+              <h2 className="headline mt-5">Countertop Water Dispensers</h2>
+              <p className="body-copy mt-5 max-w-2xl">Compact hot and cold dispenser solutions for kitchens, offices, meeting rooms and space-conscious applications.</p>
+            </div>
+            <ProductGrid products={byIds(countertopIds)} />
+          </div>
+        </section>
+
+        <section id="tea-bar-water-dispensers" className="scroll-mt-20 bg-mist py-14 md:py-20">
+          <div className="shell">
+            <div className="max-w-3xl">
+              <p className="eyebrow">Tea bar machines</p>
+              <h2 className="headline mt-5">Tea Bar Water Dispensers</h2>
+              <p className="body-copy mt-5 max-w-2xl">Modern tea bar machines combining hot water dispensing with selected smart and convenience features.</p>
+            </div>
+            <ProductGrid products={byIds(teaBarIds)} />
+          </div>
+        </section>
+
+        <section id="integrated-filtration-options" className="scroll-mt-20 py-14 md:py-20">
+          <div className="shell grid gap-8 rounded-[2rem] border border-line bg-white/70 p-6 shadow-soft md:p-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <p className="eyebrow">Configurable options</p>
+              <h2 className="headline mt-5">Integrated Filtration Options</h2>
+              <p className="body-copy mt-6 max-w-[720px]">
+                Selected water dispenser platforms can support point-of-use configurations with RO or UF filtration options for different drinking water applications.
               </p>
             </div>
-            <div className="mt-9 grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-              {applications.map((application) => (
-                <article key={application} className="flex min-h-[92px] items-center justify-center rounded-2xl bg-white/70 px-4 py-5 text-center shadow-sm">
-                  <h3 className="text-sm font-medium text-ink/75">{application}</h3>
-                </article>
-              ))}
+            <div className="flex flex-col gap-3 lg:col-span-5 lg:items-stretch">
+              <a href="/water-filtration" className="button-primary justify-center">Explore Water Filtration</a>
+              <a href="/contact" className="button-secondary justify-center">Discuss a POU Project</a>
             </div>
           </div>
         </section>
 
-        <section className="py-14 md:py-[4.5rem] lg:py-20">
+        <section className="py-14 md:py-20">
           <div className="shell">
-            <div className="grid items-center gap-8 rounded-[2rem] border border-line bg-white/60 p-6 shadow-soft md:p-10 lg:grid-cols-12 lg:gap-10">
-              <div className="lg:col-span-8">
+            <div className="grid items-center gap-8 rounded-[2rem] border border-line bg-white/70 p-6 shadow-soft md:p-10 lg:grid-cols-12 lg:gap-10">
+              <div className="lg:col-span-7">
                 <p className="eyebrow">OEM support</p>
-                <h2 className="headline mt-5 max-w-[680px]">OEM &amp; Private Label<br className="hidden sm:block" /> Water Dispensers</h2>
+                <h2 className="headline mt-5 max-w-[680px]">OEM &amp; Private Label Water Dispensers</h2>
                 <p className="body-copy mt-6 max-w-[720px]">
-                  QLORA supports product configuration, branding, packaging and market-oriented water dispenser solutions for distributors and importers.
+                  QLORA supports selected water dispenser projects with product selection, configuration planning, branding and packaging coordination for different markets.
                 </p>
               </div>
-              <div className="flex w-full flex-col gap-3 lg:col-span-4 lg:items-stretch">
-                <a href="/oem-private-label" className="button-primary w-full justify-center whitespace-nowrap">Start an OEM Project</a>
-                <a href="/contact" className="button-secondary w-full justify-center whitespace-nowrap">Contact Sales</a>
+              <div className="grid gap-3 sm:grid-cols-2 lg:col-span-5">
+                {['Product Selection', 'Configuration Options', 'Private Label', 'Packaging Support', 'Filtration Integration', 'Project Coordination'].map((item) => (
+                  <div key={item} className="rounded-2xl border border-line bg-canvas/70 px-4 py-4 text-sm font-medium text-ink/70">{item}</div>
+                ))}
+              </div>
+              <div className="lg:col-span-12">
+                <a href="/oem-private-label" className="button-primary">Explore OEM Solutions</a>
               </div>
             </div>
           </div>
@@ -200,12 +268,12 @@ export default function WaterDispensersPage() {
         <section className="px-5 pb-16 md:px-8 md:pb-24">
           <div className="mx-auto max-w-[1200px] overflow-hidden rounded-2xl bg-ink px-6 py-14 text-center text-white sm:px-10 md:py-20">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/50">Start a conversation</p>
-            <h2 className="headline mx-auto mt-5 max-w-3xl">Discuss Your Water Dispenser Project</h2>
-            <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-white/65">
-              Tell us your target market, product format and branding requirements.
+            <h2 className="headline mx-auto mt-5 max-w-3xl">Looking for Water Dispensers for Your Market?</h2>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/65">
+              Tell us your target application, required configuration and market needs. We can help evaluate suitable water dispenser solutions for your project.
             </p>
             <div className="mt-10 flex justify-center">
-              <a href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-ink transition hover:bg-mist">Request a Quote</a>
+              <a href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-ink transition hover:bg-mist">Discuss Your Project</a>
             </div>
           </div>
         </section>
