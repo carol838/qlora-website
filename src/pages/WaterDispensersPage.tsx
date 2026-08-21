@@ -2,7 +2,7 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { applySEO } from '../lib/seo'
-import { getWaterDispenserById, getWaterDispenserHref, waterDispenserProducts, type WaterDispenserProduct } from '../data/waterDispenserProducts'
+import { getWaterDispenserById, getWaterDispenserHref, type WaterDispenserProduct } from '../data/waterDispenserProducts'
 
 const categoryCards = [
   {
@@ -23,17 +23,10 @@ const categoryCards = [
     imageId: 'QD-PREM-002',
     href: '#integrated-filtration-options',
   },
-  {
-    title: 'Tea Bar Water Dispensers',
-    description: 'Modern tea bar machines combining hot water dispensing with selected smart and convenience features.',
-    imageId: 'QD-TEA-007',
-    href: '#tea-bar-water-dispensers',
-  },
 ]
 
-const floorStandingIds = ['QD-PREM-001', 'QD-PREM-002', 'QD-PREM-004', 'QD-MOD-001', 'QD-MOD-002', 'QD-MOD-004', 'QD-CLASS-001', 'QD-CLASS-003']
+const floorStandingIds = ['QD-PREM-001', 'QD-PREM-002', 'QD-MOD-001', 'QD-CLASS-001']
 const countertopIds = ['QD-CT-001', 'QD-CT-003', 'QD-CCT-001']
-const teaBarIds = ['QD-TEA-001', 'QD-TEA-006', 'QD-TEA-007']
 
 function byIds(ids: string[]) {
   return ids.map((id) => getWaterDispenserById(id)).filter(Boolean) as WaterDispenserProduct[]
@@ -41,7 +34,7 @@ function byIds(ids: string[]) {
 
 function ProductImage({ product, priority = false }: { product: WaterDispenserProduct; priority?: boolean }) {
   return (
-    <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.6rem] bg-white p-4 shadow-sm">
+    <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.6rem] bg-white p-2 shadow-sm sm:p-3">
       <img
         src={product.image}
         alt={product.imageAlt}
@@ -97,16 +90,16 @@ function ProductGrid({ products }: { products: WaterDispenserProduct[] }) {
 }
 
 export default function WaterDispensersPage() {
-  const heroProduct = getWaterDispenserById('QD-PREM-002')!
+  const waterDispenserHero = '/images/water-dispensers/water-dispensers-hero.png'
   const featuredProduct = getWaterDispenserById('QD-PREM-001')!
-  const displayedProducts = [...byIds(floorStandingIds), ...byIds(countertopIds), ...byIds(teaBarIds)]
+  const displayedProducts = [...byIds(floorStandingIds), ...byIds(countertopIds)]
 
   useEffect(() => {
     applySEO({
       title: 'Water Dispensers & POU Solutions | QLORA',
-      description: 'Explore QLORA floor-standing, countertop, bottom-loading and tea bar water dispensers with selected POU, RO and UF filtration options for residential and commercial applications.',
+      description: 'Explore QLORA floor-standing, countertop and bottom-loading water dispensers with selected POU, RO and UF filtration options for residential and commercial applications.',
       path: '/water-dispensers',
-      image: `https://qloratech.com${heroProduct.image}`,
+      image: `https://qloratech.com${waterDispenserHero}`,
       breadcrumbs: [{ name: 'Water Dispensers', path: '/water-dispensers' }],
       schemas: [{
         '@context': 'https://schema.org',
@@ -120,7 +113,7 @@ export default function WaterDispensersPage() {
         })),
       }],
     })
-  }, [displayedProducts, heroProduct.image])
+  }, [displayedProducts])
 
   return (
     <>
@@ -144,7 +137,16 @@ export default function WaterDispensersPage() {
 
             <div className="lg:col-span-6">
               <div className="rounded-[2rem] bg-white/60 p-4 shadow-soft sm:p-5">
-                <ProductImage product={heroProduct} priority />
+                <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.6rem] bg-white p-2 shadow-sm sm:p-3">
+                    <img
+                      src={waterDispenserHero}
+                      alt="QLORA water dispenser product lineup for home office and commercial use"
+                      className="h-full w-full object-contain"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
+                    />
+                  </div>
               </div>
             </div>
           </div>
@@ -156,7 +158,7 @@ export default function WaterDispensersPage() {
               <p className="eyebrow">Explore Water Dispensers</p>
               <h2 className="headline mt-5">Dispenser Platforms for Different Projects</h2>
             </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {categoryCards.map((card) => {
                 const product = getWaterDispenserById(card.imageId)!
                 return (
@@ -216,16 +218,6 @@ export default function WaterDispensersPage() {
           </div>
         </section>
 
-        <section id="tea-bar-water-dispensers" className="scroll-mt-20 bg-mist py-14 md:py-20">
-          <div className="shell">
-            <div className="max-w-3xl">
-              <p className="eyebrow">Tea bar machines</p>
-              <h2 className="headline mt-5">Tea Bar Water Dispensers</h2>
-              <p className="body-copy mt-5 max-w-2xl">Modern tea bar machines combining hot water dispensing with selected smart and convenience features.</p>
-            </div>
-            <ProductGrid products={byIds(teaBarIds)} />
-          </div>
-        </section>
 
         <section id="integrated-filtration-options" className="scroll-mt-20 py-14 md:py-20">
           <div className="shell grid gap-8 rounded-[2rem] border border-line bg-white/70 p-6 shadow-soft md:p-10 lg:grid-cols-12 lg:items-center">
@@ -282,3 +274,5 @@ export default function WaterDispensersPage() {
     </>
   )
 }
+
+

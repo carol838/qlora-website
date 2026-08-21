@@ -22,7 +22,7 @@ export default function App() {
   else if (path.startsWith('/water-dispensers/')) page = <WaterDispenserProductPage slug={path.replace('/water-dispensers/', '')} />
   else if (path === '/water-filtration') page = <WaterFiltration />
   else if (path === '/shower-solutions') page = <ShowerSolutions />
-  else if (path === '/oem-private-label') page = <OEMPrivateLabel />
+  else if (path === '/oem-private-label' || path === '/oem-solutions') page = <OEMPrivateLabel />
   else if (path === '/technical-knowledge') page = <TechnicalKnowledge />
   else if (path === '/technical-knowledge/how-to-choose-the-right-water-filter') page = <TechnicalGuidePlaceholder />
   else if (path === '/contact') page = <ContactPage />
@@ -35,4 +35,5 @@ export default function App() {
     </>
   )
 }
+
 

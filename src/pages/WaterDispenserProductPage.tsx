@@ -2,7 +2,7 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { applySEO } from '../lib/seo'
-import { getWaterDispenserById, getWaterDispenserBySlug, getWaterDispenserHref, waterDispenserDetailProducts, type WaterDispenserProduct } from '../data/waterDispenserProducts'
+import { getWaterDispenserById, getWaterDispenserBySlug, getWaterDispenserHref, type WaterDispenserProduct } from '../data/waterDispenserProducts'
 import Home from './Home'
 
 const specRows = (product: WaterDispenserProduct) => [
@@ -15,12 +15,11 @@ const specRows = (product: WaterDispenserProduct) => [
 ]
 
 const relatedIds: Record<string, string[]> = {
-  'QD-PREM-001': ['QD-PREM-002', 'QD-CT-001', 'QD-TEA-007'],
-  'QD-PREM-002': ['QD-MOD-001', 'QD-CT-001', 'QD-TEA-007'],
-  'QD-MOD-001': ['QD-PREM-002', 'QD-CCT-001', 'QD-TEA-007'],
-  'QD-CT-001': ['QD-CCT-001', 'QD-PREM-002', 'QD-TEA-007'],
-  'QD-CCT-001': ['QD-CT-001', 'QD-MOD-001', 'QD-TEA-007'],
-  'QD-TEA-007': ['QD-TEA-001', 'QD-CT-001', 'QD-PREM-002'],
+  'QD-PREM-001': ['QD-PREM-002', 'QD-CT-001', 'QD-CCT-001'],
+  'QD-PREM-002': ['QD-MOD-001', 'QD-CT-001', 'QD-CCT-001'],
+  'QD-MOD-001': ['QD-PREM-002', 'QD-CT-001', 'QD-CCT-001'],
+  'QD-CT-001': ['QD-CCT-001', 'QD-PREM-002', 'QD-MOD-001'],
+  'QD-CCT-001': ['QD-CT-001', 'QD-MOD-001', 'QD-PREM-002'],
 }
 
 const faqs = [
@@ -281,3 +280,5 @@ export default function WaterDispenserProductPage({ slug }: { slug: string }) {
     </>
   )
 }
+
+
