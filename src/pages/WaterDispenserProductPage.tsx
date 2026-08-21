@@ -55,7 +55,7 @@ function Breadcrumb({ product }: { product: WaterDispenserProduct }) {
 
 function ProductImage({ product, priority = false }: { product: WaterDispenserProduct; priority?: boolean }) {
   return (
-    <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[2rem] bg-white p-5 shadow-soft">
+    <div className="aspect-[4/3] overflow-hidden rounded-[2rem] bg-white shadow-soft">
       <img
         src={product.image}
         alt={product.imageAlt}
@@ -94,7 +94,7 @@ function RelatedCard({ product }: { product: WaterDispenserProduct }) {
   const hasDetail = Boolean(product.slug)
   return (
     <a href={getWaterDispenserHref(product)} className="group rounded-[1.6rem] border border-line bg-white/75 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
-      <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.2rem] bg-white p-4">
+      <div className="aspect-[4/3] overflow-hidden rounded-[1.2rem] bg-white">
         <img src={product.image} alt={product.imageAlt} className="h-full w-full object-contain" loading="lazy" decoding="async" />
       </div>
       <h3 className="mt-5 text-lg font-medium leading-tight text-ink">{product.name}</h3>

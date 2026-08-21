@@ -34,7 +34,7 @@ function byIds(ids: string[]) {
 
 function ProductImage({ product, priority = false }: { product: WaterDispenserProduct; priority?: boolean }) {
   return (
-    <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.6rem] bg-white p-2 shadow-sm sm:p-3">
+    <div className="aspect-[4/3] overflow-hidden rounded-[1.6rem] bg-white shadow-sm">
       <img
         src={product.image}
         alt={product.imageAlt}
@@ -137,7 +137,7 @@ export default function WaterDispensersPage() {
 
             <div className="lg:col-span-6">
               <div className="rounded-[2rem] bg-white/60 p-4 shadow-soft sm:p-5">
-                <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.6rem] bg-white p-2 shadow-sm sm:p-3">
+                <div className="aspect-[4/3] overflow-hidden rounded-[1.6rem] bg-white shadow-sm">
                     <img
                       src={waterDispenserHero}
                       alt="QLORA water dispenser product lineup for home office and commercial use"
