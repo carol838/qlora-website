@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react'
+import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { applySEO } from '../lib/seo'
@@ -59,7 +59,7 @@ function ProductImage({ product, priority = false }: { product: WaterDispenserPr
       <img
         src={product.image}
         alt={product.imageAlt}
-        className="h-full w-full object-contain"
+        className="h-full w-full object-cover"
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
         fetchPriority={priority ? 'high' : undefined}
@@ -95,7 +95,7 @@ function RelatedCard({ product }: { product: WaterDispenserProduct }) {
   return (
     <a href={getWaterDispenserHref(product)} className="group rounded-[1.6rem] border border-line bg-white/75 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
       <div className="aspect-[4/3] overflow-hidden rounded-[1.2rem] bg-white">
-        <img src={product.image} alt={product.imageAlt} className="h-full w-full object-contain" loading="lazy" decoding="async" />
+        <img src={product.image} alt={product.imageAlt} className="h-full w-full object-cover" loading="lazy" decoding="async" />
       </div>
       <h3 className="mt-5 text-lg font-medium leading-tight text-ink">{product.name}</h3>
       <p className="mt-2 text-sm text-ink/50">{product.category}</p>
@@ -280,5 +280,4 @@ export default function WaterDispenserProductPage({ slug }: { slug: string }) {
     </>
   )
 }
-
 

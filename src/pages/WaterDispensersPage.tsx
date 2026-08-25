@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react'
+import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { applySEO } from '../lib/seo'
@@ -38,7 +38,7 @@ function ProductImage({ product, priority = false }: { product: WaterDispenserPr
       <img
         src={product.image}
         alt={product.imageAlt}
-        className="h-full w-full object-contain"
+        className="h-full w-full object-cover"
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
         fetchPriority={priority ? 'high' : undefined}
@@ -274,5 +274,4 @@ export default function WaterDispensersPage() {
     </>
   )
 }
-
 
