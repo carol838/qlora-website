@@ -8,7 +8,7 @@ export default function ROSystem() {
           <img
             src={roSystemBanner}
             alt="Tank and tankless reverse osmosis water filtration systems"
-            className="absolute inset-0 h-full w-full object-cover object-[62%_center] sm:object-[60%_center] lg:object-center"
+            className="absolute inset-0 h-full w-full scale-[0.94] object-contain object-center"
             loading="lazy"
             decoding="async"
             width="1717"
@@ -28,3 +28,4 @@ export default function ROSystem() {
     </section>
   )
 }
+
