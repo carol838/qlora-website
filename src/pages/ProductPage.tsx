@@ -2,6 +2,8 @@ import ProductDetailTemplate, { type ProductDetail } from '../components/Product
 import CoffeeMachineFilterPage from './CoffeeMachineFilterPage'
 import RefrigeratorWaterFilterPage from './RefrigeratorWaterFilterPage'
 import TanklessROSystemPage from './TanklessROSystemPage'
+import TanklessRODetailPage from './TanklessRODetailPage'
+import { getTanklessROProduct } from '../data/tanklessROProducts'
 import UnderSinkROSystemPage from './UnderSinkROSystemPage'
 import Home from './Home'
 
@@ -70,6 +72,7 @@ const products: Record<string, ProductDetail> = {
 
 export default function ProductPage({ slug }: { slug: string }) {
   if (slug === 'tankless-ro-system') return <TanklessROSystemPage />
+  if (getTanklessROProduct(slug)) return <TanklessRODetailPage slug={slug} />
   if (slug === 'under-sink-ro-system') return <UnderSinkROSystemPage />
   if (slug === 'coffee-machine-filter') return <CoffeeMachineFilterPage />
   if (slug === 'refrigerator-water-filter') return <RefrigeratorWaterFilterPage />
@@ -77,3 +80,4 @@ export default function ProductPage({ slug }: { slug: string }) {
   if (!product) return <Home />
   return <ProductDetailTemplate product={product} />
 }
+
