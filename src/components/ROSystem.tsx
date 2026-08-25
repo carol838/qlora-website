@@ -6,17 +6,17 @@ export default function ROSystem() {
       <img
         src={roSystemBanner}
         alt="Tank and tankless reverse osmosis water filtration systems"
-        className="absolute inset-0 h-full w-full object-cover object-[62%_center] md:object-center"
+        className="absolute inset-0 h-full w-full object-cover object-center"
         loading="lazy"
         decoding="async"
         width="1717"
         height="916"
       />
       <div className="relative z-10 mx-auto flex h-[560px] w-full max-w-[1200px] items-center px-5 sm:px-8 md:h-[clamp(500px,53vw,620px)]">
-        <div className="max-w-[460px]">
+        <div className="max-w-[450px]">
           <p className="eyebrow">RO systems</p>
           <h2 className="headline mt-5">RO Solutions for<br />Modern Water Needs</h2>
-          <p className="body-copy mt-6">From proven tank RO systems to compact tankless platforms, QLORA supports flexible residential, commercial and OEM water purification projects.</p>
+          <p className="body-copy mt-6">Tank and tankless RO platforms for residential, commercial and OEM water purification projects.</p>
           <a href="/ro-systems" className="button-primary mt-9">Explore RO Systems</a>
         </div>
       </div>
