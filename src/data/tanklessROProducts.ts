@@ -8,6 +8,14 @@ export type TanklessROProduct = {
   dimension: string
   image: string
   imageAlt: string
+  lifestyle: {
+    eyebrow: string
+    heading: string
+    copy: string
+    image: string
+    imageAlt: string
+    imageClassName?: string
+  }
   differentiation: string[]
   cardTags: string[]
   seoTitle: string
@@ -45,6 +53,14 @@ export const tanklessROProducts: TanklessROProduct[] = [
     dimension: '460 × 150 × 390 mm',
     image: `${tanklessImageBase}/slim-tankless-ro-system.webp`,
     imageAlt: 'Slim tankless RO system with black smart display panel',
+    lifestyle: {
+      eyebrow: 'COMPACT INSTALLATION',
+      heading: 'Slim Design for Space-Efficient Installation',
+      copy: 'With a 150 mm cabinet width, this tankless RO platform is designed for compact under-sink spaces while helping preserve usable cabinet space.',
+      image: `${tanklessImageBase}/scenes/slim-tankless-ro-installation.webp`,
+      imageAlt: 'Slim tankless RO system installed in a compact under-sink cabinet',
+      imageClassName: 'object-cover object-center',
+    },
     differentiation: ['150 mm slim cabinet width', 'TDS display', 'Smart touch control', 'Filter-life reminder', 'Configurable 4-stage / 5-stage filtration', 'Configurable 75–1200 GPD range', 'Dual-water option available', 'Customizable colors'],
     cardTags: ['Slim 150 mm Body', 'TDS Display', '4 / 5 Stage Options'],
     seoTitle: 'Slim Tankless RO System | QLORA',
@@ -60,6 +76,14 @@ export const tanklessROProducts: TanklessROProduct[] = [
     dimension: '438 × 168 × 390 mm',
     image: `${tanklessImageBase}/smart-display-tankless-ro-system.webp`,
     imageAlt: 'Smart display tankless RO system with circular touch panel',
+    lifestyle: {
+      eyebrow: 'SMART INTERFACE',
+      heading: 'Smart Display for Everyday Monitoring',
+      copy: 'The large circular display provides a clear visual interface for convenient system-status and filter-life monitoring.',
+      image: `${tanklessImageBase}/scenes/smart-display-tankless-ro-installation.webp`,
+      imageAlt: 'Smart display tankless RO system installed under a modern kitchen sink',
+      imageClassName: 'object-cover object-center',
+    },
     differentiation: ['Large display', 'Smart touch control', 'Filter-life reminder', 'Configurable 4-stage / 5-stage filtration', 'Configurable 75–1200 GPD range', 'Dual-water option available', 'Customizable colors'],
     cardTags: ['Large Display', 'Touch Control', 'Filter-Life Reminder'],
     seoTitle: 'Smart Display Tankless RO System | QLORA',
@@ -75,6 +99,14 @@ export const tanklessROProducts: TanklessROProduct[] = [
     dimension: '438 × 168 × 390 mm',
     image: `${tanklessImageBase}/tds-monitoring-tankless-ro-system.webp`,
     imageAlt: 'TDS monitoring tankless RO system with black front display',
+    lifestyle: {
+      eyebrow: 'TDS MONITORING',
+      heading: 'Integrated TDS Monitoring at a Glance',
+      copy: 'The integrated display provides convenient TDS visibility and system-status monitoring directly from the front interface.',
+      image: `${tanklessImageBase}/scenes/tds-monitoring-tankless-ro-scene.webp`,
+      imageAlt: 'Tankless RO system with integrated TDS monitoring display',
+      imageClassName: 'object-cover object-center',
+    },
     differentiation: ['TDS display', 'Smart touch control', 'Filter-life reminder', 'Configurable 4-stage / 5-stage filtration', 'Configurable 75–1200 GPD range', 'Dual-water option available', 'Customizable colors'],
     cardTags: ['TDS Display', 'Smart Touch Panel', 'Filter-Life Reminder'],
     seoTitle: 'TDS Monitoring Tankless RO System | QLORA',
@@ -90,6 +122,14 @@ export const tanklessROProducts: TanklessROProduct[] = [
     dimension: '438 × 168 × 390 mm',
     image: `${tanklessImageBase}/dual-tds-display-tankless-ro-system.webp`,
     imageAlt: 'Dual TDS display tankless RO system with white cabinet',
+    lifestyle: {
+      eyebrow: 'DUAL TDS DISPLAY',
+      heading: 'Clear Water-Quality Monitoring',
+      copy: 'The dual-display interface provides convenient visibility of water-quality information while supporting flexible configurations for modern kitchen applications.',
+      image: `${tanklessImageBase}/scenes/dual-tds-tankless-ro-scene.webp`,
+      imageAlt: 'Dual TDS display tankless RO system in a modern kitchen application',
+      imageClassName: 'object-cover object-center',
+    },
     differentiation: ['Dual display', 'Raw-water TDS display', 'Purified-water TDS display', 'Smart touch control', 'Filter-life reminder', 'Configurable 4-stage / 5-stage filtration', 'Configurable 75–1200 GPD range', 'Dual-water option available', 'Customizable colors'],
     cardTags: ['Dual Display', 'Raw-Water TDS', 'Purified-Water TDS'],
     seoTitle: 'Dual TDS Display Tankless RO System | QLORA',
@@ -104,4 +144,3 @@ export function getTanklessROProduct(slug: string) {
 export function getTanklessROHref(product: TanklessROProduct) {
   return `/products/${product.slug}`
 }
-

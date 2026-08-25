@@ -158,6 +158,27 @@ export default function TanklessRODetailPage({ slug }: { slug: string }) {
 
         <section className="py-14 md:py-20">
           <div className="shell">
+            <div className="grid items-center gap-8 rounded-[2rem] border border-line bg-white/55 p-5 shadow-soft md:p-8 lg:grid-cols-[0.9fr_1.1fr]">
+              <div className="max-w-xl px-1 md:px-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">{product.lifestyle.eyebrow}</p>
+                <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">{product.lifestyle.heading}</h2>
+                <p className="mt-5 text-lg leading-8 text-ink/64">{product.lifestyle.copy}</p>
+              </div>
+              <div className="aspect-[3/2] overflow-hidden rounded-[1.6rem] bg-white shadow-sm">
+                <img
+                  src={product.lifestyle.image}
+                  alt={product.lifestyle.imageAlt}
+                  className={`h-full w-full ${product.lifestyle.imageClassName || 'object-cover object-center'}`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-14 md:py-20">
+          <div className="shell">
             <SectionHeader label="Available configurations" title="OEM Configuration Options" copy="These supplier-supported options are configurable according to project requirements, not fixed specifications for every unit." />
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {tanklessCommonConfigurations.map((item) => (
