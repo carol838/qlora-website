@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { applySEO } from '../lib/seo'
-import { getTanklessROHref, tanklessCommonConfigurations, tanklessROProducts, type TanklessROProduct } from '../data/tanklessROProducts'
+import { getTanklessROHref, tanklessCommonConfigurations, tanklessROProducts, tanklessImageBase, type TanklessROProduct } from '../data/tanklessROProducts'
 
 const applications = ['Residential Kitchen', 'Apartment', 'Under-Sink Installation', 'Home Drinking Water', 'OEM Drinking Water Projects']
 
@@ -91,12 +91,15 @@ export default function TanklessROSystemPage() {
                   <a href="/contact" className="button-secondary">Discuss Your Project</a>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4 rounded-[2rem] bg-white/55 p-4 shadow-soft">
-                {tanklessROProducts.map((product, index) => (
-                  <div key={product.qloraId} className="aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-white/80 p-3">
-                    <img src={product.image} alt={product.imageAlt} className="h-full w-full object-contain" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" fetchPriority={index === 0 ? 'high' : undefined} />
-                  </div>
-                ))}
+              <div className="aspect-[4/3] overflow-hidden rounded-[2rem] bg-white/55 shadow-soft">
+                <img
+                  src={`${tanklessImageBase}/tankless-ro-kitchen-hero.webp`}
+                  alt="Tankless RO system installed under a modern kitchen sink"
+                  className="h-full w-full object-cover object-[62%_54%] sm:object-[64%_54%] lg:object-[66%_54%]"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                />
               </div>
             </div>
           </div>
@@ -168,10 +171,14 @@ export default function TanklessROSystemPage() {
                   <a href="/contact" className="button-secondary">Request Details</a>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4 rounded-[1.5rem] bg-canvas p-4">
-                {tanklessROProducts.slice(0, 2).map((product) => (
-                  <img key={product.qloraId} src={product.image} alt={product.imageAlt} loading="lazy" decoding="async" className="h-full max-h-[260px] w-full rounded-[1rem] bg-white/70 object-contain p-4" />
-                ))}
+              <div className="aspect-[3/2] overflow-hidden rounded-[1.5rem] bg-canvas shadow-sm">
+                <img
+                  src={`${tanklessImageBase}/tankless-ro-oem-customization.webp`}
+                  alt="Tankless RO system with OEM color, branding and packaging options"
+                  className="h-full w-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
