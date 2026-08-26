@@ -39,8 +39,8 @@ export default function Home() {
         <ValueStrip />
         <ROSystem />
         <WaterDispensersEntrance />
-        <ShowerSolutionsFeature />
         <LifestyleSolutions />
+        <ShowerSolutionsFeature />
         <OEMSolutions />
         <Contact />
       </main>
