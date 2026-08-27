@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { applySEO } from '../lib/seo'
+import CatalogDownloadLink from '../components/CatalogDownloadLink'
 
 const imageBase = '/images/ro-systems'
 
@@ -63,6 +64,7 @@ export default function ROSystems() {
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <a href="/oem-private-label" className="button-primary">Start OEM Project</a>
                 <a href="#available-ro" className="button-secondary">View Solutions</a>
+                <CatalogDownloadLink label="Download Tankless RO Catalog" pageType="ro_systems" />
               </div>
             </div>
 
@@ -202,3 +204,4 @@ export default function ROSystems() {
     </>
   )
 }
+

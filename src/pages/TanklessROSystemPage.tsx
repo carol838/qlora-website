@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { applySEO } from '../lib/seo'
+import CatalogDownloadLink from '../components/CatalogDownloadLink'
 import { getTanklessROHref, tanklessCommonConfigurations, tanklessROProducts, tanklessImageBase, type TanklessROProduct } from '../data/tanklessROProducts'
 
 const applications = ['Residential Kitchen', 'Apartment', 'Under-Sink Installation', 'Home Drinking Water', 'OEM Drinking Water Projects']
@@ -89,6 +90,7 @@ export default function TanklessROSystemPage() {
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                   <a href="#tankless-models" className="button-primary">Explore Models</a>
                   <a href="/contact" className="button-secondary">Discuss Your Project</a>
+                  <CatalogDownloadLink label="Download Catalog" pageType="tankless_ro" />
                 </div>
               </div>
               <div className="aspect-[4/3] overflow-hidden rounded-[2rem] bg-white/55 shadow-soft">
@@ -201,4 +203,5 @@ export default function TanklessROSystemPage() {
     </div>
   )
 }
+
 

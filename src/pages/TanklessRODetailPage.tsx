@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Home from './Home'
 import { applySEO } from '../lib/seo'
+import CatalogDownloadLink from '../components/CatalogDownloadLink'
 import {
   getTanklessROHref,
   getTanklessROProduct,
@@ -133,6 +134,7 @@ export default function TanklessRODetailPage({ slug }: { slug: string }) {
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                   <a href="/contact" className="button-primary">Request Details</a>
                   <a href="/oem-private-label" className="button-secondary">Discuss OEM Options</a>
+                  <CatalogDownloadLink label="Download Catalog" pageType="product_detail" />
                 </div>
               </div>
             </div>
@@ -293,4 +295,5 @@ export default function TanklessRODetailPage({ slug }: { slug: string }) {
     </div>
   )
 }
+
 

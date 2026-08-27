@@ -1,4 +1,5 @@
 import roSystemBanner from '../assets/home-ro-tank-tankless-banner.webp'
+import CatalogDownloadLink from './CatalogDownloadLink'
 
 export default function ROSystem() {
   return (
@@ -17,9 +18,13 @@ export default function ROSystem() {
           <p className="eyebrow">RO systems</p>
           <h2 className="headline mt-5">RO Solutions for<br />Modern Water Needs</h2>
           <p className="body-copy mt-6">Tank and tankless RO platforms for residential, commercial and OEM water purification projects.</p>
-          <a href="/ro-systems" className="button-primary mt-9">Explore RO Systems</a>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="/ro-systems" className="button-primary">Explore RO Systems</a>
+            <CatalogDownloadLink label="Download Tankless RO Catalog" pageType="homepage" />
+          </div>
         </div>
       </div>
     </section>
   )
 }
+
