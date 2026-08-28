@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import CatalogDownloadLink from '../components/CatalogDownloadLink'
 import { applySEO } from '../lib/seo'
 import { getWaterDispenserById, getWaterDispenserHref, type WaterDispenserProduct } from '../data/waterDispenserProducts'
 
@@ -132,6 +133,7 @@ export default function WaterDispensersPage() {
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <a href="#explore-water-dispensers" className="button-primary">Explore Water Dispensers</a>
                 <a href="/contact" className="button-secondary">Discuss Your Project</a>
+                <CatalogDownloadLink label="Download Catalog" pageType="water_dispensers" catalog="waterDispenserSolutions" />
               </div>
             </div>
 
@@ -274,4 +276,5 @@ export default function WaterDispensersPage() {
     </>
   )
 }
+
 
