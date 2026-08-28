@@ -67,6 +67,7 @@ const products: Record<string, ProductDetail> = {
     faqs: showerFaqs,
     seoTitle: 'Shower Filter | QLORA',
     seoDescription: 'Explore QLORA shower filters for wellness-focused water filtration, consumer channels and private label product lines.',
+    catalogDownload: { label: 'Download Catalog', pageType: 'product_detail', catalog: 'showerSolutions' },
   },
 }
 
@@ -80,4 +81,5 @@ export default function ProductPage({ slug }: { slug: string }) {
   if (!product) return <Home />
   return <ProductDetailTemplate product={product} />
 }
+
 

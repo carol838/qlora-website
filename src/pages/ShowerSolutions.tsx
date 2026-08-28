@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import CatalogDownloadLink from '../components/CatalogDownloadLink'
 import { applySEO } from '../lib/seo'
 
 const base = '/images/shower-solutions'
@@ -113,6 +114,7 @@ export default function ShowerSolutions() {
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a href="#explore-shower-solutions" className="button-primary">Explore Products</a>
                 <a href="/contact" className="button-secondary">Discuss Your Project</a>
+                <CatalogDownloadLink label="Download Catalog" pageType="shower_solutions" catalog="showerSolutions" />
               </div>
             </div>
             <div className="lg:col-span-6">
@@ -204,3 +206,5 @@ export default function ShowerSolutions() {
     </>
   )
 }
+
+

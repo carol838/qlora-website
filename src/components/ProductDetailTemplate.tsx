@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import CatalogDownloadLink from './CatalogDownloadLink'
 import { applySEO } from '../lib/seo'
 
 export type ProductDetail = {
@@ -28,6 +29,7 @@ export type ProductDetail = {
   faqs: Array<{ question: string; answer: string }>
   seoTitle: string
   seoDescription: string
+  catalogDownload?: { label: string; pageType: 'homepage' | 'ro_systems' | 'tankless_ro' | 'shower_solutions' | 'product_detail'; catalog: 'tanklessRO' | 'showerSolutions' }
 }
 
 function ImageFallback({ label }: { label: string }) {
@@ -175,6 +177,13 @@ export default function ProductDetailTemplate({ product }: { product: ProductDet
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <a href="/contact" className="button-primary">Request Quote</a>
                 <a href="/oem-private-label" className="button-secondary">OEM Service</a>
+                {product.catalogDownload && (
+                  <CatalogDownloadLink
+                    label={product.catalogDownload.label}
+                    pageType={product.catalogDownload.pageType}
+                    catalog={product.catalogDownload.catalog}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -312,3 +321,5 @@ export default function ProductDetailTemplate({ product }: { product: ProductDet
     </>
   )
 }
+
+
