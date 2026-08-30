@@ -1,6 +1,7 @@
-﻿import { useEffect } from 'react'
+import { useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import CatalogDownloadLink from './CatalogDownloadLink'
 import { applySEO } from '../lib/seo'
 
 type SeriesProduct = {
@@ -32,6 +33,7 @@ type CompatibilityPageData = {
   faqs: Array<[string, string]>
   disclaimer: string
   relatedLinks: Array<{ title: string; href: string }>
+  catalogDownload?: { label: string; pageType: 'homepage' | 'ro_systems' | 'tankless_ro' | 'shower_solutions' | 'water_dispensers' | 'water_filtration' | 'product_detail'; catalog: 'tanklessRO' | 'showerSolutions' | 'waterDispenserSolutions' | 'waterFiltration' }
 }
 
 function VisualFallback({ label }: { label: string }) {
@@ -108,6 +110,13 @@ export default function CompatibilitySolutionPage({ data }: { data: Compatibilit
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <a href="/contact" className="button-primary">Request Quote</a>
                 <a href="/oem-private-label" className="button-secondary">OEM Service</a>
+                {data.catalogDownload && (
+                  <CatalogDownloadLink
+                    label={data.catalogDownload.label}
+                    pageType={data.catalogDownload.pageType}
+                    catalog={data.catalogDownload.catalog}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -253,3 +262,4 @@ export default function CompatibilitySolutionPage({ data }: { data: Compatibilit
 }
 
 export type { CompatibilityPageData }
+

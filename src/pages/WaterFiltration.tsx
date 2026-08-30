@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import CatalogDownloadLink from '../components/CatalogDownloadLink'
 import { applySEO } from '../lib/seo'
 
 const imageBase = '/images/water-filtration'
@@ -112,6 +113,7 @@ export default function WaterFiltration() {
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a href="#replacement-filter-solutions" className="button-primary">Explore Filter Solutions</a>
                 <a href="/oem-private-label" className="button-secondary">Request OEM Quote</a>
+                <CatalogDownloadLink label="Download Catalog" pageType="water_filtration" catalog="waterFiltration" />
               </div>
             </div>
             <div className="lg:col-span-7">
@@ -282,3 +284,5 @@ export default function WaterFiltration() {
     </>
   )
 }
+
+

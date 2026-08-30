@@ -1,3 +1,5 @@
+import CatalogDownloadLink from './CatalogDownloadLink'
+
 const cards = [
   { title: 'Under Sink Filtration', copy: 'Clean drinking water for everyday kitchens.', cta: 'Learn More', position: 'left', href: '/water-filtration' },
   { title: 'Coffee & Beverage', copy: 'Better water for better flavor.', cta: 'Learn More', position: 'center', href: '/products/coffee-machine-filter' },
@@ -12,6 +14,9 @@ export default function LifestyleSolutions() {
           <p className="eyebrow">Water filtration</p>
           <h2 className="headline mt-5">Filtration for Everyday Water Moments</h2>
           <p className="body-copy mt-5">Simple filtration routes for kitchens, coffee and everyday drinking water.</p>
+          <div className="mt-8">
+            <CatalogDownloadLink label="Download Water Filtration Catalog" pageType="homepage" catalog="waterFiltration" />
+          </div>
         </div>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
@@ -31,3 +36,5 @@ export default function LifestyleSolutions() {
     </section>
   )
 }
+
+

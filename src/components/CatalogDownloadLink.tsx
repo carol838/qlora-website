@@ -20,11 +20,18 @@ const catalogs = {
     year: '2026',
     ariaLabel: 'Download QLORA Water Dispenser Solutions Catalog 2026',
   },
+  waterFiltration: {
+    href: '/catalogs/QLORA-Filter-Solutions-Catalog-2026.pdf',
+    fileName: 'QLORA-Filter-Solutions-Catalog-2026.pdf',
+    analyticsName: 'water_filtration',
+    year: '2026',
+    ariaLabel: 'Download QLORA Filter Solutions Catalog 2026',
+  },
 } as const
 
 type CatalogDownloadLinkProps = {
   label: string
-  pageType: 'homepage' | 'ro_systems' | 'tankless_ro' | 'shower_solutions' | 'water_dispensers' | 'product_detail'
+  pageType: 'homepage' | 'ro_systems' | 'tankless_ro' | 'shower_solutions' | 'water_dispensers' | 'water_filtration' | 'product_detail'
   catalog?: keyof typeof catalogs
   className?: string
 }

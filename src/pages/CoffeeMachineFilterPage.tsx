@@ -72,6 +72,7 @@ const data: CompatibilityPageData = {
     ['Can you support distributor orders?', 'Yes. We support bulk orders, export cooperation and long-term supply programs.'],
   ],
   disclaimer,
+  catalogDownload: { label: 'Download Catalog', pageType: 'product_detail', catalog: 'waterFiltration' },
   relatedLinks: [
     { title: 'Refrigerator Water Filter', href: '/products/refrigerator-water-filter' },
     { title: 'Shower Filter', href: '/products/shower-filter' },
@@ -82,3 +83,5 @@ const data: CompatibilityPageData = {
 export default function CoffeeMachineFilterPage() {
   return <CompatibilitySolutionPage data={data} />
 }
+
+
