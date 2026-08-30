@@ -123,7 +123,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <a href="/contact" className="button-primary hidden xl:inline-flex">Get in Touch</a>
+        <a href="/contact" className="button-primary ml-5 hidden whitespace-nowrap !px-5 xl:inline-flex 2xl:ml-6 2xl:!px-6">Get in Touch</a>
 
         <button
           onClick={() => setOpen(!open)}
@@ -194,3 +194,4 @@ export default function Header() {
     </header>
   )
 }
+
