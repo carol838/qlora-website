@@ -30,6 +30,13 @@ const featuredGuides = [
     excerpt: 'Learn how sediment, chlorine, hardness, scale and other common water conditions affect filter selection.',
     href: '/technical-knowledge/how-to-choose-the-right-water-filter',
   },
+  {
+    slug: 'tankless-ro-vs-traditional-ro-systems',
+    category: 'RO Systems',
+    title: 'Tankless RO vs Traditional RO Systems',
+    excerpt: 'Compare tankless and traditional RO platforms across installation, water delivery, maintenance, smart features and OEM market positioning.',
+    href: '/technical-knowledge/tankless-ro-vs-traditional-ro-systems',
+  },
 ]
 
 export default function TechnicalKnowledge() {
@@ -145,3 +152,4 @@ export default function TechnicalKnowledge() {
     </>
   )
 }
+

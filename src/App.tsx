@@ -1,4 +1,4 @@
-﻿import Home from './pages/Home'
+import Home from './pages/Home'
 import ROSystems from './pages/ROSystems'
 import WaterFiltration from './pages/WaterFiltration'
 import WaterDispensersPage from './pages/WaterDispensersPage'
@@ -7,6 +7,7 @@ import OEMPrivateLabel from './pages/OEMPrivateLabel'
 import ShowerSolutions from './pages/ShowerSolutions'
 import TechnicalKnowledge from './pages/TechnicalKnowledge'
 import TechnicalGuidePlaceholder from './pages/TechnicalGuidePlaceholder'
+import TanklessROComparisonArticle from './pages/TanklessROComparisonArticle'
 import ContactPage from './pages/ContactPage'
 import AboutPage from './pages/AboutPage'
 import ProductPage from './pages/ProductPage'
@@ -25,6 +26,7 @@ export default function App() {
   else if (path === '/oem-private-label' || path === '/oem-solutions') page = <OEMPrivateLabel />
   else if (path === '/technical-knowledge') page = <TechnicalKnowledge />
   else if (path === '/technical-knowledge/how-to-choose-the-right-water-filter') page = <TechnicalGuidePlaceholder />
+  else if (path === '/technical-knowledge/tankless-ro-vs-traditional-ro-systems') page = <TanklessROComparisonArticle />
   else if (path === '/contact') page = <ContactPage />
   else if (path === '/about') page = <AboutPage />
 
@@ -35,5 +37,6 @@ export default function App() {
     </>
   )
 }
+
 
 

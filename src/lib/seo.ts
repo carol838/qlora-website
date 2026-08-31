@@ -7,6 +7,8 @@ type SEOConfig = {
   image?: string
   breadcrumbs?: Array<{ name: string; path: string }>
   schemas?: Schema[]
+  canonicalUrl?: string
+  type?: 'website' | 'article'
 }
 
 const siteUrl = 'https://qloratech.com'
@@ -32,8 +34,8 @@ function upsertJsonLd(id: string, schema: Schema) {
   script.textContent = JSON.stringify(schema)
 }
 
-export function applySEO({ title, description, path, image = defaultImage, breadcrumbs = [], schemas = [] }: SEOConfig) {
-  const canonicalUrl = `${siteUrl}${path}`
+export function applySEO({ title, description, path, image = defaultImage, breadcrumbs = [], schemas = [], canonicalUrl, type = 'website' }: SEOConfig) {
+  const resolvedCanonicalUrl = canonicalUrl ?? `${siteUrl}${path}`
 
   document.title = title
 
@@ -43,7 +45,7 @@ export function applySEO({ title, description, path, image = defaultImage, bread
     return meta
   })
 
-  setMeta('link[rel="canonical"]', 'href', canonicalUrl, () => {
+  setMeta('link[rel="canonical"]', 'href', resolvedCanonicalUrl, () => {
     const link = document.createElement('link')
     link.setAttribute('rel', 'canonical')
     return link
@@ -52,8 +54,8 @@ export function applySEO({ title, description, path, image = defaultImage, bread
   const ogTags = [
     ['property', 'og:title', title],
     ['property', 'og:description', description],
-    ['property', 'og:type', 'website'],
-    ['property', 'og:url', canonicalUrl],
+    ['property', 'og:type', type],
+    ['property', 'og:url', resolvedCanonicalUrl],
     ['property', 'og:image', image],
     ['name', 'twitter:card', 'summary_large_image'],
     ['name', 'twitter:title', title],

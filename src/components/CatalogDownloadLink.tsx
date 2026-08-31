@@ -31,7 +31,7 @@ const catalogs = {
 
 type CatalogDownloadLinkProps = {
   label: string
-  pageType: 'homepage' | 'ro_systems' | 'tankless_ro' | 'shower_solutions' | 'water_dispensers' | 'water_filtration' | 'product_detail'
+  pageType: 'homepage' | 'ro_systems' | 'tankless_ro' | 'shower_solutions' | 'water_dispensers' | 'water_filtration' | 'technical_knowledge' | 'product_detail'
   catalog?: keyof typeof catalogs
   className?: string
 }
@@ -64,4 +64,5 @@ export default function CatalogDownloadLink({ label, pageType, catalog = 'tankle
     </a>
   )
 }
+
 
