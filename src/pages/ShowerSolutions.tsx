@@ -147,15 +147,27 @@ export default function ShowerSolutions() {
             <div className="lg:col-span-5">
               <p className="eyebrow">Shower filtration</p>
               <h2 className="headline mt-5">Shower Filtration</h2>
-              <p className="body-copy mt-6">Improve shower water quality with practical filtration solutions designed for everyday residential use.</p>
+              <p className="body-copy mt-6">Practical shower filtration solutions for different residential applications and market needs.</p>
               <div className="mt-9">
                 <a href="/products/shower-filter" className="button-primary">Explore Shower Filters</a>
               </div>
             </div>
             <div className="lg:col-span-7">
               <div className="overflow-hidden rounded-[2rem] bg-white p-6 shadow-soft">
-                <img src="/images/products/shower-filter/oem-packaging.webp" alt="Private label shower filter with packaging" className="aspect-[16/10] w-full rounded-[1.5rem] object-cover" loading="lazy" decoding="async" width="1200" height="750" />
+                <img src="/images/shower-solutions/shower-filtration-application.jpg" alt="Inline shower filter installed above a rainfall shower head with water flow" className="aspect-[16/10] w-full rounded-[1.5rem] object-cover object-center" loading="lazy" decoding="async" width="900" height="900" />
               </div>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2 lg:col-span-12">
+              <a href="/products/shower-filter" className="group block rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                <h3 className="text-xl font-medium tracking-tight">Filtered Hand Shower</h3>
+                <p className="mt-4 text-sm leading-6 text-ink/60">Integrated filter design for everyday shower use.</p>
+                <p className="mt-6 text-sm font-medium text-nordic transition group-hover:translate-x-1">View Details &rarr;</p>
+              </a>
+              <a href="/products/shower-filter" className="group block rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                <h3 className="text-xl font-medium tracking-tight">Inline Shower Filter</h3>
+                <p className="mt-4 text-sm leading-6 text-ink/60">Independent shower-line filtration for flexible installation.</p>
+                <p className="mt-6 text-sm font-medium text-nordic transition group-hover:translate-x-1">View Details &rarr;</p>
+              </a>
             </div>
           </div>
         </section>
@@ -206,4 +218,5 @@ export default function ShowerSolutions() {
     </>
   )
 }
+
 
