@@ -119,7 +119,7 @@ export default function ShowerSolutions() {
             </div>
             <div className="lg:col-span-6">
               <div className="overflow-hidden rounded-[2rem] bg-white/70 p-6 shadow-soft">
-                <img src={`${base}/systems/QS-SYS-001.webp`} alt="Brushed gold shower system product visual" className="aspect-[4/3] w-full rounded-[1.5rem] object-contain" loading="eager" fetchPriority="high" decoding="async" width="1200" height="900" />
+                <img src={`${base}/shower-filter-installation-hero.png`} alt="Shower filter installed above a rainfall shower head in a modern bathroom" className="aspect-[4/3] w-full rounded-[1.5rem] object-cover object-[42%_50%]" loading="eager" fetchPriority="high" decoding="async" width="1200" height="900" />
               </div>
             </div>
           </div>
@@ -206,5 +206,4 @@ export default function ShowerSolutions() {
     </>
   )
 }
-
 
