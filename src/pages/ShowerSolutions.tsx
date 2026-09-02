@@ -163,7 +163,7 @@ export default function ShowerSolutions() {
                 <p className="mt-4 text-sm leading-6 text-ink/60">Integrated filter design for everyday shower use.</p>
                 <p className="mt-6 text-sm font-medium text-nordic transition group-hover:translate-x-1">View Details &rarr;</p>
               </a>
-              <a href="/products/shower-filter" className="group block rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+              <a href="/products/inline-shower-filter" className="group block rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
                 <h3 className="text-xl font-medium tracking-tight">Inline Shower Filter</h3>
                 <p className="mt-4 text-sm leading-6 text-ink/60">Independent shower-line filtration for flexible installation.</p>
                 <p className="mt-6 text-sm font-medium text-nordic transition group-hover:translate-x-1">View Details &rarr;</p>
@@ -218,5 +218,4 @@ export default function ShowerSolutions() {
     </>
   )
 }
-
 

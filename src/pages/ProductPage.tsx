@@ -6,6 +6,7 @@ import TanklessRODetailPage from './TanklessRODetailPage'
 import { getTanklessROProduct } from '../data/tanklessROProducts'
 import UnderSinkROSystemPage from './UnderSinkROSystemPage'
 import Home from './Home'
+import InlineShowerFilterPage from './InlineShowerFilterPage'
 
 const showerSpecs = [
   { label: 'Product Type', value: 'Replacement shower filter cartridge' },
@@ -72,6 +73,7 @@ const products: Record<string, ProductDetail> = {
 }
 
 export default function ProductPage({ slug }: { slug: string }) {
+  if (slug === 'inline-shower-filter') return <InlineShowerFilterPage />
   if (slug === 'tankless-ro-system') return <TanklessROSystemPage />
   if (getTanklessROProduct(slug)) return <TanklessRODetailPage slug={slug} />
   if (slug === 'under-sink-ro-system') return <UnderSinkROSystemPage />
@@ -81,5 +83,4 @@ export default function ProductPage({ slug }: { slug: string }) {
   if (!product) return <Home />
   return <ProductDetailTemplate product={product} />
 }
-
 
