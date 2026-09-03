@@ -53,6 +53,19 @@ const showerFaucets: ShowerProduct[] = [
   { name: 'Matte Black Bar Shower Mixer Faucet', category: 'Shower Faucets', finish: 'Matte Black', image: `${base}/shower-faucets/QS-FAUC-028.webp`, alt: 'Matte black bar shower mixer faucet' },
 ]
 
+const showerFiltrationEntries = [
+  {
+    title: 'Filtered Hand Shower',
+    description: 'Integrated filter design for everyday shower use.',
+    href: '/products/shower-filter',
+  },
+  {
+    title: 'Inline Shower Filter',
+    description: 'Independent shower-line filtration for flexible installation.',
+    href: '/products/inline-shower-filter',
+  },
+]
+
 const productSections = [
   { id: 'shower-systems', eyebrow: 'Systems', title: 'Shower Systems', intro: 'Selected complete shower systems for residential and OEM project evaluation.', products: showerSystems },
   { id: 'shower-heads', eyebrow: 'Overhead options', title: 'Shower Heads', intro: 'Round and rectangular overhead shower options with confirmed dimensions where available.', products: showerHeads },
@@ -158,16 +171,13 @@ export default function ShowerSolutions() {
               </div>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:col-span-12">
-              <a href="/products/shower-filter" className="group block rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
-                <h3 className="text-xl font-medium tracking-tight">Filtered Hand Shower</h3>
-                <p className="mt-4 text-sm leading-6 text-ink/60">Integrated filter design for everyday shower use.</p>
-                <p className="mt-6 text-sm font-medium text-nordic transition group-hover:translate-x-1">View Details &rarr;</p>
-              </a>
-              <a href="/products/inline-shower-filter" className="group block rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
-                <h3 className="text-xl font-medium tracking-tight">Inline Shower Filter</h3>
-                <p className="mt-4 text-sm leading-6 text-ink/60">Independent shower-line filtration for flexible installation.</p>
-                <p className="mt-6 text-sm font-medium text-nordic transition group-hover:translate-x-1">View Details &rarr;</p>
-              </a>
+              {showerFiltrationEntries.map((entry) => (
+                <a key={entry.href} href={entry.href} className="group block rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                  <h3 className="text-xl font-medium tracking-tight">{entry.title}</h3>
+                  <p className="mt-4 text-sm leading-6 text-ink/60">{entry.description}</p>
+                  <p className="mt-6 text-sm font-medium text-nordic transition group-hover:translate-x-1">View Details &rarr;</p>
+                </a>
+              ))}
             </div>
           </div>
         </section>
