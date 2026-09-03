@@ -155,7 +155,7 @@ export default function ShowerSolutions() {
           </div>
         </section>
 
-        <section className="bg-mist py-14 md:py-20">
+        <section className="bg-[#f7f3ec] py-14 md:py-20">
           <div className="shell grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <p className="eyebrow">Shower filtration</p>
@@ -166,8 +166,8 @@ export default function ShowerSolutions() {
               </div>
             </div>
             <div className="lg:col-span-7">
-              <div className="overflow-hidden rounded-[2rem] bg-white p-6 shadow-soft">
-                <img src="/images/shower-solutions/shower-filtration-application.jpg" alt="Inline shower filter installed above a rainfall shower head with water flow" className="aspect-[16/10] w-full rounded-[1.5rem] object-cover object-center" loading="lazy" decoding="async" width="900" height="900" />
+              <div className="overflow-hidden rounded-[2rem] bg-[#fbfaf6] p-6 shadow-soft">
+                <img src="/images/shower-solutions/shower-filter-solution.png" alt="Filtered hand shower inline shower filter and shower head solution" className="aspect-[16/10] w-full rounded-[1.5rem] object-contain" loading="lazy" decoding="async" width="1536" height="1024" />
               </div>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:col-span-12">
