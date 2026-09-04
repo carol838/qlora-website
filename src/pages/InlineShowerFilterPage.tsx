@@ -162,8 +162,9 @@ export default function InlineShowerFilterPage() {
               <h2 className="headline mt-5">15-Stage, 20-Stage &amp; 25-Stage Options</h2>
               <p className="body-copy mt-6 max-w-xl">Available in 15-stage, 20-stage and 25-stage filtration configurations to support different market positioning and project requirements.</p>
               <p className="mt-5 max-w-xl text-base leading-7 text-ink/55">Different configurations use different combinations and quantities of filtration media. Detailed media specifications are available upon request.</p>
-              <div className="mt-9">
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a href="/contact" className="button-primary">Discuss Filter Configuration</a>
+                <a href="/technical-knowledge/shower-filter-media-guide" className="button-secondary">Learn About Shower Filter Media</a>
               </div>
             </div>
             <div className="lg:col-span-7">

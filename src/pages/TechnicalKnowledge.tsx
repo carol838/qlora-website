@@ -37,6 +37,15 @@ const featuredGuides = [
     excerpt: 'Compare tankless and traditional RO platforms across installation, water delivery, maintenance, smart features and OEM market positioning.',
     href: '/technical-knowledge/tankless-ro-vs-traditional-ro-systems',
   },
+  {
+    slug: 'shower-filter-media-guide',
+    category: 'Shower Filtration',
+    title: 'Shower Filter Media Guide',
+    excerpt: 'Understand common shower filter media, how 15-, 20- and 25-stage configurations differ, and what B2B buyers should consider when selecting a filtration setup.',
+    href: '/technical-knowledge/shower-filter-media-guide',
+    image: '/images/products/inline-shower-filter/filtration-structure.jpg',
+    imageAlt: 'Inline shower filter media structure for multi-stage shower filtration',
+  },
 ]
 
 export default function TechnicalKnowledge() {
@@ -126,7 +135,18 @@ export default function TechnicalKnowledge() {
 
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {featuredGuides.map((guide) => (
-                <a key={guide.slug} href={guide.href} className="group block rounded-[1.75rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                <a key={guide.slug} href={guide.href} className="group block overflow-hidden rounded-[1.75rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                  {'image' in guide && guide.image ? (
+                    <img
+                      src={guide.image}
+                      alt={'imageAlt' in guide && guide.imageAlt ? guide.imageAlt : guide.title}
+                      className="mb-6 aspect-[4/3] w-full rounded-[1.25rem] bg-mist object-contain"
+                      loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="600"
+                    />
+                  ) : null}
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nordic">{guide.category}</p>
                   <h3 className="mt-5 text-2xl font-medium leading-tight tracking-[-0.03em]">{guide.title}</h3>
                   <p className="mt-5 text-sm leading-6 text-ink/60">{guide.excerpt}</p>
