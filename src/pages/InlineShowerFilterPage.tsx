@@ -7,10 +7,34 @@ import { applySEO } from '../lib/seo'
 const base = '/images/products/inline-shower-filter'
 const path = '/products/inline-shower-filter'
 const canonicalUrl = 'https://www.qloratech.com/products/inline-shower-filter'
-const seoDescription = 'Explore QLORA inline shower filter solutions with compact installation, configurable filter media, finish options and OEM/private label support.'
+const seoDescription = 'Explore QLORA inline shower filter solutions with 15-stage, 20-stage and 25-stage filtration configuration options, finish options and OEM/private label support.'
 
 const overviewPoints = ['Inline Installation', 'Compact Housing', 'Configurable Filtration Platform', 'Finish Options']
 const oemPoints = ['Filter Media Configuration', 'Housing Finish', 'Branding', 'Packaging']
+const filtrationConfigurations = [
+  {
+    title: '15-Stage',
+    description: 'Multi-media configuration for essential market requirements.',
+  },
+  {
+    title: '20-Stage',
+    description: 'Expanded multi-media configuration with additional media options.',
+  },
+  {
+    title: '25-Stage',
+    description: 'Extended multi-media configuration for broader customization requirements.',
+  },
+]
+const specificationRows = [
+  ['Product', 'Inline Shower Filter'],
+  ['Housing Dimensions', 'Ø82 × 110 mm'],
+  ['Housing Material', 'ABS'],
+  ['Manufacturing Process', 'Injection Molding / Electroplating'],
+  ['Operating Temperature', '1–55°C'],
+  ['Application', 'Overhead Shower / Mixer Valve'],
+  ['Cartridge Size', 'Ø61 × 69 mm'],
+  ['Available Filtration Configurations', '15-Stage / 20-Stage / 25-Stage'],
+]
 
 function VisualCard({ src, alt, className = 'aspect-[4/3] object-contain', eager = false }: { src: string; alt: string; className?: string; eager?: boolean }) {
   return (
@@ -49,6 +73,11 @@ export default function InlineShowerFilterPage() {
         category: 'Shower Filtration',
         description: seoDescription,
         image: 'https://qloratech.com/images/shower-solutions/shower-filter-installation-hero.png',
+        additionalProperty: specificationRows.map(([name, value]) => ({
+          '@type': 'PropertyValue',
+          name,
+          value,
+        })),
       }],
     })
   }, [])
@@ -129,16 +158,54 @@ export default function InlineShowerFilterPage() {
         <section className="bg-mist py-14 md:py-20">
           <div className="shell grid items-center gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <p className="eyebrow">Filter media</p>
-              <h2 className="headline mt-5">Configurable Filter Media</h2>
-              <p className="body-copy mt-6 max-w-xl">Different filtration media configurations are available for different market and application requirements.</p>
-              <p className="mt-5 max-w-xl text-base leading-7 text-ink/55">Media options and performance specifications are available upon request.</p>
+              <p className="eyebrow">Multiple filtration configurations</p>
+              <h2 className="headline mt-5">15-Stage, 20-Stage &amp; 25-Stage Options</h2>
+              <p className="body-copy mt-6 max-w-xl">Available in 15-stage, 20-stage and 25-stage filtration configurations to support different market positioning and project requirements.</p>
+              <p className="mt-5 max-w-xl text-base leading-7 text-ink/55">Different configurations use different combinations and quantities of filtration media. Detailed media specifications are available upon request.</p>
               <div className="mt-9">
                 <a href="/contact" className="button-primary">Discuss Filter Configuration</a>
               </div>
             </div>
             <div className="lg:col-span-7">
-              <VisualCard src="/images/shower-solutions/shower-filtration-application.jpg" alt="Inline shower filter application with visible filtration media" className="aspect-[4/3] object-contain" />
+              <div className="grid gap-4 sm:grid-cols-3">
+                {filtrationConfigurations.map((configuration) => (
+                  <div key={configuration.title} className="rounded-[1.5rem] border border-line bg-white/75 p-6 shadow-sm">
+                    <h3 className="text-2xl font-semibold tracking-tight text-ink">{configuration.title}</h3>
+                    <p className="mt-4 text-sm leading-6 text-ink/60">{configuration.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm">
+                <p className="text-base font-medium text-ink">Not sure which configuration fits your market?</p>
+                <p className="mt-3 text-sm leading-6 text-ink/60">We can help compare filtration configurations based on your target positioning, price range and application requirements.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-14 md:py-20">
+          <div className="shell">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="eyebrow">Product specifications</p>
+              <h2 className="headline mt-5">Product Specifications</h2>
+            </div>
+            <div className="mt-10 grid items-start gap-8 lg:grid-cols-12">
+              <div className="lg:col-span-6">
+                <VisualCard src={`${base}/product-specifications.png`} alt="Inline shower filter product dimensions and specification reference" className="aspect-[4/5] object-contain" />
+              </div>
+              <div className="overflow-hidden rounded-[2rem] border border-line bg-white shadow-soft lg:col-span-6">
+                <dl className="divide-y divide-line">
+                  {specificationRows.map(([label, value]) => (
+                    <div key={label} className="grid gap-2 px-6 py-5 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] sm:items-center sm:px-8">
+                      <dt className="text-sm font-medium uppercase tracking-[0.14em] text-ink/45">{label}</dt>
+                      <dd className="text-base font-semibold leading-7 text-ink sm:text-lg">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <div className="border-t border-line bg-mist/60 px-6 py-5 text-sm leading-6 text-ink/55 sm:px-8">
+                  Filtration rating and detailed media specifications may vary by configuration and are available upon request.
+                </div>
+              </div>
             </div>
           </div>
         </section>
