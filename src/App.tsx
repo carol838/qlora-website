@@ -9,6 +9,7 @@ import TechnicalKnowledge from './pages/TechnicalKnowledge'
 import TechnicalGuidePlaceholder from './pages/TechnicalGuidePlaceholder'
 import TanklessROComparisonArticle from './pages/TanklessROComparisonArticle'
 import ShowerFilterMediaGuideArticle from './pages/ShowerFilterMediaGuideArticle'
+import WaterDispenserB2BBuyersGuideArticle from './pages/WaterDispenserB2BBuyersGuideArticle'
 import ContactPage from './pages/ContactPage'
 import AboutPage from './pages/AboutPage'
 import ProductPage from './pages/ProductPage'
@@ -29,6 +30,7 @@ export default function App() {
   else if (path === '/technical-knowledge/how-to-choose-the-right-water-filter') page = <TechnicalGuidePlaceholder />
   else if (path === '/technical-knowledge/tankless-ro-vs-traditional-ro-systems') page = <TanklessROComparisonArticle />
   else if (path === '/technical-knowledge/shower-filter-media-guide') page = <ShowerFilterMediaGuideArticle />
+  else if (path === '/technical-knowledge/water-dispenser-b2b-buyers-guide') page = <WaterDispenserB2BBuyersGuideArticle />
   else if (path === '/contact') page = <ContactPage />
   else if (path === '/about') page = <AboutPage />
 

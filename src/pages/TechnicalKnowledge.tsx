@@ -46,6 +46,15 @@ const featuredGuides = [
     image: '/images/products/inline-shower-filter/filtration-structure.jpg',
     imageAlt: 'Inline shower filter media structure for multi-stage shower filtration',
   },
+  {
+    slug: 'water-dispenser-b2b-buyers-guide',
+    category: 'Water Dispensers',
+    title: 'Water Dispenser B2B Buyer’s Guide',
+    excerpt: 'A practical guide to selecting water dispenser formats, functions, filtration and OEM configurations for different markets.',
+    href: '/technical-knowledge/water-dispenser-b2b-buyers-guide',
+    image: '/images/water-dispensers/water-dispensers-hero.png',
+    imageAlt: 'QLORA water dispenser range for residential office and commercial markets',
+  },
 ]
 
 export default function TechnicalKnowledge() {
@@ -133,7 +142,7 @@ export default function TechnicalKnowledge() {
               <p className="max-w-md text-sm leading-6 text-ink/55">A growing library for buyers comparing filtration methods, product specifications and application needs.</p>
             </div>
 
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
               {featuredGuides.map((guide) => (
                 <a key={guide.slug} href={guide.href} className="group block overflow-hidden rounded-[1.75rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
                   {'image' in guide && guide.image ? (
