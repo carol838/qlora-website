@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 
 const technicalTopics = [
   {
@@ -63,7 +63,7 @@ export default function TechnicalKnowledge() {
       title: 'Water Filtration Technical Knowledge | QLORA',
       description: 'Explore practical water filtration knowledge covering filtration technologies, water quality, product selection, applications and OEM technical requirements.',
       path: '/technical-knowledge',
-      image: 'https://qloratech.com/images/about-lab-hero.webp',
+      image: absoluteUrl('/images/about-lab-hero.webp'),
       breadcrumbs: [{ name: 'Technical Knowledge', path: '/technical-knowledge' }],
       schemas: [{
         '@context': 'https://schema.org',

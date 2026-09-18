@@ -3,15 +3,15 @@ import type { ReactNode } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CatalogDownloadLink from '../components/CatalogDownloadLink'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 
 const articlePath = '/technical-knowledge/shower-filter-media-guide'
-const canonicalUrl = 'https://www.qloratech.com/technical-knowledge/shower-filter-media-guide'
+const canonicalUrl = absoluteUrl(articlePath)
 const seoDescription = 'Learn how 15-stage, 20-stage and 25-stage shower filters differ, what common shower filter media are used, and how to choose a configuration for your market.'
 const heroImage = '/images/shower-solutions/shower-filter-installation-hero.png'
 const structureImage = '/images/products/inline-shower-filter/filtration-structure.jpg'
 const productImage = '/images/products/inline-shower-filter/product-design.png'
-const socialImage = `https://qloratech.com${heroImage}`
+const socialImage = absoluteUrl(heroImage)
 
 const mediaGroups = [
   {

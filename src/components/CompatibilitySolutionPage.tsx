@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import CatalogDownloadLink from './CatalogDownloadLink'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 
 type SeriesProduct = {
   name: string
@@ -69,7 +69,7 @@ export default function CompatibilitySolutionPage({ data }: { data: Compatibilit
       title: data.seoTitle,
       description: data.seoDescription,
       path: data.path,
-      image: data.heroImage?.src ? `https://qloratech.com${data.heroImage.src}` : undefined,
+      image: data.heroImage?.src ? absoluteUrl(data.heroImage.src) : undefined,
       breadcrumbs: [
         { name: 'Water Filtration', path: '/water-filtration' },
         { name: data.title, path: data.path },

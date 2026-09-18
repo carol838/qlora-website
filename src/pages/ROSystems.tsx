@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 import CatalogDownloadLink from '../components/CatalogDownloadLink'
 
 const imageBase = '/images/ro-systems'
@@ -38,7 +38,7 @@ export default function ROSystems() {
       title: 'RO Water Systems | OEM & Private Label Solutions | QLORA',
       description: 'Explore residential RO water systems and OEM reverse osmosis solutions with private label support for distributors and water brands.',
       path: '/ro-systems',
-      image: 'https://qloratech.com/images/ro-systems/hero-ro-system.webp',
+      image: absoluteUrl('/images/ro-systems/hero-ro-system.webp'),
       breadcrumbs: [{ name: 'RO Systems', path: '/ro-systems' }],
       schemas: [{
         '@context': 'https://schema.org',

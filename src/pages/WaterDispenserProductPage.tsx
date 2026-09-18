@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 import { getWaterDispenserById, getWaterDispenserBySlug, getWaterDispenserHref, type WaterDispenserProduct } from '../data/waterDispenserProducts'
 import Home from './Home'
 
@@ -117,7 +117,7 @@ export default function WaterDispenserProductPage({ slug }: { slug: string }) {
       title: product.seoTitle || `${product.name} | QLORA`,
       description: product.seoDescription || `Explore ${product.name} for home, office and commercial water dispenser applications with OEM and private label support from QLORA.`,
       path: `/water-dispensers/${product.slug}`,
-      image: `https://qloratech.com${product.image}`,
+      image: absoluteUrl(product.image),
       breadcrumbs: [
         { name: 'Water Dispensers', path: '/water-dispensers' },
         { name: product.name, path: `/water-dispensers/${product.slug}` },
@@ -128,7 +128,7 @@ export default function WaterDispenserProductPage({ slug }: { slug: string }) {
           '@type': 'Product',
           name: product.name,
           brand: { '@type': 'Brand', name: 'QLORA' },
-          image: `https://qloratech.com${product.image}`,
+          image: absoluteUrl(product.image),
           description: product.description,
           category: product.category,
           additionalProperty: specRows(product).map(([name, value]) => ({ '@type': 'PropertyValue', name, value })),

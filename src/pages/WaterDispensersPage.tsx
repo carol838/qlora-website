@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CatalogDownloadLink from '../components/CatalogDownloadLink'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 import { getWaterDispenserById, getWaterDispenserHref, type WaterDispenserProduct } from '../data/waterDispenserProducts'
 
 const categoryCards = [
@@ -100,7 +100,7 @@ export default function WaterDispensersPage() {
       title: 'Water Dispensers & POU Solutions | QLORA',
       description: 'Explore QLORA floor-standing, countertop and bottom-loading water dispensers with selected POU, RO and UF filtration options for residential and commercial applications.',
       path: '/water-dispensers',
-      image: `https://qloratech.com${waterDispenserHero}`,
+      image: absoluteUrl(waterDispenserHero),
       breadcrumbs: [{ name: 'Water Dispensers', path: '/water-dispensers' }],
       schemas: [{
         '@context': 'https://schema.org',
@@ -110,7 +110,7 @@ export default function WaterDispensersPage() {
           '@type': 'ListItem',
           position: index + 1,
           name: product.name,
-          url: product.slug ? `https://qloratech.com/water-dispensers/${product.slug}` : 'https://qloratech.com/water-dispensers',
+          url: absoluteUrl(product.slug ? `/water-dispensers/${product.slug}` : '/water-dispensers'),
         })),
       }],
     })

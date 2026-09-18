@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CatalogDownloadLink from '../components/CatalogDownloadLink'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 
 const base = '/images/shower-solutions'
 
@@ -98,7 +98,7 @@ export default function ShowerSolutions() {
       title: 'Shower Systems, Filters & Components | QLORA',
       description: 'Explore QLORA shower solutions including shower filters, shower systems, shower heads, hand showers and shower faucets for residential and OEM applications.',
       path: '/shower-solutions',
-      image: 'https://qloratech.com/images/shower-solutions/systems/QS-SYS-001.webp',
+      image: absoluteUrl('/images/shower-solutions/systems/QS-SYS-001.webp'),
       breadcrumbs: [{ name: 'Shower Solutions', path: '/shower-solutions' }],
       schemas: [{
         '@context': 'https://schema.org',

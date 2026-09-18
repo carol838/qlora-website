@@ -3,15 +3,15 @@ import type { ReactNode } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CatalogDownloadLink from '../components/CatalogDownloadLink'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 
 const articlePath = '/technical-knowledge/water-dispenser-b2b-buyers-guide'
-const canonicalUrl = 'https://www.qloratech.com/technical-knowledge/water-dispenser-b2b-buyers-guide'
+const canonicalUrl = absoluteUrl(articlePath)
 const seoDescription = 'A practical B2B guide to choosing water dispensers by format, water supply, heating and cooling, filtration, application and OEM requirements.'
 const heroImage = '/images/home/home-water-dispenser-banner.webp'
 const formatImage = '/images/water-dispensers/water-dispensers-hero.png'
 const ctaImage = '/images/water-dispensers/desktop-water-dispenser.png'
-const socialImage = `https://qloratech.com${heroImage}`
+const socialImage = absoluteUrl(heroImage)
 
 const temperatureFunctions = ['Hot and cold water', 'Hot, cold and ambient water', 'Other model-specific dispensing configurations']
 const configurationChecks = ['Cooling capacity', 'Heating capacity', 'Rated power', 'Cooling method', 'Internal water storage', 'Tank configuration']

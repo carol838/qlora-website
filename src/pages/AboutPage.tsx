@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 
 export default function AboutPage() {
   useEffect(() => {
@@ -9,13 +9,13 @@ export default function AboutPage() {
       title: 'About QLORA | Water Filtration Solutions',
       description: 'Learn about QLORA and our mission to provide premium water filtration products and OEM support for global partners.',
       path: '/about',
-      image: 'https://qloratech.com/images/about-lab-hero.webp',
+      image: absoluteUrl('/images/about-lab-hero.webp'),
       breadcrumbs: [{ name: 'About', path: '/about' }],
       schemas: [{
         '@context': 'https://schema.org',
         '@type': 'AboutPage',
         name: 'About QLORA',
-        url: 'https://qloratech.com/about',
+        url: absoluteUrl('/about'),
         description: 'QLORA provides water filtration solutions including RO systems, replacement filters and OEM manufacturing support for distributors and brands worldwide.',
       }],
     })

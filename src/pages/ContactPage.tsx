@@ -2,7 +2,7 @@ import { type FormEvent, useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { WhatsAppIcon, whatsappUrl } from '../components/FloatingWhatsApp'
-import { applySEO, seoImages } from '../lib/seo'
+import { absoluteUrl, applySEO, seoImages } from '../lib/seo'
 
 const reasons = [
   ['Product Expertise', 'Guidance across RO systems, replacement filters and application needs.'],
@@ -39,7 +39,7 @@ export default function ContactPage() {
         '@context': 'https://schema.org',
         '@type': 'ContactPage',
         name: 'Contact QLORA',
-        url: 'https://qloratech.com/contact',
+        url: absoluteUrl('/contact'),
         description: 'Contact QLORA for water filtration inquiry, OEM water filter supplier support and RO systems supplier questions.',
       }],
     })

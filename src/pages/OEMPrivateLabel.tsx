@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 
 const steps = [
   ['01', 'Inquiry', 'Tell us your product requirements and target market.'],
@@ -38,7 +38,7 @@ export default function OEMPrivateLabel() {
       title: 'OEM & Private Label Water Filtration Products | QLORA',
       description: 'Build your own water filtration brand with OEM manufacturing, private label support and custom packaging solutions.',
       path: '/oem-private-label',
-      image: 'https://qloratech.com/images/oem-private-label-hero.webp',
+      image: absoluteUrl('/images/oem-private-label-hero.webp'),
       breadcrumbs: [{ name: 'OEM & Private Label', path: '/oem-private-label' }],
       schemas: [{
         '@context': 'https://schema.org',

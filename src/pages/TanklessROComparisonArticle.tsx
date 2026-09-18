@@ -3,14 +3,14 @@ import type { ReactNode } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CatalogDownloadLink from '../components/CatalogDownloadLink'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 import heroImage from '../assets/home-ro-tank-tankless-banner.webp'
 
 const articlePath = '/technical-knowledge/tankless-ro-vs-traditional-ro-systems'
-const canonicalUrl = 'https://www.qloratech.com/technical-knowledge/tankless-ro-vs-traditional-ro-systems'
+const canonicalUrl = absoluteUrl(articlePath)
 const seoDescription = 'Compare tankless and traditional tank RO systems in design, water delivery, installation, maintenance and OEM positioning to choose the right solution for your market.'
 const bodyImage = '/images/ro-systems/tankless/scenes/slim-tankless-ro-installation.webp'
-const socialImage = heroImage.startsWith('http') ? heroImage : `https://qloratech.com${heroImage}`
+const socialImage = absoluteUrl(heroImage)
 
 const comparisonRows = [
   ['Water delivery', 'Direct flow', 'Stored purified water'],

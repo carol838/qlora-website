@@ -11,8 +11,14 @@ type SEOConfig = {
   type?: 'website' | 'article'
 }
 
-const siteUrl = 'https://qloratech.com'
-const defaultImage = `${siteUrl}/images/hero-kitchen.webp`
+export const siteUrl = 'https://www.qloratech.com'
+
+export function absoluteUrl(path: string) {
+  if (/^https?:\/\//i.test(path)) return path
+  return `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`
+}
+
+const defaultImage = absoluteUrl('/images/hero-kitchen.webp')
 
 function setMeta(selector: string, attr: 'content' | 'href', value: string, create?: () => HTMLMetaElement | HTMLLinkElement) {
   let element = document.head.querySelector<HTMLMetaElement | HTMLLinkElement>(selector)
@@ -35,7 +41,7 @@ function upsertJsonLd(id: string, schema: Schema) {
 }
 
 export function applySEO({ title, description, path, image = defaultImage, breadcrumbs = [], schemas = [], canonicalUrl, type = 'website' }: SEOConfig) {
-  const resolvedCanonicalUrl = canonicalUrl ?? `${siteUrl}${path}`
+  const resolvedCanonicalUrl = canonicalUrl ?? absoluteUrl(path)
 
   document.title = title
 
@@ -76,7 +82,7 @@ export function applySEO({ title, description, path, image = defaultImage, bread
     '@type': 'Organization',
     name: 'QLORA',
     url: siteUrl,
-    logo: `${siteUrl}/images/hero-kitchen.webp`,
+    logo: absoluteUrl('/images/hero-kitchen.webp'),
     description: 'QLORA provides water filtration solutions including RO systems, replacement filters and OEM manufacturing support for distributors and brands worldwide.',
     makesOffer: [
       { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'RO Water Systems' } },
@@ -105,7 +111,7 @@ export function applySEO({ title, description, path, image = defaultImage, bread
         '@type': 'ListItem',
         position: index + 2,
         name: item.name,
-        item: `${siteUrl}${item.path}`,
+        item: absoluteUrl(item.path),
       })),
     ],
   })
@@ -114,8 +120,8 @@ export function applySEO({ title, description, path, image = defaultImage, bread
 }
 
 export const seoImages = {
-  home: `${siteUrl}/images/hero-kitchen.webp`,
-  ro: `${siteUrl}/images/ro-system.webp`,
-  filtration: `${siteUrl}/images/filtration-solutions.webp`,
-  oem: `${siteUrl}/images/ro-system.webp`,
+  home: absoluteUrl('/images/hero-kitchen.webp'),
+  ro: absoluteUrl('/images/ro-system.webp'),
+  filtration: absoluteUrl('/images/filtration-solutions.webp'),
+  oem: absoluteUrl('/images/ro-system.webp'),
 }

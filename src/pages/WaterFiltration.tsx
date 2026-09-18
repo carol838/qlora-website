@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CatalogDownloadLink from '../components/CatalogDownloadLink'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 
 const imageBase = '/images/water-filtration'
 
@@ -85,7 +85,7 @@ export default function WaterFiltration() {
       title: 'Replacement Water Filters & Filtration Solutions | QLORA',
       description: 'Discover replacement water filters including under sink, refrigerator and coffee machine filtration solutions.',
       path: '/water-filtration',
-      image: 'https://qloratech.com/images/water-filtration/hero.webp',
+      image: absoluteUrl('/images/water-filtration/hero.webp'),
       breadcrumbs: [{ name: 'Water Filtration', path: '/water-filtration' }],
       schemas: [{
         '@context': 'https://schema.org',

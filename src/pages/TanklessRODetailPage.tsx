@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Home from './Home'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 import CatalogDownloadLink from '../components/CatalogDownloadLink'
 import {
   getTanklessROHref,
@@ -93,9 +93,8 @@ export default function TanklessRODetailPage({ slug }: { slug: string }) {
       title: product.seoTitle,
       description: product.seoDescription,
       path: `/products/${product.slug}`,
-      image: `https://qloratech.com${product.image}`,
+      image: absoluteUrl(product.image),
       breadcrumbs: [
-        { name: 'Home', path: '/' },
         { name: 'RO Systems', path: '/ro-systems' },
         { name: 'Tankless RO Systems', path: '/products/tankless-ro-system' },
         { name: product.publicName, path: `/products/${product.slug}` },
@@ -105,7 +104,7 @@ export default function TanklessRODetailPage({ slug }: { slug: string }) {
         '@type': 'Product',
         name: product.publicName,
         brand: { '@type': 'Brand', name: 'QLORA' },
-        image: `https://qloratech.com${product.image}`,
+        image: absoluteUrl(product.image),
         description: product.shortDescription,
         category: 'Tankless reverse osmosis water filtration system',
         additionalProperty: specs.map((spec) => ({ '@type': 'PropertyValue', name: spec.label, value: spec.value })),

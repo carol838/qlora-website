@@ -1,7 +1,7 @@
 ﻿import { useEffect } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 
 const imageBase = '/images/products/under-sink-ro-system'
 
@@ -80,9 +80,8 @@ export default function UnderSinkROSystemPage() {
       title: 'Under Sink Reverse Osmosis System | QLORA',
       description: '5-stage under sink reverse osmosis water filtration system with pressure tank for OEM, private label and residential drinking water applications.',
       path: '/products/under-sink-ro-system',
-      image: `${imageBase}/tank-ro.webp`,
+      image: absoluteUrl(`${imageBase}/tank-ro.webp`),
       breadcrumbs: [
-        { name: 'Home', path: '/' },
         { name: 'RO Systems', path: '/ro-systems' },
         { name: 'Under Sink RO System', path: '/products/under-sink-ro-system' },
       ],
@@ -92,7 +91,7 @@ export default function UnderSinkROSystemPage() {
         name: 'Classic Under Sink Reverse Osmosis System',
         brand: { '@type': 'Brand', name: 'QLORA' },
         description: '5-stage under sink reverse osmosis system with pressure tank for residential drinking water, OEM and private label programs.',
-        image: `${window.location.origin}${imageBase}/tank-ro.webp`,
+        image: absoluteUrl(`${imageBase}/tank-ro.webp`),
         category: 'Under sink reverse osmosis water filtration system',
       }],
     })

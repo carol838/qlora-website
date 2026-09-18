@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 import CatalogDownloadLink from '../components/CatalogDownloadLink'
 import { getTanklessROHref, tanklessCommonConfigurations, tanklessROProducts, tanklessImageBase, type TanklessROProduct } from '../data/tanklessROProducts'
 
@@ -41,9 +41,8 @@ export default function TanklessROSystemPage() {
       title: 'Tankless RO Systems for OEM & Residential Use | QLORA',
       description: 'Explore QLORA tankless RO systems with slim designs, smart displays, TDS monitoring and configurable 4-stage, 5-stage and 75–1200 GPD options.',
       path: '/products/tankless-ro-system',
-      image: `https://qloratech.com${tanklessROProducts[0].image}`,
+      image: absoluteUrl(tanklessROProducts[0].image),
       breadcrumbs: [
-        { name: 'Home', path: '/' },
         { name: 'RO Systems', path: '/ro-systems' },
         { name: 'Tankless RO Systems', path: '/products/tankless-ro-system' },
       ],
@@ -55,7 +54,7 @@ export default function TanklessROSystemPage() {
           '@type': 'ListItem',
           position: index + 1,
           name: product.publicName,
-          url: `https://qloratech.com${getTanklessROHref(product)}`,
+          url: absoluteUrl(getTanklessROHref(product)),
         })),
       }],
     })

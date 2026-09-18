@@ -2,12 +2,13 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CatalogDownloadLink from '../components/CatalogDownloadLink'
-import { applySEO } from '../lib/seo'
+import { absoluteUrl, applySEO } from '../lib/seo'
 
 const base = '/images/products/inline-shower-filter'
 const path = '/products/inline-shower-filter'
-const canonicalUrl = 'https://www.qloratech.com/products/inline-shower-filter'
+const canonicalUrl = absoluteUrl(path)
 const seoDescription = 'Explore QLORA inline shower filter solutions with 15-stage, 20-stage and 25-stage filtration configuration options, finish options and OEM/private label support.'
+const socialImage = absoluteUrl('/images/shower-solutions/shower-filter-installation-hero.png')
 
 const overviewPoints = ['Inline Installation', 'Compact Housing', 'Configurable Filtration Platform', 'Finish Options']
 const oemPoints = ['Filter Media Configuration', 'Housing Finish', 'Branding', 'Packaging']
@@ -60,7 +61,7 @@ export default function InlineShowerFilterPage() {
       description: seoDescription,
       path,
       canonicalUrl,
-      image: 'https://qloratech.com/images/shower-solutions/shower-filter-installation-hero.png',
+      image: socialImage,
       breadcrumbs: [
         { name: 'Shower Solutions', path: '/shower-solutions' },
         { name: 'Inline Shower Filter', path },
@@ -72,7 +73,7 @@ export default function InlineShowerFilterPage() {
         brand: { '@type': 'Brand', name: 'QLORA' },
         category: 'Shower Filtration',
         description: seoDescription,
-        image: 'https://qloratech.com/images/shower-solutions/shower-filter-installation-hero.png',
+        image: socialImage,
         additionalProperty: specificationRows.map(([name, value]) => ({
           '@type': 'PropertyValue',
           name,
