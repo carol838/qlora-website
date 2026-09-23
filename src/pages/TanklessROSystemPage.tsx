@@ -159,12 +159,12 @@ export default function TanklessROSystemPage() {
 
         <section className="bg-mist py-14 md:py-20">
           <div className="shell">
-            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">B2B supply support</p>
-                <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">Manufacturing &amp; Quality Control</h2>
-                <p className="mt-5 max-w-xl text-lg leading-8 text-ink/64">From component assembly to system testing, tankless RO projects are supported by manufacturing and quality-control processes for B2B and private-label supply.</p>
-                <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">B2B supply support</p>
+              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">Manufacturing &amp; Quality Control</h2>
+              <p className="mt-5 max-w-xl text-lg leading-8 text-ink/64">From component assembly to system testing, tankless RO projects are supported by manufacturing and quality-control processes for B2B and private-label supply.</p>
+              <div className="mt-8 grid gap-8 lg:grid-cols-[2fr_3fr] lg:items-start">
+                <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
                   {[
                     ['Tankless RO Production', 'Flexible production support for different system configurations and OEM projects.'],
                     ['System Testing', 'Functional and water-flow testing during the production process.'],
@@ -176,14 +176,14 @@ export default function TanklessROSystemPage() {
                     </div>
                   ))}
                 </div>
-              </div>
-              <div className="grid gap-5 sm:grid-cols-2">
-                <figure className="overflow-hidden rounded-[1.5rem] bg-white p-3 shadow-soft">
-                  <img src="/images/factory/tankless-ro/tankless-ro-testing-line.webp" alt="Tankless RO systems on production testing line" className="aspect-[4/3] w-full rounded-[1.1rem] object-cover object-center" loading="lazy" decoding="async" width="1600" height="1200" />
-                </figure>
-                <figure className="overflow-hidden rounded-[1.5rem] bg-white p-3 shadow-soft">
-                  <img src="/images/factory/tankless-ro/tankless-ro-batch-production.webp" alt="Batch production of tankless RO systems for B2B supply" className="aspect-[4/3] w-full rounded-[1.1rem] object-cover object-center" loading="lazy" decoding="async" width="1600" height="1200" />
-                </figure>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <figure className="overflow-hidden rounded-[1.5rem] bg-white p-3 shadow-soft">
+                    <img src="/images/factory/tankless-ro/tankless-ro-testing-line.webp" alt="Tankless RO systems on production testing line" className="aspect-[4/3] h-full w-full rounded-[1.1rem] object-cover object-center" loading="lazy" decoding="async" width="1600" height="1200" />
+                  </figure>
+                  <figure className="overflow-hidden rounded-[1.5rem] bg-white p-3 shadow-soft">
+                    <img src="/images/factory/tankless-ro/tankless-ro-batch-production.webp" alt="Batch production of tankless RO systems for B2B supply" className="aspect-[4/3] h-full w-full rounded-[1.1rem] object-cover object-center" loading="lazy" decoding="async" width="1600" height="1200" />
+                  </figure>
+                </div>
               </div>
             </div>
           </div>
