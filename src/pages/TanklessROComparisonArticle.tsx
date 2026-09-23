@@ -169,6 +169,7 @@ export default function TanklessROComparisonArticle() {
                 <p>Depending on the system configuration, tankless models may also support features such as:</p>
                 <BulletList items={['High-capacity direct-flow filtration', 'Quick-change filter cartridges', 'Integrated filter-life monitoring', 'TDS monitoring', 'Smart display interfaces', 'Dual-water configurations', 'Optional smart faucets']} />
                 <p>These features make tankless RO particularly suitable for modern residential and premium private-label product ranges.</p>
+                <p>Explore QLORA&apos;s <a href="/products/tankless-ro-system" className="font-medium text-nordic underline decoration-nordic/30 underline-offset-4">tankless RO system platforms</a> to review current designs and configurable project options.</p>
               </ArticleSection>
 
               <figure className="my-14 overflow-hidden rounded-[2rem] bg-white/70 p-4 shadow-soft sm:p-6">

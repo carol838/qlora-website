@@ -85,7 +85,7 @@ export default function TanklessRODetailPage({ slug }: { slug: string }) {
   const product = getTanklessROProduct(slug)
   if (!product) return <Home />
 
-  const specs = [{ label: 'Product Dimensions', value: product.dimension }, ...tanklessCommonSpecs]
+  const specs = [{ label: 'QLORA Product ID', value: product.qloraId }, { label: 'Product Dimensions', value: product.dimension }, ...tanklessCommonSpecs]
   const related = tanklessROProducts.filter((item) => item.slug !== product.slug)
 
   useEffect(() => {
@@ -103,6 +103,7 @@ export default function TanklessRODetailPage({ slug }: { slug: string }) {
         '@context': 'https://schema.org',
         '@type': 'Product',
         name: product.publicName,
+        sku: product.qloraId,
         brand: { '@type': 'Brand', name: 'QLORA' },
         image: absoluteUrl(product.image),
         description: product.shortDescription,

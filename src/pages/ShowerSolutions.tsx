@@ -104,11 +104,19 @@ export default function ShowerSolutions() {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
         name: 'QLORA shower solutions',
-        itemListElement: [...showerSystems, ...showerHeads, ...handShowers, ...showerFaucets].map((product, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          name: product.name,
-        })),
+        itemListElement: [
+          ...showerFiltrationEntries.map((product, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: product.title,
+            url: absoluteUrl(product.href),
+          })),
+          ...[...showerSystems, ...showerHeads, ...handShowers, ...showerFaucets].map((product, index) => ({
+            '@type': 'ListItem',
+            position: index + showerFiltrationEntries.length + 1,
+            name: product.name,
+          })),
+        ],
       }],
     })
   }, [])
@@ -161,8 +169,9 @@ export default function ShowerSolutions() {
               <p className="eyebrow">Shower filtration</p>
               <h2 className="headline mt-5">Shower Filtration</h2>
               <p className="body-copy mt-6">Practical shower filtration solutions for different residential applications and market needs.</p>
-              <div className="mt-9">
-                <a href="/products/shower-filter" className="button-primary">Explore Shower Filters</a>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <a href="/products/inline-shower-filter" className="button-primary">Explore Inline Shower Filter</a>
+                <a href="/technical-knowledge/shower-filter-media-guide" className="button-secondary">Shower Filter Media Guide</a>
               </div>
             </div>
             <div className="lg:col-span-7">

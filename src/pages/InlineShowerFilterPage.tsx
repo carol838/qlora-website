@@ -7,7 +7,7 @@ import { absoluteUrl, applySEO } from '../lib/seo'
 const base = '/images/products/inline-shower-filter'
 const path = '/products/inline-shower-filter'
 const canonicalUrl = absoluteUrl(path)
-const seoDescription = 'Explore QLORA inline shower filter solutions with 15-stage, 20-stage and 25-stage filtration configuration options, finish options and OEM/private label support.'
+const seoDescription = 'Source 20-stage inline shower filters with 15- and 25-stage alternatives, replaceable cartridge planning, finishes, OEM branding and packaging support.'
 const socialImage = absoluteUrl('/images/shower-solutions/shower-filter-installation-hero.png')
 
 const overviewPoints = ['Inline Installation', 'Compact Housing', 'Configurable Filtration Platform', 'Finish Options']
@@ -57,7 +57,7 @@ function VisualCard({ src, alt, className = 'aspect-[4/3] object-contain', eager
 export default function InlineShowerFilterPage() {
   useEffect(() => {
     applySEO({
-      title: 'Inline Shower Filter | Shower Filtration Solutions | QLORA',
+      title: '20-Stage Inline Shower Filter for OEM & Wholesale | QLORA',
       description: seoDescription,
       path,
       canonicalUrl,
@@ -97,13 +97,15 @@ export default function InlineShowerFilterPage() {
                 <span aria-hidden="true">›</span>
                 <a href={path} className="text-ink/70 transition hover:text-ink">Inline Shower Filter</a>
               </nav>
-              <p className="eyebrow">Shower filtration</p>
-              <h1 className="display mt-6 max-w-2xl">Inline Shower Filter</h1>
-              <p className="body-copy mt-7 max-w-xl">Compact shower-line filtration designed for flexible installation and everyday residential shower applications.</p>
+              <p className="eyebrow">Featured configuration: 20-stage</p>
+              <h1 className="display mt-6 max-w-2xl">Inline Multi-Stage Shower Filter</h1>
+              <p className="body-copy mt-7 max-w-xl">A compact inline shower filter platform for distributors, importers, retailers and private-label brands, with 20-stage as the featured commercial configuration.</p>
+              <p className="mt-4 max-w-xl text-base leading-7 text-ink/55">15-stage and 25-stage alternatives remain available for different media, positioning and project requirements.</p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <a href="/contact" className="button-primary">Request Details</a>
+                <a href="/contact" className="button-primary">Get Wholesale Quote</a>
                 <CatalogDownloadLink label="Download Shower Catalog" pageType="product_detail" catalog="showerSolutions" />
               </div>
+              <p className="mt-4 text-sm leading-6 text-ink/50">Ask about 15-stage, 20-stage and 25-stage configurations.</p>
             </div>
             <div className="min-w-0 lg:col-span-6">
               <VisualCard src="/images/shower-solutions/shower-filter-installation-hero.png" alt="Inline shower filter installed with a shower system" className="aspect-[4/3] object-cover object-[42%_50%]" eager />
@@ -119,7 +121,7 @@ export default function InlineShowerFilterPage() {
             <div className="lg:col-span-6">
               <p className="eyebrow">Product overview</p>
               <h2 className="headline mt-5">Compact Filtration for Shower Applications</h2>
-              <p className="body-copy mt-6 max-w-xl">Designed for installation directly in the shower water line, the QLORA Inline Shower Filter provides a compact platform for configurable shower filtration.</p>
+              <p className="body-copy mt-6 max-w-xl">Designed for installation directly in the shower water line, the QLORA Inline Shower Filter provides a compact multi-stage platform for configurable shower filtration and B2B supply projects.</p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {overviewPoints.map((point) => (
                   <div key={point} className="rounded-full bg-white/70 px-5 py-3 text-sm text-ink/70 shadow-sm">{point}</div>
@@ -171,7 +173,8 @@ export default function InlineShowerFilterPage() {
             <div className="lg:col-span-7">
               <div className="grid gap-4 sm:grid-cols-3">
                 {filtrationConfigurations.map((configuration) => (
-                  <div key={configuration.title} className="rounded-[1.5rem] border border-line bg-white/75 p-6 shadow-sm">
+                  <div key={configuration.title} className={`rounded-[1.5rem] border p-6 shadow-sm ${configuration.title === '20-Stage' ? 'border-accent/40 bg-white ring-2 ring-accent/10' : 'border-line bg-white/75'}`}>
+                    {configuration.title === '20-Stage' && <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">Featured Configuration</p>}
                     <h3 className="text-2xl font-semibold tracking-tight text-ink">{configuration.title}</h3>
                     <p className="mt-4 text-sm leading-6 text-ink/60">{configuration.description}</p>
                   </div>
@@ -180,6 +183,7 @@ export default function InlineShowerFilterPage() {
               <div className="mt-6 rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm">
                 <p className="text-base font-medium text-ink">Not sure which configuration fits your market?</p>
                 <p className="mt-3 text-sm leading-6 text-ink/60">We can help compare filtration configurations based on your target positioning, price range and application requirements.</p>
+                <p className="mt-3 text-sm leading-6 text-ink/60">Replacement cartridge requirements and ongoing supply planning can also be discussed for distributor, retail and private-label programs.</p>
               </div>
             </div>
           </div>
@@ -217,7 +221,7 @@ export default function InlineShowerFilterPage() {
             <div className="lg:col-span-5">
               <p className="eyebrow">OEM &amp; private label</p>
               <h2 className="headline mt-5">OEM Support for Inline Shower Filters</h2>
-              <p className="body-copy mt-6 max-w-xl">QLORA supports product discussion for filter media configuration, housing finish, branding and packaging requirements.</p>
+              <p className="body-copy mt-6 max-w-xl">QLORA supports distributors, importers, retailers and private-label brands with discussion of filter media configuration, housing finish, replacement cartridge supply, branding and packaging requirements.</p>
               <div className="mt-9">
                 <a href="/oem-private-label" className="button-primary">Discuss Your Project</a>
               </div>
@@ -263,7 +267,7 @@ export default function InlineShowerFilterPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/50">Start a conversation</p>
             <h2 className="headline mx-auto mt-5 max-w-3xl">Ready to Discuss Inline Shower Filter?</h2>
             <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-              <a href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-ink transition hover:bg-mist">Request Details</a>
+              <a href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-ink transition hover:bg-mist">Get Wholesale Quote</a>
               <a href="/oem-private-label" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-6 text-sm font-medium transition hover:bg-white/10">Discuss Your Project</a>
             </div>
           </div>
