@@ -72,7 +72,7 @@ export default function OEMPrivateLabel() {
               </div>
             </div>
             <div className="min-h-[420px] overflow-hidden bg-[#e9e6df]">
-              <img src="/images/oem-private-label-hero.webp" alt="Private label water filter and custom packaging box in a warm Nordic kitchen" className="h-full w-full object-cover" loading="eager" fetchPriority="high" decoding="async" width="1600" height="900" />
+              <img src="/images/factory/tankless-ro/tankless-ro-showroom.webp" alt="QLORA showroom displaying a range of water filtration products" className="h-full w-full object-cover object-center" loading="eager" fetchPriority="high" decoding="async" width="1920" height="1440" />
             </div>
           </div>
         </section>
