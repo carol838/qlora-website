@@ -163,28 +163,21 @@ export default function TanklessROSystemPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">B2B supply support</p>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">Manufacturing &amp; Quality Control</h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-ink/64">From component assembly to system testing, tankless RO projects are supported by manufacturing and quality-control processes for B2B and private-label supply.</p>
-              <div className="mt-8 grid gap-8 lg:grid-cols-[2fr_3fr] lg:items-start">
-                <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-                  {[
-                    ['Tankless RO Production', 'Flexible production support for different system configurations and OEM projects.'],
-                    ['System Testing', 'Functional and water-flow testing during the production process.'],
-                    ['Batch Supply', 'Production support for distributors, importers and private-label projects.'],
-                  ].map(([title, copy]) => (
-                    <div key={title} className="rounded-[1.25rem] border border-line bg-white/65 p-5 shadow-sm">
-                      <h3 className="text-base font-semibold text-ink">{title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-ink/58">{copy}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <figure className="overflow-hidden rounded-[1.5rem] bg-white p-3 shadow-soft">
-                    <img src="/images/factory/tankless-ro/tankless-ro-testing-line.webp" alt="Tankless RO systems on production testing line" className="aspect-[4/3] h-full w-full rounded-[1.1rem] object-cover object-center" loading="lazy" decoding="async" width="1600" height="1200" />
-                  </figure>
-                  <figure className="overflow-hidden rounded-[1.5rem] bg-white p-3 shadow-soft">
-                    <img src="/images/factory/tankless-ro/tankless-ro-batch-production.webp" alt="Batch production of tankless RO systems for B2B supply" className="aspect-[4/3] h-full w-full rounded-[1.1rem] object-cover object-center" loading="lazy" decoding="async" width="1600" height="1200" />
-                  </figure>
-                </div>
+              <div className="mt-8 grid gap-3 md:grid-cols-3">
+                {[
+                  ['Tankless RO Production', 'Flexible production support for different system configurations and OEM projects.'],
+                  ['System Testing', 'Functional and water-flow testing during the production process.'],
+                  ['Batch Supply', 'Production support for distributors, importers and private-label projects.'],
+                ].map(([title, copy]) => (
+                  <div key={title} className="rounded-[1.25rem] border border-line bg-white/65 p-5 shadow-sm">
+                    <h3 className="text-base font-semibold text-ink">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-ink/58">{copy}</p>
+                  </div>
+                ))}
               </div>
+              <figure className="mt-8 overflow-hidden rounded-[1.75rem] bg-white p-3 shadow-soft md:p-4">
+                <img src="/images/factory/tankless-ro/tankless-ro-testing-line.webp" alt="Tankless RO systems on production testing line" className="h-auto w-full rounded-[1.25rem] object-contain" loading="lazy" decoding="async" width="1600" height="1200" />
+              </figure>
             </div>
           </div>
         </section>
@@ -214,13 +207,15 @@ export default function TanklessROSystemPage() {
                   <a href="/contact" className="button-secondary">Request Tankless RO Quote</a>
                 </div>
               </div>
-              <div className="aspect-[3/2] overflow-hidden rounded-[1.5rem] bg-canvas shadow-sm">
+              <div className="overflow-hidden rounded-[1.5rem] bg-canvas shadow-sm">
                 <img
-                  src={`${tanklessImageBase}/tankless-ro-oem-customization.webp`}
-                  alt="Tankless RO system with OEM color, branding and packaging options"
-                  className="h-full w-full object-cover object-center"
+                  src="/images/factory/tankless-ro/tankless-ro-batch-production.webp"
+                  alt="Batch production of tankless RO systems for B2B supply"
+                  className="h-auto w-full object-contain"
                   loading="lazy"
                   decoding="async"
+                  width="1600"
+                  height="1200"
                 />
               </div>
             </div>
