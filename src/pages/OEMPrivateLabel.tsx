@@ -72,7 +72,7 @@ export default function OEMPrivateLabel() {
               </div>
             </div>
             <div className="min-h-[420px] overflow-hidden bg-[#e9e6df]">
-              <img src="/images/factory/tankless-ro/tankless-ro-showroom.webp" alt="QLORA showroom displaying a range of water filtration products" className="h-full w-full object-cover object-center" loading="eager" fetchPriority="high" decoding="async" width="1920" height="1440" />
+              <img src="/images/factory/tankless-ro/facility.webp" alt="Water filtration product housings moving through a factory production facility" className="h-full w-full object-cover object-[64%_50%]" loading="eager" fetchPriority="high" decoding="async" width="1920" height="1440" />
             </div>
           </div>
         </section>
@@ -81,19 +81,19 @@ export default function OEMPrivateLabel() {
           <div className="shell">
             <div className="mx-auto max-w-3xl text-center">
                 <p className="eyebrow">Custom branding</p>
-                <h2 className="headline mt-5">Custom Branding &amp; Packaging</h2>
-                <p className="body-copy mx-auto mt-6 max-w-2xl">Create a polished product presentation for retail, wholesale and e-commerce channels with coordinated labels, color boxes and brand-ready packaging details.</p>
+                <h2 className="headline mt-5">Product Customization &amp; Private Label</h2>
+                <p className="body-copy mx-auto mt-6 max-w-2xl">Explore product appearance, color and finish options, branding, labels and packaging directions for retail, wholesale and e-commerce programs.</p>
             </div>
 
             <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-[2rem] bg-white shadow-soft md:mt-12">
               <img
-                src="/images/oem-color-box.webp"
-                alt="Custom color box packaging examples for private label reverse osmosis water systems"
-                className="aspect-[16/10] w-full object-cover"
+                src="/images/factory/tankless-ro/tankless-ro-showroom2.webp"
+                alt="Tankless RO product designs displayed for customization and private label discussions"
+                className="aspect-[4/3] w-full object-cover object-center"
                 loading="lazy"
                 decoding="async"
-                width="1400"
-                height="875"
+                width="1920"
+                height="1440"
               />
             </div>
 
