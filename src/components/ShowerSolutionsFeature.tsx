@@ -3,25 +3,24 @@ export default function ShowerSolutionsFeature() {
     <section className="section-space bg-mist">
       <div className="shell grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-6">
-          <div className="overflow-hidden rounded-[2rem] bg-white p-6 shadow-soft">
+          <div className="mx-auto flex aspect-square w-full max-w-[460px] items-center justify-center overflow-hidden rounded-[2rem] bg-white p-8 shadow-soft md:p-10">
             <img
-              src="/images/shower-solutions/QLORA-Shower-Solutions-Homepage-Feature.webp"
-              alt="Modern shower system product for residential applications"
-              className="aspect-[4/3] w-full rounded-[1.5rem] object-contain"
+              src="/images/products/inline-shower-filter/product-design.png"
+              alt="Complete inline shower filter product"
+              className="h-full w-full object-contain"
               loading="lazy"
               decoding="async"
-              width="1200"
-              height="900"
+              width="1254"
+              height="1254"
             />
           </div>
         </div>
         <div className="lg:col-span-6">
-          <p className="eyebrow">Shower Solutions</p>
-          <h2 className="headline mt-5 max-w-xl">Complete Shower Solutions for Modern Water Use</h2>
-          <p className="body-copy mt-6 max-w-xl">From shower filtration to complete shower systems, heads, hand showers and faucets, QLORA offers selected solutions for residential and OEM applications.</p>
-          <p className="mt-6 text-sm font-medium leading-7 text-ink/55">Inline Shower Filters · Filtered Hand Showers · Shower Accessories</p>
+          <p className="eyebrow">Shower Filtration</p>
+          <h2 className="headline mt-5 max-w-xl">20-Stage Shower Filtration Solutions</h2>
+          <p className="body-copy mt-6 max-w-xl">Explore inline shower filters with flexible filtration media configurations, replacement options, and OEM/private-label supply support.</p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="/shower-solutions" className="button-primary">Explore Shower Solutions</a>
+            <a href="/products/inline-shower-filter" className="button-primary">Explore Shower Filters</a>
           </div>
         </div>
       </div>

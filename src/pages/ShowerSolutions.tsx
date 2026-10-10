@@ -182,8 +182,8 @@ export default function ShowerSolutions() {
               </div>
             </div>
             <div className="lg:col-span-5">
-              <figure className="flex aspect-[4/5] items-center justify-center overflow-hidden rounded-[2rem] bg-white/75 p-6 shadow-soft">
-                <img src="/images/shower-solutions/20-stage-inline-filter-media.webp" alt="Cutaway view of a multi-stage inline shower filter media cartridge" className="h-full w-full object-contain" loading="lazy" decoding="async" width="580" height="1140" />
+              <figure className="mx-auto flex aspect-square w-full max-w-[430px] items-center justify-center overflow-hidden rounded-[2rem] bg-white/75 p-8 shadow-soft md:p-10">
+                <img src="/images/products/inline-shower-filter/product-design.png" alt="Complete 20-stage inline shower filter product" className="h-full w-full object-contain" loading="lazy" decoding="async" width="1254" height="1254" />
               </figure>
             </div>
           </div>
