@@ -5,13 +5,13 @@ export default function ShowerSolutionsFeature() {
         <div className="lg:col-span-6">
           <div className="mx-auto flex aspect-square w-full max-w-[460px] items-center justify-center overflow-hidden rounded-[2rem] bg-white p-8 shadow-soft md:p-10">
             <img
-              src="/images/products/inline-shower-filter/product-design.png"
-              alt="Complete inline shower filter product"
+              src="/images/shower-solutions/20-stage-shower-filter-overview.webp"
+              alt="20-stage shower filter product cross-section with surrounding feature icons"
               className="h-full w-full object-contain"
               loading="lazy"
               decoding="async"
-              width="1254"
-              height="1254"
+              width="679"
+              height="679"
             />
           </div>
         </div>
