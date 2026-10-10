@@ -68,7 +68,6 @@ const products: Record<string, ProductDetail> = {
     faqs: showerFaqs,
     seoTitle: 'Filtered Hand Shower | Shower Filtration Solutions | QLORA',
     seoDescription: 'Explore filtered hand showers with integrated replaceable cartridges and OEM branding and packaging support for distributors and private-label programs.',
-    catalogDownload: { label: 'Download Catalog', pageType: 'product_detail', catalog: 'showerSolutions' },
   },
 }
 

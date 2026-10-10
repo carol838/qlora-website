@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import type { ReactNode } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import CatalogDownloadLink from '../components/CatalogDownloadLink'
 import { absoluteUrl, applySEO } from '../lib/seo'
 
 const articlePath = '/technical-knowledge/shower-filter-media-guide'
@@ -258,7 +257,6 @@ export default function ShowerFilterMediaGuideArticle() {
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <a href="/products/inline-shower-filter" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-ink transition hover:bg-mist">Explore Inline Shower Filter</a>
                   <a href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-6 text-sm font-medium text-white transition hover:bg-white/10">Discuss Filter Configuration</a>
-                  <CatalogDownloadLink label="Download Shower Solutions Catalog" pageType="technical_knowledge" catalog="showerSolutions" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-6 text-sm font-medium text-white transition hover:bg-white/10" />
                 </div>
               </div>
               <div className="min-h-[300px] bg-white/5 p-4 lg:col-span-5 lg:p-6">

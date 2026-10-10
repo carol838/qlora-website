@@ -1,5 +1,3 @@
-import CatalogDownloadLink from './CatalogDownloadLink'
-
 export default function ShowerSolutionsFeature() {
   return (
     <section className="section-space bg-mist">
@@ -21,10 +19,9 @@ export default function ShowerSolutionsFeature() {
           <p className="eyebrow">Shower Solutions</p>
           <h2 className="headline mt-5 max-w-xl">Complete Shower Solutions for Modern Water Use</h2>
           <p className="body-copy mt-6 max-w-xl">From shower filtration to complete shower systems, heads, hand showers and faucets, QLORA offers selected solutions for residential and OEM applications.</p>
-          <p className="mt-6 text-sm font-medium leading-7 text-ink/55">Shower Filters · Shower Systems · Shower Heads · Hand Showers · Shower Faucets</p>
+          <p className="mt-6 text-sm font-medium leading-7 text-ink/55">Inline Shower Filters · Filtered Hand Showers · Shower Accessories</p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a href="/shower-solutions" className="button-primary">Explore Shower Solutions</a>
-            <CatalogDownloadLink label="Download Shower Catalog" pageType="homepage" catalog="showerSolutions" />
           </div>
         </div>
       </div>

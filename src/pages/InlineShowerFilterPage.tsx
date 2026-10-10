@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import CatalogDownloadLink from '../components/CatalogDownloadLink'
 import { absoluteUrl, applySEO } from '../lib/seo'
 
 const base = '/images/products/inline-shower-filter'
@@ -103,7 +102,6 @@ export default function InlineShowerFilterPage() {
               <p className="mt-4 max-w-xl text-base leading-7 text-ink/55">15-stage and 25-stage alternatives remain available for different media, positioning and project requirements.</p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <a href="/contact" className="button-primary">Get Wholesale Quote</a>
-                <CatalogDownloadLink label="Download Shower Catalog" pageType="product_detail" catalog="showerSolutions" />
               </div>
               <p className="mt-4 text-sm leading-6 text-ink/50">Ask about 15-stage, 20-stage and 25-stage configurations.</p>
             </div>
@@ -240,7 +238,7 @@ export default function InlineShowerFilterPage() {
               <p className="eyebrow">Related shower filtration</p>
               <h2 className="headline mt-5">Related Shower Filtration</h2>
             </div>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <div className="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-2">
               <a href="/products/shower-filter" className="group block rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
                 <h3 className="text-xl font-medium tracking-tight">Filtered Hand Shower</h3>
                 <p className="mt-4 text-sm leading-6 text-ink/60">Integrated filter design for everyday shower use.</p>
@@ -251,13 +249,6 @@ export default function InlineShowerFilterPage() {
                 <p className="mt-4 text-sm leading-6 text-ink/60">View shower filtration, shower systems, heads, hand showers and faucets.</p>
                 <p className="mt-6 text-sm font-medium text-nordic transition group-hover:translate-x-1">Explore Products &rarr;</p>
               </a>
-              <div className="rounded-[1.5rem] border border-line bg-white/70 p-6 shadow-sm">
-                <h3 className="text-xl font-medium tracking-tight">Download Shower Catalog</h3>
-                <p className="mt-4 text-sm leading-6 text-ink/60">Download the QLORA Shower Solutions catalog for product review.</p>
-                <div className="mt-6">
-                  <CatalogDownloadLink label="Download Catalog" pageType="product_detail" catalog="showerSolutions" className="inline-flex text-sm font-medium text-nordic transition hover:translate-x-1" />
-                </div>
-              </div>
             </div>
           </div>
         </section>

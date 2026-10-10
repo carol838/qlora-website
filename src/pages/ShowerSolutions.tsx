@@ -1,17 +1,14 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import CatalogDownloadLink from '../components/CatalogDownloadLink'
 import { absoluteUrl, applySEO } from '../lib/seo'
 
 const base = '/images/shower-solutions'
 
 const categories = [
-  ['Shower Filters', 'Filtration solutions designed for everyday shower water applications.'],
-  ['Shower Systems', 'Complete shower systems in selected modern designs and finishes.'],
-  ['Shower Heads', 'Round and rectangular overhead shower options for residential applications.'],
-  ['Hand Showers', 'Selected handheld shower designs in round and rectangular formats.'],
-  ['Shower Faucets', 'Shower mixer and bar faucet options for complete shower installations.'],
+  { title: 'Inline Shower Filters', description: '15-stage, 20-stage and 25-stage media configurations for shower-line installation.', href: '/products/inline-shower-filter' },
+  { title: 'Filtered Hand Showers', description: 'Handheld shower formats with an integrated replaceable filter cartridge.', href: '/products/shower-filter' },
+  { title: 'Shower Accessories', description: 'Selected shower heads, hand showers, systems and mixer components.', href: '#additional-shower-products' },
 ]
 
 type ShowerProduct = {
@@ -66,11 +63,12 @@ const showerFiltrationEntries = [
   },
 ]
 
-const productSections = [
-  { id: 'shower-systems', eyebrow: 'Systems', title: 'Shower Systems', intro: 'Selected complete shower systems for residential and OEM project evaluation.', products: showerSystems },
-  { id: 'shower-heads', eyebrow: 'Overhead options', title: 'Shower Heads', intro: 'Round and rectangular overhead shower options with confirmed dimensions where available.', products: showerHeads },
-  { id: 'hand-showers', eyebrow: 'Handheld options', title: 'Hand Showers', intro: 'Selected handheld shower designs for practical residential applications.', products: handShowers },
-  { id: 'shower-faucets', eyebrow: 'Mixing components', title: 'Shower Faucets', intro: 'Shower mixer and bar faucet options for complete shower installation projects.', products: showerFaucets },
+const additionalShowerProducts = [showerSystems[0], showerHeads[0], handShowers[1], showerFaucets[0]]
+
+const mediaConfigurations = [
+  ['15-Stage', 'Alternative media configuration for selected product programs.'],
+  ['20-Stage', 'Featured configuration for inline shower filter sourcing.'],
+  ['25-Stage', 'Alternative media configuration for market-specific product positioning.'],
 ]
 
 function ProductCard({ product }: { product: ShowerProduct }) {
@@ -111,7 +109,7 @@ export default function ShowerSolutions() {
             name: product.title,
             url: absoluteUrl(product.href),
           })),
-          ...[...showerSystems, ...showerHeads, ...handShowers, ...showerFaucets].map((product, index) => ({
+          ...additionalShowerProducts.map((product, index) => ({
             '@type': 'ListItem',
             position: index + showerFiltrationEntries.length + 1,
             name: product.name,
@@ -128,14 +126,13 @@ export default function ShowerSolutions() {
         <section className="relative overflow-hidden pt-20">
           <div className="shell grid min-h-[560px] items-center gap-12 py-14 lg:grid-cols-12 lg:py-20">
             <div className="lg:col-span-6">
-              <p className="eyebrow">Shower applications</p>
+              <p className="eyebrow">Shower filtration &amp; OEM supply</p>
               <h1 className="display mt-6 max-w-xl">Shower Solutions</h1>
-              <p className="body-copy mt-7 max-w-xl">Shower filtration, systems and components for residential and OEM applications.</p>
-              <p className="mt-4 max-w-xl text-base leading-7 text-ink/55">Explore practical shower solutions ranging from filtration to complete shower systems and components.</p>
+              <p className="body-copy mt-7 max-w-xl">Shower filtration products and selected shower components for distributors, retailers and private-label projects.</p>
+              <p className="mt-4 max-w-xl text-base leading-7 text-ink/55">Prioritize inline shower filters with configurable 15-stage, 20-stage and 25-stage media options, alongside filtered hand showers and supporting accessories.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a href="#explore-shower-solutions" className="button-primary">Explore Products</a>
                 <a href="/contact" className="button-secondary">Discuss Your Project</a>
-                <CatalogDownloadLink label="Download Catalog" pageType="shower_solutions" catalog="showerSolutions" />
               </div>
             </div>
             <div className="lg:col-span-6">
@@ -152,13 +149,42 @@ export default function ShowerSolutions() {
               <p className="eyebrow">Product scope</p>
               <h2 className="headline mt-5">Explore Shower Solutions</h2>
             </div>
-            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-              {categories.map(([title, description]) => (
-                <article key={title} className="rounded-[1.5rem] border border-line bg-white/65 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
-                  <h3 className="text-xl font-medium tracking-tight">{title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-ink/60">{description}</p>
-                </article>
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {categories.map((category) => (
+                <a key={category.title} href={category.href} className="group rounded-[1.5rem] border border-line bg-white/65 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft">
+                  <h3 className="text-xl font-medium tracking-tight">{category.title}</h3>
+                  <p className="mt-4 text-sm leading-6 text-ink/60">{category.description}</p>
+                  <p className="mt-6 text-sm font-medium text-nordic transition group-hover:translate-x-1">Explore &rarr;</p>
+                </a>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-14 md:py-20">
+          <div className="shell grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-7">
+              <p className="eyebrow">Primary product focus</p>
+              <h2 className="headline mt-5">20-Stage Inline Shower Filter</h2>
+              <p className="body-copy mt-6 max-w-2xl">The 20-stage configuration is the primary inline shower filter option for distributor, retail and private-label discussions. Media selection and final configuration can be reviewed for each project.</p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                {mediaConfigurations.map(([title, description]) => (
+                  <article key={title} className={`rounded-[1.5rem] border p-5 shadow-sm ${title === '20-Stage' ? 'border-accent/40 bg-white ring-2 ring-accent/10' : 'border-line bg-white/65'}`}>
+                    {title === '20-Stage' && <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">Featured</p>}
+                    <h3 className="text-xl font-medium tracking-tight">{title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-ink/60">{description}</p>
+                  </article>
+                ))}
+              </div>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <a href="/products/inline-shower-filter" className="button-primary">View Inline Shower Filter</a>
+                <a href="/contact" className="button-secondary">Discuss OEM Supply</a>
+              </div>
+            </div>
+            <div className="lg:col-span-5">
+              <figure className="flex aspect-[4/5] items-center justify-center overflow-hidden rounded-[2rem] bg-white/75 p-6 shadow-soft">
+                <img src="/images/shower-solutions/20-stage-inline-filter-media.webp" alt="Cutaway view of a multi-stage inline shower filter media cartridge" className="h-full w-full object-contain" loading="lazy" decoding="async" width="580" height="1140" />
+              </figure>
             </div>
           </div>
         </section>
@@ -191,33 +217,38 @@ export default function ShowerSolutions() {
           </div>
         </section>
 
-        {productSections.map((section, sectionIndex) => (
-          <section key={section.id} id={section.id} className={`scroll-mt-20 py-14 md:py-20 ${sectionIndex % 2 === 1 ? 'bg-mist' : ''}`}>
-            <div className="shell">
-              <div className="max-w-3xl">
-                <p className="eyebrow">{section.eyebrow}</p>
-                <h2 className="headline mt-5">{section.title}</h2>
-                <p className="body-copy mt-5 max-w-2xl">{section.intro}</p>
-              </div>
-              <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {section.products.map((product) => <ProductCard key={`${section.id}-${product.name}-${product.image}`} product={product} />)}
-              </div>
+        <section id="additional-shower-products" className="scroll-mt-20 py-14 md:py-20">
+          <div className="shell">
+            <div className="max-w-3xl">
+              <p className="eyebrow">Supporting range</p>
+              <h2 className="headline mt-5">Additional Shower Products</h2>
+              <p className="body-copy mt-5 max-w-2xl">A compact selection of shower systems, heads, hand showers and mixer components for broader project discussions.</p>
             </div>
-          </section>
-        ))}
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {additionalShowerProducts.map((product) => <ProductCard key={`${product.category}-${product.name}-${product.image}`} product={product} />)}
+            </div>
+          </div>
+        </section>
 
         <section className="bg-[#f1f0eb] py-14 md:py-20">
           <div className="shell grid items-center gap-10 rounded-[2rem] border border-line bg-white/55 p-6 shadow-soft md:p-10 lg:grid-cols-12 lg:gap-14">
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-5">
               <p className="eyebrow">OEM support</p>
               <h2 className="headline mt-5">OEM &amp; Private Label Shower Solutions</h2>
-              <p className="body-copy mt-6 max-w-2xl">Selected shower systems and components can support OEM projects including product selection, finishes, packaging and private label requirements.</p>
+              <p className="body-copy mt-6 max-w-2xl">Inline shower filters, filtered hand showers and selected components can support OEM projects including product selection, finishes, packaging and private label requirements.</p>
+              <div className="mt-8">
+                <a href="/oem-private-label" className="button-primary">Discuss Your Project</a>
+              </div>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:col-span-5">
-              {['Product Selection', 'Finish Options', 'Private Label', 'Packaging Support', 'OEM Project Coordination'].map((point) => (
-                <div key={point} className="rounded-2xl bg-white/75 px-5 py-4 text-sm font-medium text-ink/70 shadow-sm">{point}</div>
-              ))}
-              <a href="/oem-private-label" className="button-primary justify-center sm:col-span-2">Discuss Your Project</a>
+            <div className="grid gap-6 sm:grid-cols-[0.85fr_1.15fr] sm:items-center lg:col-span-7">
+              <figure className="aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-white shadow-sm">
+                <img src="/images/shower-solutions/shower-filter-package.webp" alt="Real retail packaging for an inline shower filter product" className="h-full w-full object-cover object-center" loading="lazy" decoding="async" width="1200" height="1600" />
+              </figure>
+              <div className="grid gap-3">
+                {['Product Selection', 'Finish Options', 'Private Label', 'Packaging Support', 'OEM Project Coordination'].map((point) => (
+                  <div key={point} className="rounded-2xl bg-white/75 px-5 py-4 text-sm font-medium text-ink/70 shadow-sm">{point}</div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
