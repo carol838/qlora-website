@@ -150,8 +150,8 @@ export default function InlineShowerFilterPage() {
               <p className="body-copy mx-auto mt-6 max-w-2xl">Available Finish Options are shown for product evaluation and OEM discussion.</p>
             </div>
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
-              <VisualCard src={`${base}/product-design.png`} alt="Compact inline shower filter product" className="aspect-[4/3] object-contain" />
-              <VisualCard src={`${base}/finish-options.png`} alt="Inline shower filter finish options" className="aspect-[4/3] object-contain" />
+              <VisualCard src={`${base}/finish-options.png`} alt="Silver and rose gold inline shower filter finish options" className="aspect-square object-contain" />
+              <VisualCard src={`${base}/installation-water-flow.webp`} alt="Inline shower filter installed with water flow and filtration media cross-section" className="aspect-square object-contain" />
             </div>
           </div>
         </section>
