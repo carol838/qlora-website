@@ -15,10 +15,10 @@ const factoryVisitHref = contactHref(factoryVisitSubject, factoryVisitMessage)
 export function AquatechAnnouncementBanner() {
   return (
     <section aria-labelledby="aquatech-announcement-heading" className="border-y border-nordic/15 bg-nordic text-white">
-      <div className="shell flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-5">
-          <h2 id="aquatech-announcement-heading" className="text-sm font-semibold tracking-tight sm:text-base">Meet QLORA at Aquatech China 2026</h2>
-          <p className="text-xs font-medium tracking-[0.08em] text-white/75 sm:border-l sm:border-white/25 sm:pl-5 sm:text-sm">October 28–30, 2026 <span aria-hidden="true">|</span> Shanghai <span aria-hidden="true">|</span> Booth E6B46</p>
+      <div className="shell flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+        <div className="max-w-4xl">
+          <h2 id="aquatech-announcement-heading" className="text-sm font-semibold leading-6 tracking-tight sm:text-base">Meet QLORA at Aquatech China 2026 <span aria-hidden="true">|</span> Oct 28–30 <span aria-hidden="true">|</span> Booth E6B46</h2>
+          <p className="mt-1 text-xs font-medium leading-5 text-white/75 sm:text-sm">Visiting the Canton Fair (Oct 15–Nov 4) or Aquatech China? Arrange a meeting or factory visit with QLORA.</p>
         </div>
         <a href={meetingHref} className="inline-flex min-h-10 shrink-0 items-center justify-center self-start rounded-full bg-white px-5 text-sm font-medium text-ink transition hover:-translate-y-0.5 hover:bg-mist focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-nordic sm:self-auto">
           Schedule a Meeting
@@ -39,8 +39,6 @@ export function AquatechMeetingSection() {
         </div>
         <div className="lg:col-span-8">
           <p className="body-copy max-w-3xl">Visiting Aquatech China 2026? Connect with QLORA to explore water filtration solutions, upcoming RO products and OEM cooperation opportunities. Meetings can be arranged at Booth E6B46, and factory visits may be scheduled by appointment.</p>
-          <p className="mt-5 max-w-3xl text-sm font-medium leading-6 text-ink/75">Visiting the Canton Fair or Aquatech China this October? Contact QLORA to arrange a meeting or factory visit.</p>
-          <p className="mt-2 text-xs leading-5 text-ink/50">Canton Fair dates: October 15–November 4, 2026.</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href={meetingHref} className="button-primary">Book a Meeting</a>
             <a href={factoryVisitHref} className="button-secondary">Arrange a Factory Visit</a>
