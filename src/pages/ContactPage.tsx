@@ -11,6 +11,7 @@ const reasons = [
 ]
 
 const leadTrackingKey = 'qlora_contact_generate_lead_tracked'
+const defaultInquirySubject = 'New QLORA Website Inquiry'
 
 function trackContactLead() {
   const analyticsWindow = window as typeof window & {
@@ -27,6 +28,8 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [inquirySubject, setInquirySubject] = useState(defaultInquirySubject)
+  const [inquiryMessage, setInquiryMessage] = useState('')
 
   useEffect(() => {
     applySEO({
@@ -46,6 +49,11 @@ export default function ContactPage() {
 
     const searchParams = new URLSearchParams(window.location.search)
     const confirmedSubmission = searchParams.get('sent') === 'true'
+    const requestedSubject = searchParams.get('subject')?.trim()
+    const requestedMessage = searchParams.get('message')?.trim()
+
+    if (requestedSubject) setInquirySubject(requestedSubject.slice(0, 160))
+    if (requestedMessage) setInquiryMessage(requestedMessage.slice(0, 2000))
 
     if (!confirmedSubmission) return
 
@@ -84,6 +92,8 @@ export default function ContactPage() {
       if (!response.ok || !formSubmitConfirmed) throw new Error('Form submission failed')
       setSubmitted(true)
       form.reset()
+      setInquirySubject(defaultInquirySubject)
+      setInquiryMessage('')
     } catch {
       setSubmitError(true)
     } finally {
@@ -138,7 +148,7 @@ export default function ContactPage() {
             </div>
 
             <form action="https://formsubmit.co/ajax/sales@qloratech.com" method="POST" onSubmit={handleSubmit} className="grid gap-5 rounded-2xl bg-white/60 p-6 sm:p-8 lg:col-span-8">
-              <input type="hidden" name="_subject" value="New QLORA Website Inquiry" />
+              <input type="hidden" name="_subject" value={inquirySubject} />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
               {submitted && (
@@ -178,7 +188,7 @@ export default function ContactPage() {
               </label>
 
               <label className="text-sm font-medium text-ink/75">Message
-                <textarea name="message" required rows={6} className="mt-2 w-full rounded-xl border border-line bg-canvas px-4 py-3 outline-none transition focus:border-nordic" />
+                <textarea name="message" required rows={6} value={inquiryMessage} onChange={(event) => setInquiryMessage(event.target.value)} className="mt-2 w-full rounded-xl border border-line bg-canvas px-4 py-3 outline-none transition focus:border-nordic" />
               </label>
 
               <button type="submit" disabled={submitting} className="button-primary w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-fit">
