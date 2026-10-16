@@ -39,6 +39,8 @@ export function AquatechMeetingSection() {
         </div>
         <div className="lg:col-span-8">
           <p className="body-copy max-w-3xl">Visiting Aquatech China 2026? Connect with QLORA to explore water filtration solutions, upcoming RO products and OEM cooperation opportunities. Meetings can be arranged at Booth E6B46, and factory visits may be scheduled by appointment.</p>
+          <p className="mt-5 max-w-3xl text-sm font-medium leading-6 text-ink/75">Visiting the Canton Fair or Aquatech China this October? Contact QLORA to arrange a meeting or factory visit.</p>
+          <p className="mt-2 text-xs leading-5 text-ink/50">Canton Fair dates: October 15–November 4, 2026.</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href={meetingHref} className="button-primary">Book a Meeting</a>
             <a href={factoryVisitHref} className="button-secondary">Arrange a Factory Visit</a>
