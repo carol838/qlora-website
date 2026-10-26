@@ -28,6 +28,7 @@ const categoryCards = [
 
 const floorStandingIds = ['QD-PREM-001', 'QD-PREM-002', 'QD-MOD-001', 'QD-CLASS-001']
 const countertopIds = ['QD-CT-001', 'QD-CT-003', 'QD-CCT-001']
+const sparklingDispenserPath = '/products/sparkling-water-dispenser'
 
 function byIds(ids: string[]) {
   return ids.map((id) => getWaterDispenserById(id)).filter(Boolean) as WaterDispenserProduct[]
@@ -90,6 +91,33 @@ function ProductGrid({ products }: { products: WaterDispenserProduct[] }) {
   return <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{products.map((product) => <ProductCard key={product.id} product={product} />)}</div>
 }
 
+function SparklingDispenserCard() {
+  return (
+    <a href={sparklingDispenserPath} className="group flex h-full flex-col rounded-[2rem] border border-line bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+      <div className="aspect-[4/3] overflow-hidden rounded-[1.6rem] bg-white p-3 shadow-sm">
+        <img
+          src="/images/products/sparkling-water-dispenser/ql-wd01-product.avif"
+          alt="QL-WD01 floor-standing water dispenser with optional sparkling water"
+          className="h-full w-full object-contain"
+          loading="lazy"
+          decoding="async"
+          width="1328"
+          height="1184"
+        />
+      </div>
+      <div className="flex flex-1 flex-col px-1 pb-1 pt-6">
+        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-nordic/80">Floor-Standing Water Dispenser</p>
+        <h3 className="mt-3 text-[clamp(1.25rem,2vw,1.55rem)] font-medium leading-tight tracking-tight text-ink">QL-WD01 Sparkling Water Dispenser</h3>
+        <p className="mt-4 text-sm leading-6 text-ink/60">Floor-standing water dispenser with hot, cold and ambient water, plus optional sparkling water.</p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {['Hot / Cold / Ambient', 'Optional Sparkling', 'RO / Optional UF'].map((tag) => <span key={tag} className="rounded-full border border-line bg-canvas/80 px-3 py-1.5 text-xs font-medium text-ink/55">{tag}</span>)}
+        </div>
+        <span className="mt-7 inline-flex w-fit items-center text-sm font-medium text-nordic transition group-hover:translate-x-1">View Details <span className="ml-1">→</span></span>
+      </div>
+    </a>
+  )
+}
+
 export default function WaterDispensersPage() {
   const waterDispenserHero = '/images/water-dispensers/water-dispensers-hero.png'
   const featuredProduct = getWaterDispenserById('QD-PREM-001')!
@@ -106,12 +134,20 @@ export default function WaterDispensersPage() {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
         name: 'QLORA water dispensers',
-        itemListElement: displayedProducts.map((product, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          name: product.name,
-          url: absoluteUrl(product.slug ? `/water-dispensers/${product.slug}` : '/water-dispensers'),
-        })),
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'QL-WD01 Sparkling Water Dispenser',
+            url: absoluteUrl(sparklingDispenserPath),
+          },
+          ...displayedProducts.map((product, index) => ({
+            '@type': 'ListItem',
+            position: index + 2,
+            name: product.name,
+            url: absoluteUrl(product.slug ? `/water-dispensers/${product.slug}` : '/water-dispensers'),
+          })),
+        ],
       }],
     })
   }, [displayedProducts])
@@ -183,7 +219,10 @@ export default function WaterDispensersPage() {
               <h2 className="headline mt-5">Featured Floor-Standing Water Dispensers</h2>
               <p className="body-copy mt-5 max-w-2xl">Selected floor-standing platforms for offices, commercial spaces and shared drinking water environments.</p>
             </div>
-            <ProductGrid products={byIds(floorStandingIds)} />
+            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <SparklingDispenserCard />
+              {byIds(floorStandingIds).map((product) => <ProductCard key={product.id} product={product} />)}
+            </div>
           </div>
         </section>
 

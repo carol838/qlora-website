@@ -7,6 +7,7 @@ import { getTanklessROProduct } from '../data/tanklessROProducts'
 import UnderSinkROSystemPage from './UnderSinkROSystemPage'
 import Home from './Home'
 import InlineShowerFilterPage from './InlineShowerFilterPage'
+import SparklingWaterDispenserPage from './SparklingWaterDispenserPage'
 
 const showerSpecs = [
   { label: 'Product Type', value: 'Filtered hand shower with replaceable cartridge' },
@@ -72,6 +73,7 @@ const products: Record<string, ProductDetail> = {
 }
 
 export default function ProductPage({ slug }: { slug: string }) {
+  if (slug === 'sparkling-water-dispenser') return <SparklingWaterDispenserPage />
   if (slug === 'inline-shower-filter') return <InlineShowerFilterPage />
   if (slug === 'tankless-ro-system') return <TanklessROSystemPage />
   if (getTanklessROProduct(slug)) return <TanklessRODetailPage slug={slug} />

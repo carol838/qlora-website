@@ -21,6 +21,9 @@ export default function WaterDispensersEntrance() {
             <a href="/water-dispensers" className="button-primary">Explore Water Dispensers</a>
             <CatalogDownloadLink label="Download Water Dispenser Catalog" pageType="homepage" catalog="waterDispenserSolutions" />
           </div>
+          <a href="/products/sparkling-water-dispenser" className="mt-5 inline-flex text-sm font-medium text-nordic transition hover:translate-x-1">
+            Explore QL-WD01 Sparkling Water Dispenser <span className="ml-1" aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>
