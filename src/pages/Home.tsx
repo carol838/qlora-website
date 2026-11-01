@@ -9,7 +9,6 @@ import ShowerSolutionsFeature from '../components/ShowerSolutionsFeature'
 import OEMSolutions from '../components/OEMSolutions'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
-import { AQUATECH_CHINA_2026_ENABLED, AquatechAnnouncementBanner, AquatechMeetingSection } from '../components/AquatechChina2026'
 import { applySEO, seoImages } from '../lib/seo'
 
 export default function Home() {
@@ -37,14 +36,12 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        {AQUATECH_CHINA_2026_ENABLED && <AquatechAnnouncementBanner />}
         <ValueStrip />
         <ROSystem />
         <WaterDispensersEntrance />
         <LifestyleSolutions />
         <ShowerSolutionsFeature />
         <OEMSolutions />
-        {AQUATECH_CHINA_2026_ENABLED && <AquatechMeetingSection />}
         <Contact />
       </main>
       <Footer />
