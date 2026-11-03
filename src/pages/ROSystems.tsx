@@ -42,10 +42,19 @@ export default function ROSystems() {
       breadcrumbs: [{ name: 'RO Systems', path: '/ro-systems' }],
       schemas: [{
         '@context': 'https://schema.org',
-        '@type': 'Product',
+        '@type': 'CollectionPage',
         name: 'RO Water Systems',
-        brand: { '@type': 'Brand', name: 'QLORA' },
+        url: absoluteUrl('/ro-systems'),
         description: 'Residential RO water systems and OEM reverse osmosis solutions with private label support.',
+        mainEntity: {
+          '@type': 'ItemList',
+          itemListElement: products.map((product, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: product.name,
+            url: absoluteUrl(product.href),
+          })),
+        },
       }],
     })
   }, [])

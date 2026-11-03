@@ -18,16 +18,8 @@ export default function Home() {
       description: 'Premium water filtration solutions including RO systems, replacement filters and OEM manufacturing support for global brands and distributors.',
       path: '/',
       image: seoImages.home,
-      schemas: [{
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        name: 'QLORA water filtration solutions',
-        itemListElement: ['RO Water Systems', 'Water Dispensers', 'Shower Solutions', 'Replacement Water Filters', 'Under Sink Filtration', 'OEM Manufacturing', 'Private Label Products'].map((name, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          name,
-        })),
-      }],
+      includeOrganization: true,
+      includeWebSite: true,
     })
   }, [])
 

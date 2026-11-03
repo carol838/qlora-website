@@ -9,6 +9,8 @@ type SEOConfig = {
   schemas?: Schema[]
   canonicalUrl?: string
   type?: 'website' | 'article'
+  includeOrganization?: boolean
+  includeWebSite?: boolean
 }
 
 export const siteUrl = 'https://www.qloratech.com'
@@ -40,7 +42,24 @@ function upsertJsonLd(id: string, schema: Schema) {
   script.textContent = JSON.stringify(schema)
 }
 
-export function applySEO({ title, description, path, image = defaultImage, breadcrumbs = [], schemas = [], canonicalUrl, type = 'website' }: SEOConfig) {
+function clearManagedJsonLd() {
+  document
+    .querySelectorAll<HTMLScriptElement>('script[id^="qlora-"][type="application/ld+json"]')
+    .forEach((script) => script.remove())
+}
+
+export function applySEO({
+  title,
+  description,
+  path,
+  image = defaultImage,
+  breadcrumbs = [],
+  schemas = [],
+  canonicalUrl,
+  type = 'website',
+  includeOrganization = false,
+  includeWebSite = false,
+}: SEOConfig) {
   const resolvedCanonicalUrl = canonicalUrl ?? absoluteUrl(path)
 
   document.title = title
@@ -77,44 +96,52 @@ export function applySEO({ title, description, path, image = defaultImage, bread
     })
   })
 
-  upsertJsonLd('qlora-organization-schema', {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'QLORA',
-    url: siteUrl,
-    logo: absoluteUrl('/images/hero-kitchen.webp'),
-    description: 'QLORA provides water filtration solutions including RO systems, replacement filters and OEM manufacturing support for distributors and brands worldwide.',
-    makesOffer: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'RO Water Systems' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Replacement Water Filters' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'OEM Manufacturing' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Private Label Products' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Packaging' } },
-    ],
-  })
+  clearManagedJsonLd()
 
-  upsertJsonLd('qlora-website-schema', {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'QLORA',
-    url: siteUrl,
-    description: 'Premium water filtration solutions for homes, distributors and private label water brands.',
-    publisher: { '@type': 'Organization', name: 'QLORA' },
-  })
+  if (includeOrganization) {
+    upsertJsonLd('qlora-organization-schema', {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      '@id': absoluteUrl('/#organization'),
+      name: 'QLORA',
+      url: siteUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: absoluteUrl('/android-chrome-512x512.png'),
+        width: 512,
+        height: 512,
+      },
+      description: 'QLORA provides water filtration solutions including RO systems, replacement filters and OEM manufacturing support for distributors and brands worldwide.',
+    })
+  }
 
-  upsertJsonLd('qlora-breadcrumb-schema', {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-      ...breadcrumbs.map((item, index) => ({
-        '@type': 'ListItem',
-        position: index + 2,
-        name: item.name,
-        item: absoluteUrl(item.path),
-      })),
-    ],
-  })
+  if (includeWebSite) {
+    upsertJsonLd('qlora-website-schema', {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      '@id': absoluteUrl('/#website'),
+      name: 'QLORA',
+      url: siteUrl,
+      description: 'Premium water filtration solutions for homes, distributors and private label water brands.',
+      publisher: { '@id': absoluteUrl('/#organization') },
+    })
+  }
+
+  if (breadcrumbs.length > 0) {
+    upsertJsonLd('qlora-breadcrumb-schema', {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+        ...breadcrumbs.map((item, index) => ({
+          '@type': 'ListItem',
+          position: index + 2,
+          name: item.name,
+          item: absoluteUrl(item.path),
+        })),
+      ],
+    })
+  }
 
   schemas.forEach((schema, index) => upsertJsonLd(`qlora-page-schema-${index}`, schema))
 }
