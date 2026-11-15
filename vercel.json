@@ -1,8 +1,11 @@
 {
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/oem-solutions",
+      "destination": "/oem-private-label",
+      "permanent": true
     }
   ]
 }

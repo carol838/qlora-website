@@ -5,7 +5,7 @@ import TanklessROSystemPage from './TanklessROSystemPage'
 import TanklessRODetailPage from './TanklessRODetailPage'
 import { getTanklessROProduct } from '../data/tanklessROProducts'
 import UnderSinkROSystemPage from './UnderSinkROSystemPage'
-import Home from './Home'
+import NotFoundPage from './NotFoundPage'
 import InlineShowerFilterPage from './InlineShowerFilterPage'
 import SparklingWaterDispenserPage from './SparklingWaterDispenserPage'
 
@@ -81,7 +81,7 @@ export default function ProductPage({ slug }: { slug: string }) {
   if (slug === 'coffee-machine-filter') return <CoffeeMachineFilterPage />
   if (slug === 'refrigerator-water-filter') return <RefrigeratorWaterFilterPage />
   const product = products[slug]
-  if (!product) return <Home />
+  if (!product) return <NotFoundPage />
   return <ProductDetailTemplate product={product} />
 }
 

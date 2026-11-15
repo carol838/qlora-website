@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRoutePath } from '../lib/RoutePathContext'
 
 type DropdownItem = {
   label: string
@@ -89,7 +90,7 @@ function DesktopDropdown({
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null)
-  const path = window.location.pathname.replace(/\/+$/, '') || '/'
+  const path = useRoutePath()
   const isActive = (href: string) => path === href
   const isMenuActive = (menu: DropdownMenu) => isActive(menu.href) || menu.items.some((item) => isActive(item.href))
 

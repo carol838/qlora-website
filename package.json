@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -p tsconfig.app.json && vite build --config vite.config.mjs --configLoader runner",
-    "preview": "vite preview --config vite.config.mjs --configLoader runner"
+    "build": "tsc -p tsconfig.app.json && vite build --config vite.config.mjs --configLoader runner && vite build --config vite.config.mjs --configLoader runner --ssr src/entry-server.tsx --outDir .prerender --emptyOutDir && node scripts/prerender.mjs",
+    "preview": "vite preview --config vite.config.mjs --configLoader runner",
+    "preview:seo": "node scripts/verify-seo.mjs --serve",
+    "verify:seo": "node scripts/verify-seo.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",

@@ -14,10 +14,17 @@ import ContactPage from './pages/ContactPage'
 import AboutPage from './pages/AboutPage'
 import ProductPage from './pages/ProductPage'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
+import NotFoundPage from './pages/NotFoundPage'
+import { RoutePathContext } from './lib/RoutePathContext'
 
-export default function App() {
-  const path = window.location.pathname.replace(/\/+$/, '')
-  let page = <Home />
+type AppProps = {
+  initialPath?: string
+}
+
+export default function App({ initialPath }: AppProps) {
+  const requestPath = initialPath ?? window.location.pathname
+  const path = requestPath.replace(/\/+$/, '') || '/'
+  let page = path === '/' ? <Home /> : <NotFoundPage />
 
   if (path.startsWith('/products/')) page = <ProductPage slug={path.replace('/products/', '')} />
   else if (path === '/ro-systems') page = <ROSystems />
@@ -25,7 +32,7 @@ export default function App() {
   else if (path.startsWith('/water-dispensers/')) page = <WaterDispenserProductPage slug={path.replace('/water-dispensers/', '')} />
   else if (path === '/water-filtration') page = <WaterFiltration />
   else if (path === '/shower-solutions') page = <ShowerSolutions />
-  else if (path === '/oem-private-label' || path === '/oem-solutions') page = <OEMPrivateLabel />
+  else if (path === '/oem-private-label') page = <OEMPrivateLabel />
   else if (path === '/technical-knowledge') page = <TechnicalKnowledge />
   else if (path === '/technical-knowledge/how-to-choose-the-right-water-filter') page = <TechnicalGuidePlaceholder />
   else if (path === '/technical-knowledge/tankless-ro-vs-traditional-ro-systems') page = <TanklessROComparisonArticle />
@@ -35,10 +42,10 @@ export default function App() {
   else if (path === '/about') page = <AboutPage />
 
   return (
-    <>
+    <RoutePathContext.Provider value={path}>
       {page}
       <FloatingWhatsApp />
-    </>
+    </RoutePathContext.Provider>
   )
 }
 

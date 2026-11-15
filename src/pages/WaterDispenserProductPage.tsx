@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { absoluteUrl, applySEO } from '../lib/seo'
 import { getWaterDispenserById, getWaterDispenserBySlug, getWaterDispenserHref, type WaterDispenserProduct } from '../data/waterDispenserProducts'
-import Home from './Home'
+import NotFoundPage from './NotFoundPage'
 
 const specRows = (product: WaterDispenserProduct) => [
   ['Cooling Capacity', product.cooling],
@@ -106,7 +106,7 @@ function RelatedCard({ product }: { product: WaterDispenserProduct }) {
 
 export default function WaterDispenserProductPage({ slug }: { slug: string }) {
   const product = getWaterDispenserBySlug(slug)
-  if (!product) return <Home />
+  if (!product) return <NotFoundPage />
 
   const related = (relatedIds[product.id] || [])
     .map((id) => getWaterDispenserById(id))

@@ -9,6 +9,7 @@ export default function TechnicalGuidePlaceholder() {
       title: 'How to Choose the Right Water Filter | QLORA',
       description: 'A practical QLORA technical guide placeholder for selecting water filters by water condition and application.',
       path: '/technical-knowledge/how-to-choose-the-right-water-filter',
+      robots: 'noindex, follow',
       breadcrumbs: [
         { name: 'Technical Knowledge', path: '/technical-knowledge' },
         { name: 'How to Choose the Right Water Filter', path: '/technical-knowledge/how-to-choose-the-right-water-filter' },

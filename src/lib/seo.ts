@@ -11,6 +11,7 @@ type SEOConfig = {
   type?: 'website' | 'article'
   includeOrganization?: boolean
   includeWebSite?: boolean
+  robots?: string
 }
 
 export const siteUrl = 'https://www.qloratech.com'
@@ -59,6 +60,7 @@ export function applySEO({
   type = 'website',
   includeOrganization = false,
   includeWebSite = false,
+  robots = 'index, follow',
 }: SEOConfig) {
   const resolvedCanonicalUrl = canonicalUrl ?? absoluteUrl(path)
 
@@ -74,6 +76,12 @@ export function applySEO({
     const link = document.createElement('link')
     link.setAttribute('rel', 'canonical')
     return link
+  })
+
+  setMeta('meta[name="robots"]', 'content', robots, () => {
+    const meta = document.createElement('meta')
+    meta.setAttribute('name', 'robots')
+    return meta
   })
 
   const ogTags = [

@@ -24,13 +24,6 @@ const technicalTopics = [
 
 const featuredGuides = [
   {
-    slug: 'how-to-choose-the-right-water-filter',
-    category: 'Water Quality',
-    title: 'How to Choose the Right Water Filter for Different Water Problems',
-    excerpt: 'Learn how sediment, chlorine, hardness, scale and other common water conditions affect filter selection.',
-    href: '/technical-knowledge/how-to-choose-the-right-water-filter',
-  },
-  {
     slug: 'tankless-ro-vs-traditional-ro-systems',
     category: 'RO Systems',
     title: 'Tankless RO vs Traditional RO Systems',
