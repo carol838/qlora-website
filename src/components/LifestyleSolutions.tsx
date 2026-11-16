@@ -14,7 +14,8 @@ export default function LifestyleSolutions() {
           <p className="eyebrow">Water filtration</p>
           <h2 className="headline mt-5">Filtration for Everyday Water Moments</h2>
           <p className="body-copy mt-5">Simple filtration routes for kitchens, coffee and everyday drinking water.</p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="/products/inline-water-filters" className="button-primary">Explore Inline Water Filters</a>
             <CatalogDownloadLink label="Download Water Filtration Catalog" pageType="homepage" catalog="waterFiltration" />
           </div>
         </div>

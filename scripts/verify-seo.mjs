@@ -10,6 +10,7 @@ const serveOnly = process.argv.includes('--serve')
 const requiredRoutes = [
   '/',
   '/products/tankless-ro-system',
+  '/products/inline-water-filters',
   '/products/under-sink-ro-system',
   '/products/inline-shower-filter',
   '/water-filtration',

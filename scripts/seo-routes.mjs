@@ -178,6 +178,21 @@ export const indexableRoutes = [
       itemListElement: ['PP Sediment Filter', 'Carbon Filter', 'UF Filter', 'Mineral Filter', 'Alkaline Filter'].map((name, index) => ({ '@type': 'ListItem', position: index + 1, name })),
     }],
   }),
+  route('/products/inline-water-filters', 'Inline Water Filters for OEM & Wholesale | QLORA', 'Explore PP, GAC, CTO, UF and post-carbon inline water filter options for residential water purification systems, wholesale supply and private-label projects.', {
+    image: '/images/water-filtration/hero.webp',
+    breadcrumbs: [['Water Filtration', '/water-filtration'], ['Inline Water Filters', '/products/inline-water-filters']],
+    schemas: [{
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Inline Water Filters for Residential Water Purification Systems',
+      url: `${siteUrl}/products/inline-water-filters`,
+      description: 'Explore PP, GAC, CTO, UF and post-carbon inline water filter options for residential water purification systems, wholesale supply and private-label projects.',
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: ['PP Sediment Inline Filters', 'GAC Inline Filters', 'CTO Inline Filters', 'UF Inline Filters', 'Post Carbon Inline Filters'].map((name, index) => ({ '@type': 'ListItem', position: index + 1, name })),
+      },
+    }],
+  }),
   route('/shower-solutions', 'Shower Systems, Filters & Components | QLORA', 'Explore QLORA shower solutions including shower filters, shower systems, shower heads, hand showers and shower faucets for residential and OEM applications.', {
     image: '/images/shower-solutions/systems/QS-SYS-001.webp',
     breadcrumbs: [['Shower Solutions', '/shower-solutions']],
@@ -228,7 +243,7 @@ export const indexableRoutes = [
     breadcrumbs: [['Contact', '/contact']],
     schemas: [{ '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Contact QLORA', url: `${siteUrl}/contact`, description: 'Contact QLORA for water filtration inquiry, OEM water filter supplier support and RO systems supplier questions.' }],
   }),
-  route('/products/tankless-ro-system', 'Tankless RO Systems for OEM & Wholesale | QLORA', 'Source configurable tankless RO systems, including 600 GPD and 800 GPD options, with OEM, private-label, branding and packaging support from QLORA.', {
+  route('/products/tankless-ro-system', '600 & 800 GPD Tankless RO Systems | OEM Supplier | QLORA', 'Explore configurable 600 and 800 GPD tankless RO systems for residential water purification, with OEM branding and private-label supply options.', {
     image: '/images/ro-systems/tankless/slim-tankless-ro-system.webp',
     breadcrumbs: [['RO Systems', '/ro-systems'], ['Tankless RO Systems', '/products/tankless-ro-system']],
     schemas: [{ '@context': 'https://schema.org', '@type': 'ItemList', name: 'QLORA Tankless RO Systems', itemListElement: tanklessProducts.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, url: absoluteUrl(item.path) })) }],

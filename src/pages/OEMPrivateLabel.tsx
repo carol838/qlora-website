@@ -63,7 +63,7 @@ export default function OEMPrivateLabel() {
                 <h1 className="display max-w-xl">OEM &amp; Private Label Water Filtration Solutions</h1>
                 <p className="body-copy mt-7 max-w-lg">Build your own water filtration brand with OEM water filters, private label water filters, custom water filtration products and global supply support.</p>
                 <p className="mt-5 max-w-lg text-sm leading-7 text-ink/58">
-                  Review current <a href="/products/tankless-ro-system" className="font-semibold text-nordic underline decoration-nordic/30 underline-offset-4">tankless RO system</a> and <a href="/products/inline-shower-filter" className="font-semibold text-nordic underline decoration-nordic/30 underline-offset-4">inline shower filter</a> platforms for configurable B2B projects.
+                  Review current <a href="/products/tankless-ro-system" className="font-semibold text-nordic underline decoration-nordic/30 underline-offset-4">tankless RO systems</a> and <a href="/products/inline-water-filters" className="font-semibold text-nordic underline decoration-nordic/30 underline-offset-4">inline water filters</a> for configurable B2B projects.
                 </p>
                 <div className="mt-10 flex flex-wrap gap-3">
                   <a href="#oem-inquiry" className="button-primary">Start OEM Project</a>

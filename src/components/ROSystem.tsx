@@ -18,8 +18,9 @@ export default function ROSystem() {
           <p className="eyebrow">RO systems</p>
           <h2 className="headline mt-5">RO Solutions for<br />Modern Water Needs</h2>
           <p className="body-copy mt-6">Tank and tankless RO platforms for residential, commercial and OEM water purification projects.</p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="/ro-systems" className="button-primary">Explore RO Systems</a>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a href="/products/tankless-ro-system" className="button-primary">Explore Tankless RO Systems</a>
+            <a href="/ro-systems" className="button-secondary">View All RO Systems</a>
             <CatalogDownloadLink label="Download Tankless RO Catalog" pageType="homepage" />
           </div>
         </div>

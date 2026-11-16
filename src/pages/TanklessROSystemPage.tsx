@@ -7,6 +7,24 @@ import { getTanklessROHref, tanklessCommonConfigurations, tanklessROProducts, ta
 
 const applications = ['Residential Kitchen', 'Apartment', 'Under-Sink Installation', 'Home Drinking Water', 'OEM Drinking Water Projects']
 
+const capacityComparison = [
+  {
+    capacity: '600 GPD',
+    positioning: 'Residential direct-flow configuration for projects targeting a 600 GPD nominal capacity.',
+    selection: 'Confirm the selected platform, filtration stages, dimensions and market-specific requirements before quotation.',
+  },
+  {
+    capacity: '800 GPD',
+    positioning: 'Higher nominal-capacity residential direct-flow configuration for projects with greater water-delivery requirements.',
+    selection: 'Confirm the selected platform, filtration stages, dimensions and market-specific requirements before quotation.',
+  },
+]
+
+const procurementChecklist = ['Branding and exterior direction', 'Selected platform and capacity configuration', 'Packaging and documentation requirements', 'Target-market installation and electrical requirements', 'Sample or evaluation request']
+const tanklessInquirySubject = 'Tankless RO Systems OEM / Wholesale Inquiry'
+const tanklessInquiryMessage = 'Hello QLORA, I would like to discuss a tankless RO OEM or wholesale project.\n\nPreferred capacity (600 or 800 GPD):\nTarget market:\nSelected platform or design direction:\nEstimated quantity:\nBranding, packaging or documentation requirements:\nSample or evaluation request:'
+const tanklessInquiryHref = `/contact?subject=${encodeURIComponent(tanklessInquirySubject)}&message=${encodeURIComponent(tanklessInquiryMessage)}`
+
 function ModelCard({ product, priority = false }: { product: TanklessROProduct; priority?: boolean }) {
   return (
     <a href={getTanklessROHref(product)} className="group flex h-full flex-col rounded-[2rem] border border-line bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
@@ -38,8 +56,8 @@ function ModelCard({ product, priority = false }: { product: TanklessROProduct; 
 export default function TanklessROSystemPage() {
   useEffect(() => {
     applySEO({
-      title: 'Tankless RO Systems for OEM & Wholesale | QLORA',
-      description: 'Source configurable tankless RO systems, including 600 GPD and 800 GPD options, with OEM, private-label, branding and packaging support from QLORA.',
+      title: '600 & 800 GPD Tankless RO Systems | OEM Supplier | QLORA',
+      description: 'Explore configurable 600 and 800 GPD tankless RO systems for residential water purification, with OEM branding and private-label supply options.',
       path: '/products/tankless-ro-system',
       image: absoluteUrl(tanklessROProducts[0].image),
       breadcrumbs: [
@@ -88,7 +106,7 @@ export default function TanklessROSystemPage() {
                 </p>
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                   <a href="#tankless-models" className="button-primary">Explore Models</a>
-                  <a href="/contact" className="button-secondary">Get Wholesale Quote</a>
+                  <a href={tanklessInquiryHref} className="button-secondary">Get Wholesale Quote</a>
                   <CatalogDownloadLink label="Download Catalog" pageType="tankless_ro" />
                 </div>
                 <p className="mt-4 text-sm leading-6 text-ink/50">For distributors, importers and private-label projects.</p>
@@ -148,12 +166,44 @@ export default function TanklessROSystemPage() {
                 </article>
               ))}
             </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {capacityComparison.map((option) => (
+                <article key={option.capacity} className="rounded-[1.75rem] border border-line bg-white/65 p-7 shadow-sm sm:p-8">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Nominal capacity</p>
+                  <h3 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">{option.capacity}</h3>
+                  <dl className="mt-6 space-y-5 text-sm leading-6">
+                    <div>
+                      <dt className="font-semibold text-ink">Application positioning</dt>
+                      <dd className="mt-2 text-ink/60">{option.positioning}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-ink">Configuration check</dt>
+                      <dd className="mt-2 text-ink/60">{option.selection}</dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
+            </div>
             <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-6 text-ink/50">
-              These are supplier-supported configuration ranges and options. Final specifications depend on project requirements.
+              600 GPD and 800 GPD are project configuration directions rather than a claim that every platform supports both. Final model, filter, installation and electrical specifications must be confirmed for the selected project.
             </p>
             <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-6 text-ink/55">
               Choosing between product formats? <a href="/technical-knowledge/tankless-ro-vs-traditional-ro-systems" className="font-semibold text-accent underline decoration-accent/30 underline-offset-4">Compare tankless and traditional RO systems</a> for different market requirements.
             </p>
+          </div>
+        </section>
+
+        <section className="border-y border-line bg-white/40 py-14 md:py-20">
+          <div className="shell grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
+            <div className="lg:col-span-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Ownership planning</p>
+              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">Filter Replacement &amp; Maintenance</h2>
+            </div>
+            <div className="space-y-5 text-base leading-7 text-ink/64 lg:col-span-7">
+              <p>Cartridge format and replacement sequence depend on the selected tankless RO platform and filtration-stage configuration. Confirm the exact filter set before samples, packaging or replacement-stock planning.</p>
+              <p>Available platforms include filter-life reminder interfaces, while display format and replacement procedure vary by model. Installation, flushing and maintenance instructions should follow the confirmed product documentation.</p>
+              <p className="rounded-2xl border border-line bg-canvas/80 p-5 text-sm leading-6 text-ink/58">Universal cartridge compatibility and quick-change operation are not assumed across the product family.</p>
+            </div>
           </div>
         </section>
 
@@ -202,9 +252,15 @@ export default function TanklessROSystemPage() {
                 <p className="mt-5 max-w-xl text-lg leading-8 text-ink/64">
                   Discuss filtration-stage configuration, capacity options, dual-water setup, color customization, private-label branding, manuals and packaging coordination for your market.
                 </p>
+                <ul className="mt-6 grid gap-2 text-sm leading-6 text-ink/62 sm:grid-cols-2" aria-label="Tankless RO procurement checklist">
+                  {procurementChecklist.map((item) => (
+                    <li key={item} className="flex gap-2"><span className="text-accent" aria-hidden="true">•</span>{item}</li>
+                  ))}
+                </ul>
+                <p className="mt-5 text-sm leading-6 text-ink/52">Available options and evaluation steps depend on the selected platform and project requirements.</p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <a href="/oem-private-label" className="button-primary">OEM Service</a>
-                  <a href="/contact" className="button-secondary">Request Tankless RO Quote</a>
+                  <a href={tanklessInquiryHref} className="button-secondary">Request Tankless RO Quote</a>
                 </div>
               </div>
               <div className="overflow-hidden rounded-[1.5rem] bg-canvas shadow-sm">
@@ -226,9 +282,9 @@ export default function TanklessROSystemPage() {
           <div className="shell">
             <div className="rounded-[2rem] bg-ink px-6 py-14 text-center text-white md:px-12 md:py-18">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/50">Tankless RO projects</p>
-              <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.04em] md:text-5xl">Find the Right Tankless RO System</h2>
+              <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.04em] md:text-5xl">Discuss Your Tankless RO OEM Project</h2>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <a href="/contact" className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:bg-white/90">Get Wholesale Quote</a>
+                <a href={tanklessInquiryHref} className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:bg-white/90">Request Tankless RO Quote</a>
                 <a href="/ro-systems" className="rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Back to RO Systems</a>
               </div>
             </div>

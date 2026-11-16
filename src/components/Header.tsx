@@ -34,6 +34,7 @@ const dropdownMenus: DropdownMenu[] = [
     label: 'Water Filtration',
     href: '/water-filtration',
     items: [
+      { label: 'Inline Water Filters', subtitle: 'PP / GAC / CTO / UF / Post Carbon', href: '/products/inline-water-filters' },
       { label: 'Under Sink Filtration', href: '/water-filtration' },
       { label: 'Refrigerator Filters', href: '/products/refrigerator-water-filter' },
       { label: 'Coffee Machine Filters', href: '/products/coffee-machine-filter' },

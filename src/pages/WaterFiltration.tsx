@@ -133,6 +133,17 @@ export default function WaterFiltration() {
           </div>
         </section>
 
+        <section className="border-y border-line bg-white/45 py-12 md:py-16">
+          <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+            <div>
+              <p className="eyebrow">Priority product family</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Inline Water Filters for Residential Systems</h2>
+              <p className="body-copy mt-5 max-w-3xl">Explore PP, GAC, CTO, UF and post-carbon cartridge directions for residential water purifiers, OEM projects and wholesale supply.</p>
+            </div>
+            <a href="/products/inline-water-filters" className="button-primary whitespace-nowrap">View Inline Water Filters</a>
+          </div>
+        </section>
+
         <section className="py-12 md:py-16 lg:py-20">
           <div className="shell">
             <div className="mx-auto max-w-3xl text-center">

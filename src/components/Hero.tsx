@@ -8,11 +8,12 @@ export default function Hero() {
           <div className="ml-auto w-full max-w-[600px] px-5 py-16 sm:px-8 lg:pl-8 lg:pr-16">
             <p className="eyebrow mb-6">Home wellness, refined</p>
             <h1 className="display max-w-xl">Better Water for Everyday Life</h1>
-            <p className="body-copy mt-7 max-w-lg">Premium RO water systems, under sink filtration and replacement water filters for kitchens, coffee, showers and everyday home comfort.</p>
+            <p className="body-copy mt-7 max-w-lg">OEM &amp; wholesale water filtration solutions — tankless RO systems and inline water filters for global distributors and brands.</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <a href="#ro-systems" className="button-primary">Explore Products <span className="ml-2">↗</span></a>
-              <a href="/contact" className="button-secondary">Contact Us</a>
+              <a href="/products/tankless-ro-system" className="button-primary">Tankless RO Systems</a>
+              <a href="/products/inline-water-filters" className="button-secondary">Inline Water Filters</a>
             </div>
+            <a href="/contact" className="mt-5 inline-block text-sm font-semibold text-nordic underline decoration-nordic/30 underline-offset-4">Discuss an OEM project →</a>
           </div>
         </div>
         <div className="min-h-[420px] overflow-hidden bg-[#e9e6df]">

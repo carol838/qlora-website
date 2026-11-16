@@ -24,6 +24,12 @@ function trackContactLead() {
   })
 }
 
+function trackContactLeadOnce() {
+  if (sessionStorage.getItem(leadTrackingKey) === 'true') return
+  trackContactLead()
+  sessionStorage.setItem(leadTrackingKey, 'true')
+}
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState(false)
@@ -59,10 +65,7 @@ export default function ContactPage() {
 
     setSubmitted(true)
 
-    if (sessionStorage.getItem(leadTrackingKey) !== 'true') {
-      trackContactLead()
-      sessionStorage.setItem(leadTrackingKey, 'true')
-    }
+    trackContactLeadOnce()
 
     window.history.replaceState({}, '', window.location.pathname)
   }, [])
@@ -90,6 +93,7 @@ export default function ContactPage() {
       const formSubmitConfirmed = result.success === true || result.success === 'true'
 
       if (!response.ok || !formSubmitConfirmed) throw new Error('Form submission failed')
+      trackContactLeadOnce()
       setSubmitted(true)
       form.reset()
       setInquirySubject(defaultInquirySubject)
@@ -179,7 +183,9 @@ export default function ContactPage() {
               <label className="text-sm font-medium text-ink/75">Product Interest
                 <select name="product_interest" required className="mt-2 min-h-12 w-full rounded-xl border border-line bg-canvas px-4 outline-none transition focus:border-nordic">
                   <option>RO Systems</option>
+                  <option>Tankless RO Systems</option>
                   <option>Replacement Filters</option>
+                  <option>Inline Water Filters</option>
                   <option>Refrigerator Filters</option>
                   <option>Coffee Machine Filters</option>
                   <option>Shower Filters</option>
