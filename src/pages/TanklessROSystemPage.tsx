@@ -66,14 +66,19 @@ export default function TanklessROSystemPage() {
       ],
       schemas: [{
         '@context': 'https://schema.org',
-        '@type': 'ItemList',
+        '@type': 'CollectionPage',
         name: 'QLORA Tankless RO Systems',
-        itemListElement: tanklessROProducts.map((product, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          name: product.publicName,
-          url: absoluteUrl(getTanklessROHref(product)),
-        })),
+        url: absoluteUrl('/products/tankless-ro-system'),
+        description: 'Configurable 600 and 800 GPD tankless RO systems for residential water purification, OEM branding and private-label supply projects.',
+        mainEntity: {
+          '@type': 'ItemList',
+          itemListElement: tanklessROProducts.map((product, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: product.publicName,
+            url: absoluteUrl(getTanklessROHref(product)),
+          })),
+        },
       }],
     })
   }, [])

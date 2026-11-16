@@ -246,7 +246,17 @@ export const indexableRoutes = [
   route('/products/tankless-ro-system', '600 & 800 GPD Tankless RO Systems | OEM Supplier | QLORA', 'Explore configurable 600 and 800 GPD tankless RO systems for residential water purification, with OEM branding and private-label supply options.', {
     image: '/images/ro-systems/tankless/slim-tankless-ro-system.webp',
     breadcrumbs: [['RO Systems', '/ro-systems'], ['Tankless RO Systems', '/products/tankless-ro-system']],
-    schemas: [{ '@context': 'https://schema.org', '@type': 'ItemList', name: 'QLORA Tankless RO Systems', itemListElement: tanklessProducts.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, url: absoluteUrl(item.path) })) }],
+    schemas: [{
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'QLORA Tankless RO Systems',
+      url: `${siteUrl}/products/tankless-ro-system`,
+      description: 'Configurable 600 and 800 GPD tankless RO systems for residential water purification, OEM branding and private-label supply projects.',
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: tanklessProducts.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, url: absoluteUrl(item.path) })),
+      },
+    }],
   }),
   ...tanklessProducts.map((item) => route(item.path, item.title, item.description, {
     image: item.image,

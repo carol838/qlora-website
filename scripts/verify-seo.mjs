@@ -2,7 +2,7 @@ import { createServer } from 'node:http'
 import { readFile, stat } from 'node:fs/promises'
 import { dirname, extname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { indexableRoutes, noindexRoutes } from './seo-routes.mjs'
+import { indexableRoutes, jsonLdForRoute, noindexRoutes } from './seo-routes.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const distDir = join(root, 'dist')
@@ -20,6 +20,16 @@ const requiredRoutes = [
 ]
 
 const configByPath = new Map([...indexableRoutes, ...noindexRoutes].map((config) => [config.path, config]))
+const categoryRoutes = new Set([
+  '/',
+  '/ro-systems',
+  '/water-dispensers',
+  '/water-filtration',
+  '/shower-solutions',
+  '/products/tankless-ro-system',
+  '/products/inline-water-filters',
+])
+const invalidCategoryProductNames = new Set(['RO Water Systems', 'Replacement Water Filters'])
 
 function matches(html, pattern) {
   return [...html.matchAll(pattern)]
@@ -37,12 +47,66 @@ function getCanonical(html) {
   return html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i)?.[1] ?? ''
 }
 
+function getJsonLd(html, path) {
+  return matches(html, /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)
+    .map((match, index) => {
+      try {
+        return JSON.parse(match[1])
+      } catch (error) {
+        throw new Error(`invalid JSON-LD for ${path} at script ${index + 1}: ${error.message}`)
+      }
+    })
+}
+
+function walkSchema(value, visitor) {
+  if (Array.isArray(value)) {
+    value.forEach((item) => walkSchema(item, visitor))
+    return
+  }
+  if (!value || typeof value !== 'object') return
+  visitor(value)
+  Object.values(value).forEach((item) => walkSchema(item, visitor))
+}
+
+function verifyJsonLd(config, schemas) {
+  const serialized = schemas.map((schema) => JSON.stringify(schema))
+  if (new Set(serialized).size !== serialized.length) {
+    throw new Error(`duplicate JSON-LD object for ${config.path}`)
+  }
+
+  let productCount = 0
+  const invalidNames = []
+  schemas.forEach((schema) => walkSchema(schema, (node) => {
+    const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']]
+    if (!types.includes('Product')) return
+    productCount += 1
+    if (invalidCategoryProductNames.has(node.name)) invalidNames.push(node.name)
+  }))
+
+  if (invalidNames.length > 0) {
+    throw new Error(`category-level Product JSON-LD found for ${config.path}: ${invalidNames.join(', ')}`)
+  }
+  if (categoryRoutes.has(config.path) && productCount > 0) {
+    throw new Error(`Product JSON-LD found on category route ${config.path}`)
+  }
+
+  if (config.path === '/products/tankless-ro-system') {
+    const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage')
+    if (!collection || collection.mainEntity?.['@type'] !== 'ItemList') {
+      throw new Error('tankless RO landing page is missing CollectionPage with ItemList')
+    }
+    const breadcrumbCount = schemas.filter((schema) => schema['@type'] === 'BreadcrumbList').length
+    if (breadcrumbCount !== 1) throw new Error('tankless RO landing page must contain exactly one BreadcrumbList')
+  }
+}
+
 async function verifyFiles() {
   for (const config of configByPath.values()) {
     const file = config.path === '/'
       ? join(distDir, 'index.html')
       : join(distDir, `${config.path.slice(1)}.html`)
     const html = await readFile(file, 'utf8')
+    const schemas = getJsonLd(html, config.path)
     const checks = [
       [getTitle(html) === config.title, `title mismatch for ${config.path}`],
       [getCanonical(html) === config.canonical, `canonical mismatch for ${config.path}`],
@@ -50,8 +114,10 @@ async function verifyFiles() {
       [matches(html, /<meta\s+name="description"/gi).length === 1, `duplicate description for ${config.path}`],
       [matches(html, /<link\s+rel="canonical"/gi).length === 1, `duplicate canonical for ${config.path}`],
       [html.includes('<div id="root"><'), `missing prerendered body for ${config.path}`],
+      [schemas.length === jsonLdForRoute(config).length, `JSON-LD count mismatch for ${config.path}`],
     ]
     for (const [passed, message] of checks) if (!passed) throw new Error(message)
+    verifyJsonLd(config, schemas)
   }
 
   const sitemap = await readFile(join(distDir, 'sitemap.xml'), 'utf8')
