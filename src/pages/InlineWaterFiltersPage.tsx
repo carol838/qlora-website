@@ -143,6 +143,22 @@ export default function InlineWaterFiltersPage() {
           </div>
         </section>
 
+        <section className="border-b border-line bg-canvas py-12 md:py-16">
+          <div className="shell grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-7 lg:order-1">
+              <div className="overflow-hidden rounded-[1.75rem] border border-line bg-white p-4 shadow-soft">
+                <img src="/images/products/i-shape-inline-filter/i-shape-inline-filter-set.png" alt="I-shape inline water filter cartridge set" className="aspect-square w-full object-contain" loading="lazy" decoding="async" width="1254" height="1254" />
+              </div>
+            </div>
+            <div className="lg:col-span-5 lg:order-2">
+              <p className="eyebrow">Straight cartridge format</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">I-Shape Inline Water Filters</h2>
+              <p className="body-copy mt-5">Review the 315 mm I-shape cartridge format with confirmed 1/4-inch and 3/8-inch connection options for residential water purifier and replacement filter projects.</p>
+              <a href="/products/i-shape-inline-filter" className="button-primary mt-8">View 315mm Inline Filter Cartridges</a>
+            </div>
+          </div>
+        </section>
+
         <section id="inline-filter-range" className="scroll-mt-24 bg-mist py-14 md:py-20">
           <div className="shell">
             <div className="mx-auto max-w-3xl text-center">

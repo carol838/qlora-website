@@ -142,6 +142,7 @@ export default function WaterFiltration() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <a href="/products/inline-water-filters" className="button-primary whitespace-nowrap">View Inline Water Filters</a>
+              <a href="/products/i-shape-inline-filter" className="button-secondary whitespace-nowrap">I-Shape 315mm Filters</a>
               <a href="/products/korean-style-inline-filter" className="button-secondary whitespace-nowrap">Korean Style U-Shape Filters</a>
             </div>
           </div>

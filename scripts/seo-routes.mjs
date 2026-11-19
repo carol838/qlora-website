@@ -212,6 +212,25 @@ export const indexableRoutes = [
       },
     }],
   }),
+  route('/products/i-shape-inline-filter', 'I-Shape Inline Water Filters | 315mm OEM Supplier | QLORA', 'QLORA supplies 315mm I-shape inline water filter cartridges for residential water purifiers. Available with 1/4" and 3/8" connections, flexible filter media configurations and OEM private label support.', {
+    image: '/images/products/i-shape-inline-filter/i-shape-inline-filter-set.png',
+    breadcrumbs: [['Water Filtration', '/water-filtration'], ['Inline Water Filters', '/products/inline-water-filters'], ['I-Shape Inline Filter', '/products/i-shape-inline-filter']],
+    schemas: [{
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'I-Shape Inline Water Filter Cartridges',
+      url: `${siteUrl}/products/i-shape-inline-filter`,
+      description: 'QLORA supplies 315mm I-shape inline water filter cartridges for residential water purifiers. Available with 1/4" and 3/8" connections, flexible filter media configurations and OEM private label support.',
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/images/products/i-shape-inline-filter/i-shape-inline-filter-set.png`,
+      },
+      about: {
+        '@type': 'Thing',
+        name: 'I-Shape Inline Water Filter Cartridge',
+      },
+    }],
+  }),
   route('/shower-solutions', 'Shower Systems, Filters & Components | QLORA', 'Explore QLORA shower solutions including shower filters, shower systems, shower heads, hand showers and shower faucets for residential and OEM applications.', {
     image: '/images/shower-solutions/systems/QS-SYS-001.webp',
     breadcrumbs: [['Shower Solutions', '/shower-solutions']],

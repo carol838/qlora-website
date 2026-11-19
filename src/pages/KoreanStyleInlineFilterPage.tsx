@@ -122,6 +122,7 @@ export default function KoreanStyleInlineFilterPage() {
                 <p>The U-shape inline cartridge format is intended for compatible residential water purifier configurations and replacement filter programs.</p>
                 <p>Different filtration media combinations and confirmed 1/4-inch or 3/8-inch connections can be discussed according to system requirements.</p>
                 <p>QLORA supports B2B cooperation for water purifier manufacturers, filtration brands, distributors and OEM or private-label buyers.</p>
+                <p>For a straight-through cartridge format, review our <a href="/products/i-shape-inline-filter" className="font-semibold text-nordic underline decoration-nordic/30 underline-offset-4">315mm I-Shape Inline Water Filters</a>.</p>
               </div>
             </div>
             <div className="lg:col-span-7">
