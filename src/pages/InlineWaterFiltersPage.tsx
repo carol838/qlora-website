@@ -127,6 +127,22 @@ export default function InlineWaterFiltersPage() {
           </div>
         </section>
 
+        <section className="border-y border-line bg-white/45 py-12 md:py-16">
+          <div className="shell grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-5">
+              <p className="eyebrow">Featured cartridge format</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Korean Style U-Shape Inline Filters</h2>
+              <p className="body-copy mt-5">Explore the 296 mm U-shape cartridge format with confirmed 1/4-inch and 3/8-inch connection options for compatible residential water purifier projects.</p>
+              <a href="/products/korean-style-inline-filter" className="button-primary mt-8">View U-Shape Inline Filter Cartridges</a>
+            </div>
+            <div className="lg:col-span-7">
+              <div className="overflow-hidden rounded-[1.75rem] border border-line bg-white p-4 shadow-soft">
+                <img src="/images/products/korean-style-inline-filter/u-shape-inline-filter-set.png" alt="Korean-style U-shape inline filter cartridge set" className="aspect-[1.6/1] w-full object-contain" loading="lazy" decoding="async" width="1398" height="1125" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="inline-filter-range" className="scroll-mt-24 bg-mist py-14 md:py-20">
           <div className="shell">
             <div className="mx-auto max-w-3xl text-center">

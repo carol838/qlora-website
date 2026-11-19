@@ -35,6 +35,7 @@ const dropdownMenus: DropdownMenu[] = [
     href: '/water-filtration',
     items: [
       { label: 'Inline Water Filters', subtitle: 'PP / GAC / CTO / UF / Post Carbon', href: '/products/inline-water-filters' },
+      { label: 'Korean Style Inline Filters', subtitle: 'U-Shape / 296 mm / 1/4" & 3/8"', href: '/products/korean-style-inline-filter' },
       { label: 'Under Sink Filtration', href: '/water-filtration' },
       { label: 'Refrigerator Filters', href: '/products/refrigerator-water-filter' },
       { label: 'Coffee Machine Filters', href: '/products/coffee-machine-filter' },

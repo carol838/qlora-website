@@ -140,7 +140,10 @@ export default function WaterFiltration() {
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Inline Water Filters for Residential Systems</h2>
               <p className="body-copy mt-5 max-w-3xl">Explore PP, GAC, CTO, UF and post-carbon cartridge directions for residential water purifiers, OEM projects and wholesale supply.</p>
             </div>
-            <a href="/products/inline-water-filters" className="button-primary whitespace-nowrap">View Inline Water Filters</a>
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <a href="/products/inline-water-filters" className="button-primary whitespace-nowrap">View Inline Water Filters</a>
+              <a href="/products/korean-style-inline-filter" className="button-secondary whitespace-nowrap">Korean Style U-Shape Filters</a>
+            </div>
           </div>
         </section>
 

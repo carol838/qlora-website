@@ -193,6 +193,25 @@ export const indexableRoutes = [
       },
     }],
   }),
+  route('/products/korean-style-inline-filter', 'Korean Style Inline Water Filters | U-Shape OEM Supplier | QLORA', 'QLORA supplies Korean-style U-shape inline water filter cartridges for residential water purifiers. 296 mm design, 1/4" and 3/8" connections, flexible filter media and OEM private label support.', {
+    image: '/images/products/korean-style-inline-filter/u-shape-inline-filter-set.png',
+    breadcrumbs: [['Water Filtration', '/water-filtration'], ['Inline Water Filters', '/products/inline-water-filters'], ['Korean Style Inline Filter', '/products/korean-style-inline-filter']],
+    schemas: [{
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Korean Style Inline Water Filter Cartridges',
+      url: `${siteUrl}/products/korean-style-inline-filter`,
+      description: 'QLORA supplies Korean-style U-shape inline water filter cartridges for residential water purifiers. 296 mm design, 1/4" and 3/8" connections, flexible filter media and OEM private label support.',
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/images/products/korean-style-inline-filter/u-shape-inline-filter-set.png`,
+      },
+      about: {
+        '@type': 'Thing',
+        name: 'Korean Style U-Shape Inline Water Filter Cartridge',
+      },
+    }],
+  }),
   route('/shower-solutions', 'Shower Systems, Filters & Components | QLORA', 'Explore QLORA shower solutions including shower filters, shower systems, shower heads, hand showers and shower faucets for residential and OEM applications.', {
     image: '/images/shower-solutions/systems/QS-SYS-001.webp',
     breadcrumbs: [['Shower Solutions', '/shower-solutions']],
