@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import ValueStrip from '../components/ValueStrip'
 import ROSystem from '../components/ROSystem'
-import LifestyleSolutions from '../components/LifestyleSolutions'
+import WaterFiltrationSolutionsGrid from '../components/WaterFiltrationSolutionsGrid'
 import WaterDispensersEntrance from '../components/WaterDispensersEntrance'
 import ShowerSolutionsFeature from '../components/ShowerSolutionsFeature'
 import OEMSolutions from '../components/OEMSolutions'
@@ -28,10 +28,10 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <ValueStrip />
         <ROSystem />
+        <WaterFiltrationSolutionsGrid />
         <WaterDispensersEntrance />
-        <LifestyleSolutions />
+        <ValueStrip />
         <ShowerSolutionsFeature />
         <OEMSolutions />
         <Contact />
