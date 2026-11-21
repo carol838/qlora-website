@@ -169,7 +169,7 @@ export const indexableRoutes = [
     }],
   }),
   route('/water-filtration', 'Replacement Water Filters & Filtration Solutions | QLORA', 'Discover replacement water filters including under sink, refrigerator and coffee machine filtration solutions.', {
-    image: '/images/water-filtration/hero.webp',
+    image: '/images/water-filtration/water-filtration-hero.webp',
     breadcrumbs: [['Water Filtration', '/water-filtration']],
     schemas: [{
       '@context': 'https://schema.org',

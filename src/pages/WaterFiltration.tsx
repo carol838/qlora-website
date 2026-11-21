@@ -110,7 +110,7 @@ export default function WaterFiltration() {
       title: 'Replacement Water Filters & Filtration Solutions | QLORA',
       description: 'Discover replacement water filters including under sink, refrigerator and coffee machine filtration solutions.',
       path: '/water-filtration',
-      image: absoluteUrl('/images/water-filtration/hero.webp'),
+      image: absoluteUrl('/images/water-filtration/water-filtration-hero.webp'),
       breadcrumbs: [{ name: 'Water Filtration', path: '/water-filtration' }],
       schemas: [{
         '@context': 'https://schema.org',
@@ -144,14 +144,14 @@ export default function WaterFiltration() {
             <div className="lg:col-span-7">
               <div className="overflow-hidden rounded-[2rem] bg-[#f4f2ec] p-4 shadow-soft sm:p-6">
                 <img
-                  src={`${imageBase}/hero.webp`}
-                  alt="Replacement water filter family displayed in a warm Nordic kitchen"
-                  className="aspect-[4/3] w-full rounded-[1.5rem] object-cover"
+                  src={`${imageBase}/water-filtration-hero.webp`}
+                  alt="Scandinavian kitchen with a drinking water faucet and under-sink filtration system"
+                  className="aspect-video w-full rounded-[1.5rem] object-cover"
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
-                  width="1200"
-                  height="900"
+                  width="1672"
+                  height="941"
                 />
               </div>
             </div>
