@@ -6,6 +6,31 @@ import { absoluteUrl, applySEO } from '../lib/seo'
 
 const imageBase = '/images/water-filtration'
 
+const inlineFilterShowcase = [
+  {
+    title: 'I-Shape Inline Filters',
+    specification: '315 mm cartridge length',
+    description: 'Inline filter cartridges with multiple filtration media configurations for different water treatment requirements.',
+    connections: '1/4" & 3/8" connections',
+    image: '/images/products/i-shape-inline-filter/i-shape-inline-filter-set.png',
+    alt: 'Set of I-shape inline water filter cartridges with multiple media configurations',
+    href: '/products/i-shape-inline-filter',
+    width: 1254,
+    height: 1254,
+  },
+  {
+    title: 'Korean Style U-Shape Filters',
+    specification: '296 mm cartridge length',
+    description: 'Compact Korean-style inline filter cartridges with multiple filtration media configurations.',
+    connections: '1/4" & 3/8" connections',
+    image: '/images/products/korean-style-inline-filter/u-shape-inline-filter-set.png',
+    alt: 'Set of compact Korean-style U-shape inline water filter cartridges',
+    href: '/products/korean-style-inline-filter',
+    width: 1398,
+    height: 1125,
+  },
+]
+
 const filterProducts = [
   {
     title: 'PP Sediment Filter',
@@ -133,17 +158,37 @@ export default function WaterFiltration() {
           </div>
         </section>
 
-        <section className="border-y border-line bg-white/45 py-12 md:py-16">
-          <div className="shell grid items-center gap-8 lg:grid-cols-[1fr_auto]">
-            <div>
+        <section id="inline-water-filters" className="scroll-mt-20 border-y border-line bg-mist py-12 md:py-16 lg:py-20">
+          <div className="shell">
+            <div className="mx-auto max-w-3xl text-center">
               <p className="eyebrow">Priority product family</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Inline Water Filters for Residential Systems</h2>
-              <p className="body-copy mt-5 max-w-3xl">Explore PP, GAC, CTO, UF and post-carbon cartridge directions for residential water purifiers, OEM projects and wholesale supply.</p>
+              <h2 className="headline mt-5">Inline Water Filters</h2>
+              <p className="body-copy mx-auto mt-6 max-w-2xl">Versatile inline filtration solutions with flexible filter media configurations for residential and OEM applications.</p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <a href="/products/inline-water-filters" className="button-primary whitespace-nowrap">View Inline Water Filters</a>
-              <a href="/products/i-shape-inline-filter" className="button-secondary whitespace-nowrap">I-Shape 315mm Filters</a>
-              <a href="/products/korean-style-inline-filter" className="button-secondary whitespace-nowrap">Korean Style U-Shape Filters</a>
+
+            <div className="mx-auto mt-10 grid max-w-5xl auto-rows-fr gap-6 sm:grid-cols-2 md:mt-12">
+              {inlineFilterShowcase.map(item => (
+                <a href={item.href} key={item.title} className="group flex h-full flex-col rounded-[1.75rem] border border-line bg-white/75 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-nordic/25 hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nordic focus-visible:ring-offset-2">
+                  <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.25rem] bg-[#f7f6f1] p-5 sm:p-6">
+                    <img
+                      src={item.image}
+                      alt={item.alt}
+                      className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.025]"
+                      loading="lazy"
+                      decoding="async"
+                      width={item.width}
+                      height={item.height}
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col px-2 pb-2 pt-7">
+                    <h3 className="text-2xl font-medium tracking-tight">{item.title}</h3>
+                    <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-nordic">{item.specification}</p>
+                    <p className="mt-4 flex-1 text-base leading-7 text-ink/60">{item.description}</p>
+                    <p className="mt-4 text-sm font-medium text-ink/55">{item.connections}</p>
+                    <span className="mt-6 w-fit border-b border-nordic/35 pb-1 text-sm font-medium text-nordic transition group-hover:border-nordic">Learn More</span>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -156,23 +201,23 @@ export default function WaterFiltration() {
               <p className="body-copy mx-auto mt-6 max-w-2xl">Focused product lines for coffee and refrigerator water applications.</p>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:mt-12 md:grid-cols-2">
+            <div className="mx-auto mt-10 grid max-w-4xl auto-rows-fr gap-6 sm:grid-cols-2 md:mt-12">
               {applicationShowcase.map(item => (
-                <a href={item.href} key={item.title} className="block cursor-pointer rounded-[1.75rem] bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
-                  <div className="rounded-[1.25rem] bg-[#f7f6f1] p-5">
+                <a href={item.href} key={item.title} className="group flex h-full cursor-pointer flex-col rounded-[1.75rem] border border-line bg-white/70 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-nordic/25 hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nordic focus-visible:ring-offset-2">
+                  <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.25rem] bg-[#f7f6f1] p-5">
                     <img
                       src={item.image}
                       alt={item.alt}
-                      className="aspect-[4/3] w-full object-contain"
+                      className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.025]"
                       loading="lazy"
                       decoding="async"
                       width="800"
                       height="600"
                     />
                   </div>
-                  <div className="px-2 pb-2 pt-7">
+                  <div className="flex flex-1 flex-col px-2 pb-2 pt-7">
                     <h3 className="text-2xl font-medium tracking-tight">{item.title}</h3>
-                    <p className="mt-4 text-sm leading-6 text-ink/60">{item.description}</p>
+                    <p className="mt-4 flex-1 text-base leading-7 text-ink/60">{item.description}</p>
                     <p className="mt-5 text-sm font-medium text-nordic">Learn More →</p>
                   </div>
                 </a>
