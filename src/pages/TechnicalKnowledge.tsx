@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { absoluteUrl, applySEO } from '../lib/seo'
+import quickConnectGuide from '../data/quickConnectInlineFilterGuide.json'
 
 const technicalTopics = [
   {
@@ -23,6 +24,15 @@ const technicalTopics = [
 ]
 
 const featuredGuides = [
+  {
+    slug: 'quick-connect-inline-water-filters-guide',
+    category: 'Inline Water Filters',
+    title: quickConnectGuide.headline,
+    excerpt: quickConnectGuide.description,
+    href: quickConnectGuide.path,
+    image: quickConnectGuide.images[0].src,
+    imageAlt: quickConnectGuide.images[0].alt,
+  },
   {
     slug: 'tankless-ro-vs-traditional-ro-systems',
     category: 'RO Systems',

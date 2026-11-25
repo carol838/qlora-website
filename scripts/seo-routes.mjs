@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs'
+
+const quickConnectGuide = JSON.parse(readFileSync(new URL('../src/data/quickConnectInlineFilterGuide.json', import.meta.url), 'utf8'))
 const siteUrl = 'https://www.qloratech.com'
 const defaultImage = `${siteUrl}/images/hero-kitchen.webp`
 
@@ -253,6 +256,12 @@ export const indexableRoutes = [
     image: '/images/about-lab-hero.webp',
     breadcrumbs: [['Technical Knowledge', '/technical-knowledge']],
     schemas: [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Water Filtration Technical Knowledge', description: 'Practical water filtration knowledge for product selection, system design and OEM projects.' }],
+  }),
+  route(quickConnectGuide.path, quickConnectGuide.title, quickConnectGuide.description, {
+    image: quickConnectGuide.images[0].src,
+    type: 'article',
+    breadcrumbs: [['Technical Knowledge', '/technical-knowledge'], ['Quick-Connect Inline Water Filters Guide', quickConnectGuide.path]],
+    schemas: [articleSchema(quickConnectGuide.headline, quickConnectGuide.description, quickConnectGuide.images[0].src, quickConnectGuide.path)],
   }),
   route('/technical-knowledge/tankless-ro-vs-traditional-ro-systems', 'Tankless RO vs Traditional RO Systems | QLORA', 'Compare tankless and traditional tank RO systems in design, water delivery, installation, maintenance and OEM positioning to choose the right solution for your market.', {
     image: '/images/ro-systems/hero-ro-system.webp',
